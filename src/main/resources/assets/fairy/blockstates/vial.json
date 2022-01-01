@@ -1,0 +1,29 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:vial"
+  },
+  "variants": {
+    "color": {
+      "white": {},
+      "orange": {},
+      "magenta": {},
+      "light_blue": {},
+      "yellow": {},
+      "lime": {},
+      "pink": {},
+      "gray": {},
+      "silver": {},
+      "cyan": {},
+      "purple": {},
+      "blue": {},
+      "brown": {},
+      "green": {},
+      "red": {},
+      "black": {}
+    },
+    "inventory": {
+      "model": "fairy:vial"
+    }
+  }
+}

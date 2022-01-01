@@ -1,0 +1,57 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:jungle_door"
+  },
+  "variants": {
+    "facing": {
+      "east": {},
+      "south": {"y": 90},
+      "west": {"y": 180},
+      "north": {"y": -90}
+    },
+    "half": {
+      "upper": {},
+      "lower": {}
+    },
+    "hinge": {
+      "left": {},
+      "right": {}
+    },
+    "open": {
+      "true": {"model": "fairy:jungle_door_open"},
+      "false": {}
+    },
+    "powered": {
+      "true": {},
+      "false": {}
+    },
+    "facing=east,half=lower,hinge=left,open=true,powered=false": [
+      {"model": "fairy:jungle_door_open_m"}
+    ],
+    "facing=east,half=lower,hinge=left,open=true,powered=true": [
+      {"model": "fairy:jungle_door_open_m"}
+    ],
+    "facing=south,half=lower,hinge=left,open=true,powered=false": [
+      {"model": "fairy:jungle_door_open_m"}
+    ],
+    "facing=south,half=lower,hinge=left,open=true,powered=true": [
+      {"model": "fairy:jungle_door_open_m"}
+    ],
+    "facing=west,half=lower,hinge=left,open=true,powered=false": [
+      {"model": "fairy:jungle_door_open_m"}
+    ],
+    "facing=west,half=lower,hinge=left,open=true,powered=true": [
+      {"model": "fairy:jungle_door_open_m"}
+    ],
+    "facing=north,half=lower,hinge=left,open=true,powered=false": [
+      {"model": "fairy:jungle_door_open_m"}
+    ],
+    "facing=north,half=lower,hinge=left,open=true,powered=true": [
+      {"model": "fairy:jungle_door_open_m"}
+    ],
+    "inventory": {
+      "model": "fairy:jungle_door"
+    }
+  }
+}

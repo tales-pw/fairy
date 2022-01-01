@@ -1,0 +1,17 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:bedside_table"
+  },
+  "variants": {
+    "facing": {
+      "east": {"y": -90},
+      "south": {},
+      "west": {"y": 90},
+      "north": {"y": 180}
+    },
+    "inventory": {
+      "model": "fairy:bedside_table"
+    }
+  }
+}

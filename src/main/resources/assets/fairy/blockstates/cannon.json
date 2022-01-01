@@ -1,0 +1,26 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "custom": {
+      "flip-v": true
+    },
+    "model": "fairy:cannon/cannon.obj"
+  },
+  "variants": {
+    "facing": {
+      "east": {},
+      "south": {"y": 90},
+      "west": {"y": 180},
+      "north": {"y": -90}
+    },
+    "inventory": {
+      "model": "fairy:cannon/cannon.obj",
+      "transform": {
+        "gui": {
+          "scale": [0.3, 0.3, 0.3],
+          "rotation": [-38, -26, 0]
+        }
+      }
+    }
+  }
+}

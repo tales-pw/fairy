@@ -1,0 +1,39 @@
+{
+  "textures": {
+    "wood": "minecraft:blocks/rebellion/blacksmith/tools/plain_wood",
+    "particle": "minecraft:blocks/rebellion/blacksmith/tools/plain_wood"
+  }, "display": {
+  "thirdperson_righthand": {"rotation": [44, 0, 0], "translation": [-6, 7.75, 0]},
+  "thirdperson_lefthand": {"rotation": [45, 0, 0], "translation": [-6, 7.75, 0]},
+  "firstperson_righthand": {"rotation": [22.5, 0, 0], "translation": [-7.25, 4.25, 0]},
+  "firstperson_lefthand": {"rotation": [17.25, 0, 0], "translation": [-10, 3.25, 0]},
+  "gui": {"rotation": [20, -150, 0], "scale": [0.6, 0.6, 0.6]}, "head": {"rotation": [0, 0, 179.5]},
+  "fixed": {"rotation": [-90, 180, 0], "translation": [0, 0, -6]}
+}, "elements": [
+  {
+    "name": "Right_Armrest", "from": [14, 3, 0], "to": [16, 10, 16], "faces": {
+    "north": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+    "east": {"uv": [0, 6, 16, 13], "texture": "#wood"},
+    "south": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+    "west": {"uv": [0, 0, 16, 6], "texture": "#wood"},
+    "up": {"uv": [0, 0, 16, 2], "rotation": 90, "texture": "#wood"}
+  }
+  }, {
+    "name": "Right_leg_front", "from": [14, 0, 14], "to": [16, 3, 16], "faces": {
+      "north": {"uv": [0, 6, 2, 8], "texture": "#wood"},
+      "east": {"uv": [14, 14, 16, 16], "texture": "#wood"},
+      "south": {"uv": [0, 6, 2, 8], "texture": "#wood"},
+      "west": {"uv": [12, 14, 14, 16], "texture": "#wood"},
+      "down": {"uv": [0, 0, 2, 2], "texture": "#wood"}
+    }
+  }, {
+    "name": "Right_leg_front", "from": [14, 0, 0], "to": [16, 3, 2], "faces": {
+      "north": {"uv": [0, 6, 2, 8], "texture": "#wood"},
+      "east": {"uv": [14, 14, 16, 16], "texture": "#wood"},
+      "south": {"uv": [0, 6, 2, 8], "texture": "#wood"},
+      "west": {"uv": [12, 14, 14, 16], "texture": "#wood"},
+      "down": {"uv": [0, 0, 2, 2], "texture": "#wood"}
+    }
+  }
+]
+}

@@ -1,0 +1,37 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:large_gate/large_gate.obj"
+  },
+  "variants": {
+    "facing": {
+      "east": {"y": 90},
+      "south": {"y": 180},
+      "west": {"y": -90},
+      "north": {}
+    },
+    "open": {
+      "in": {},
+      "closed": {},
+      "out": {}
+    },
+    "facing=east,open=in": {"model": "fairy:large_gate/large_gate_open.obj"},
+    "facing=east,open=out": {"model": "fairy:large_gate/large_gate_open_mirror.obj"},
+    "facing=south,open=in": {"model": "fairy:large_gate/large_gate_open.obj"},
+    "facing=south,open=out": {"model": "fairy:large_gate/large_gate_open_mirror.obj"},
+    "facing=west,open=in": {"model": "fairy:large_gate/large_gate_open.obj"},
+    "facing=west,open=out": {"model": "fairy:large_gate/large_gate_open_mirror.obj"},
+    "facing=north,open=in": {"model": "fairy:large_gate/large_gate_open.obj"},
+    "facing=north,open=out": {"model": "fairy:large_gate/large_gate_open_mirror.obj"},
+    "inventory": {
+      "model": "fairy:large_gate/large_gate.obj",
+      "transform": {
+        "gui": {
+          "scale": [0.25, 0.25, 0.25],
+          "translation": [0, -0.5, 0],
+          "rotation": [-38, -26, 0]
+        }
+      }
+    }
+  }
+}

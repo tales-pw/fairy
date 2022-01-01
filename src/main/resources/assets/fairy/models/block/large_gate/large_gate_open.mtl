@@ -1,0 +1,57 @@
+# Blender MTL File: 'large_gate.blend'
+# Material Count: 5
+
+newmtl 0
+
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+
+
+
+d 1.000000
+
+map_Kd blocks/rebellion/door_arch_lower
+
+newmtl 1
+
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+
+
+
+d 1.000000
+
+map_Kd blocks/rebellion/inner
+
+newmtl 2
+
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+
+
+
+d 1.000000
+
+map_Kd blocks/rebellion/iron_hinges
+
+newmtl 2_0
+
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+
+
+
+d 1.000000
+
+map_Kd blocks/rebellion/door_arch_lower
+
+newmtl 2_1
+
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+
+
+
+d 1.000000
+
+map_Kd blocks/rebellion/inner

@@ -1,0 +1,23 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:tray_empty_default"
+  },
+  "variants": {
+    "facing": {
+      "east": {
+        "y": -90
+      },
+      "south": {},
+      "west": {
+        "y": 90
+      },
+      "north": {
+        "y": 180
+      }
+    },
+    "inventory": {
+      "model": "fairy:tray_empty_default"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "textures": {
+    "particle": "fairy:blocks/table/planks_pinesmooth",
+    "0": "fairy:blocks/table/planks_pinesmooth"
+  }, "display": {
+  "thirdperson_righthand": {"rotation": [115.25, 0, 0], "translation": [-5.75, 6, -4]},
+  "thirdperson_lefthand": {"rotation": [116.5, 0, 0], "translation": [-6.25, 5.5, -4]},
+  "firstperson_righthand": {"rotation": [-21, 0, 0], "translation": [-9, -3, 0.25]},
+  "firstperson_lefthand": {"rotation": [-30, 0, 0], "translation": [-9, -3.75, 2.5]},
+  "gui": {"rotation": [0, 57, 29], "scale": [0.5, 0.5, 0.5]}
+}, "elements": [
+  {
+    "from": [13, 11.25, 1.5], "to": [16, 14, 2.25],
+    "rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]}, "faces": {
+    "north": {"uv": [0, 0, 2.75, 3], "rotation": 90, "texture": "#0"},
+    "south": {"uv": [0, 0, 2.75, 3], "rotation": 90, "texture": "#0"},
+    "down": {"uv": [0, 0, 0.75, 3], "rotation": 90, "texture": "#0"}
+  }
+  }
+]
+}

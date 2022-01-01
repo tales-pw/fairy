@@ -1,0 +1,17 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:barrel/sack_pipeweed"
+  },
+  "variants": {
+    "facing": {
+      "east": {},
+      "south": {"y": 90},
+      "west": {"y": 180},
+      "north": {"y": -90}
+    },
+    "inventory": {
+      "transform": "forge:default-block"
+    }
+  }
+}

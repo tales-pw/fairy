@@ -1,0 +1,29 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:divine/akantos_symbol"
+  },
+  "variants": {
+    "lit": {
+      "true": {
+        "textures": {
+          "sphere": "blocks/redstone_lamp_on"
+        }
+      },
+      "false": {
+        "textures": {
+          "sphere": "blocks/redstone_lamp_off"
+        }
+      }
+    },
+    "facing": {
+      "east": {"y": -90},
+      "south": {"y": 0},
+      "west": {"y": 90},
+      "north": {"y": 180}
+    },
+    "inventory": {
+      "transform": "forge:default-block"
+    }
+  }
+}

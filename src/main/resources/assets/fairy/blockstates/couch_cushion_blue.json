@@ -1,0 +1,60 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:couch/couch",
+    "textures": {
+      "seat": "conquest:blocks/chair_blue_top"
+    }
+  },
+  "variants": {
+    "left": {
+      "true": {
+        "submodel": {
+          "connect_left": {
+            "model": "fairy:couch/couch_connect"
+          }
+        }
+      },
+      "false": {
+        "submodel": {
+          "handle_left": {
+            "model": "fairy:couch/couch_handle"
+          }
+        }
+      }
+    },
+    "right": {
+      "true": {
+        "submodel": {
+          "connect_right": {
+            "model": "fairy:couch/couch_connect_rh"
+          }
+        }
+      },
+      "false": {
+        "submodel": {
+          "handle_right": {
+            "model": "fairy:couch/couch_handle_rh"
+          }
+        }
+      }
+    },
+    "facing": {
+      "east": {"y": -90},
+      "south": {"y": 0},
+      "west": {"y": 90},
+      "north": {"y": 180}
+    },
+    "inventory": {
+      "model": "fairy:couch/couch",
+      "submodel": {
+        "handle_right": {
+          "model": "fairy:couch/couch_handle_rh"
+        },
+        "handle_left": {
+          "model": "fairy:couch/couch_handle"
+        }
+      }
+    }
+  }
+}

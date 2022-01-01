@@ -1,0 +1,31 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:cannon_barrel"
+  },
+  "variants": {
+    "hanging": {
+      "true": {
+        "submodel": {
+          "rope": {
+            "model": "fairy:cannon_rope"
+          }
+        }
+      },
+      "false": {}
+    },
+    "half": {
+      "top": {"model": "fairy:cannon_barrel_top"},
+      "bottom": {"model": "fairy:cannon_barrel_bottom"}
+    },
+    "facing": {
+      "east": {},
+      "south": {"y": 90},
+      "west": {"y": 180},
+      "north": {"y": -90}
+    },
+    "inventory": {
+      "model": "fairy:cannon_barrel"
+    }
+  }
+}

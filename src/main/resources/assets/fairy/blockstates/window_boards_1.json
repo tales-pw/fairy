@@ -1,0 +1,17 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:window_boards_1"
+  },
+  "variants": {
+    "facing": {
+      "east": {"y": 90},
+      "south": {"y": 180},
+      "west": {"y": -90},
+      "north": {}
+    },
+    "inventory": {
+      "transform": "forge:default-block"
+    }
+  }
+}

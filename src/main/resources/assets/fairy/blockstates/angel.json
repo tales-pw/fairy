@@ -1,0 +1,24 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:angel/angel.obj"
+  },
+  "variants": {
+    "facing": {
+      "east": {"y": -90},
+      "south": {"y": 0},
+      "west": {"y": 90},
+      "north": {"y": 180}
+    },
+    "inventory": {
+      "model": "fairy:angel/angel.obj",
+      "transform": {
+        "gui": {
+          "scale": [0.04, 0.04, 0.04],
+          "translation": [0, -0.5, 0],
+          "rotation": [-38, -26, 0]
+        }
+      }
+    }
+  }
+}

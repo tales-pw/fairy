@@ -1,0 +1,17 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "conquest:6_food/cheese_cut_2"
+  },
+  "variants": {
+    "facing": {
+      "east": {},
+      "south": {"y": 90},
+      "west": {"y": 180},
+      "north": {"y": -90}
+    },
+    "inventory": {
+      "model": "conquest:6_food/cheese_cut_2"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "parent": "fairy:item/book_open",
+  "textures": {
+    "cover": "fairy:items/book/cover_1"
+  },
+  "display": {
+    "pose": {
+      "right": {
+        "right_arm": [22, 0, 0],
+        "left_arm": [22, 0, 0]
+      },
+      "left": {
+        "right_arm": [22, 0, 0],
+        "left_arm": [22, 0, 0]
+      }
+    }
+  }
+}

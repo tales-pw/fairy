@@ -1,0 +1,6 @@
+{
+  "parent": "fairy:block/barrel/barrel", "textures": {
+  "bottom": "conquest:blocks/barrel_bottom2", "top": "conquest:blocks/barrel_apple",
+  "side": "conquest:blocks/barrel_side2"
+}
+}

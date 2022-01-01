@@ -1,0 +1,21 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:skull_candle"
+  },
+  "variants": {
+    "lit": {
+      "true": {"textures": {"candle": "blocks/rebellion/redstone_torch_on"}},
+      "false": {"textures": {"candle": "fairy:blocks/wick"}}
+    },
+    "facing": {
+      "east": {"y": -90},
+      "south": {"y": 0},
+      "west": {"y": 90},
+      "north": {"y": 180}
+    },
+    "inventory": {
+      "model": "fairy:skull_candle"
+    }
+  }
+}

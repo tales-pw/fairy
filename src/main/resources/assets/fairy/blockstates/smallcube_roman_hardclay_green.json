@@ -1,0 +1,33 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:head_like/0",
+    "textures": {
+      "skin": "fairy:blocks/coloroed_small_cube/smallcube_roman_hardclay_green",
+      "particle": "fairy:blocks/coloroed_small_cube/smallcube_roman_hardclay_green"
+    }
+  },
+  "variants": {
+    "rotation": {
+      "0": {"model": "fairy:head_like/0"},
+      "1": {"model": "fairy:head_like/1"},
+      "2": {"model": "fairy:head_like/2"},
+      "3": {"model": "fairy:head_like/3"},
+      "4": {"model": "fairy:head_like/4"},
+      "5": {"model": "fairy:head_like/5"},
+      "6": {"model": "fairy:head_like/6"},
+      "7": {"model": "fairy:head_like/7"},
+      "8": {"model": "fairy:head_like/8"},
+      "9": {"model": "fairy:head_like/9"},
+      "10": {"model": "fairy:head_like/10"},
+      "11": {"model": "fairy:head_like/11"},
+      "12": {"model": "fairy:head_like/12"},
+      "13": {"model": "fairy:head_like/13"},
+      "14": {"model": "fairy:head_like/14"},
+      "15": {"model": "fairy:head_like/15"}
+    },
+    "inventory": {
+      "transform": "forge:default-block"
+    }
+  }
+}

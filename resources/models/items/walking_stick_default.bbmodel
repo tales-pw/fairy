@@ -1,0 +1,96 @@
+{
+  "meta": {"format_version": "3.0", "model_format": "java_block", "box_uv": false},
+  "name": "walking_stick_default", "resolution": {"width": 16, "height": 16}, "elements": [
+  {
+    "name": "cube", "from": [6.9, 0, 7.9], "to": [8.1, 1, 9.1], "autouv": 0, "color": 3,
+    "origin": [8, 8, 8], "faces": {
+    "north": {"uv": [0, 0, 15.2, 16], "texture": 1},
+    "east": {"uv": [0, 0, 1.1999999999999993, 1], "texture": 1},
+    "south": {"uv": [0, 0, 1.1999999999999993, 1], "texture": 1},
+    "west": {"uv": [0, 0, 1.1999999999999993, 1], "texture": 1},
+    "up": {"uv": [0, 0, 1.1999999999999993, 1.1999999999999993], "texture": 1},
+    "down": {"uv": [0, 0, 1.1999999999999993, 1.1999999999999993], "texture": 1}
+  }, "uuid": "0ce99b53-ec0d-7908-9652-76a7d1c37ecb"
+  }, {
+    "name": "cube", "from": [7, 0, 8], "to": [8, 15, 9], "autouv": 0, "color": 0,
+    "origin": [8, 8, 8], "faces": {
+      "north": {"uv": [0, 0, 16, 16], "texture": 0}, "east": {"uv": [0, 0, 1, 15], "texture": 0},
+      "south": {"uv": [0, 0, 1, 15], "texture": 0}, "west": {"uv": [0, 0, 1, 15], "texture": 0},
+      "up": {"uv": [0, 0, 1, 1], "texture": 0}, "down": {"uv": [0, 0, 1, 1], "texture": 0}
+    }, "uuid": "c1458696-e593-d5f2-065f-a118c8d95128"
+  }, {
+    "name": "cube", "from": [5.45721321420532, 14.693965006399235, 8],
+    "to": [7.45721321420532, 15.693965006399235, 9], "autouv": 1, "color": 0,
+    "rotation": [0, 0, -22.5], "origin": [6.945374621205656, 15.195926692715451, 8.514401470390789],
+    "faces": {
+      "north": {"uv": [0, 0, 1, 2], "rotation": 90, "texture": 0},
+      "east": {"uv": [0, 0, 1, 1], "rotation": 270, "texture": 0},
+      "south": {"uv": [0, 0, 1, 2], "rotation": 270, "texture": 0},
+      "west": {"uv": [0, 0, 1, 1], "rotation": 270, "texture": 0},
+      "up": {"uv": [0, 0, 1, 2], "rotation": 270, "texture": 0},
+      "down": {"uv": [0, 0, 1, 2], "rotation": 270, "texture": 0}
+    }, "uuid": "68c39a58-4602-57a6-f943-40b1ab59f410"
+  }, {
+    "name": "cube", "from": [6.699999999999999, 14.3, 8], "to": [8.7, 15.3, 9], "autouv": 1,
+    "color": 0, "rotation": [0, 0, 22.5],
+    "origin": [6.945374621205656, 15.195926692715451, 8.514401470390789], "faces": {
+      "north": {"uv": [0, 0, 1, 2], "rotation": 90, "texture": 0},
+      "east": {"uv": [0, 0, 1, 1], "rotation": 270, "texture": 0},
+      "south": {"uv": [0, 0, 1, 2], "rotation": 270, "texture": 0},
+      "west": {"uv": [0, 0, 1, 1], "rotation": 270, "texture": 0},
+      "up": {"uv": [0, 0, 1, 2], "rotation": 270, "texture": 0},
+      "down": {"uv": [0, 0, 1, 2], "rotation": 270, "texture": 0}
+    }, "uuid": "f5dd21fc-a2c5-644b-9e36-88c707407e6c"
+  }, {
+    "name": "cube", "from": [6.9, 13, 7.9], "to": [8.1, 13.5, 9.1], "autouv": 0, "color": 3,
+    "origin": [8, 8, 8], "faces": {
+      "north": {"uv": [0, 0, 15.2, 16], "texture": 2},
+      "east": {"uv": [0, 0, 1.1999999999999993, 1], "texture": 2},
+      "south": {"uv": [0, 0, 1.1999999999999993, 1], "texture": 2},
+      "west": {"uv": [0, 0, 1.1999999999999993, 1], "texture": 2},
+      "up": {"uv": [0, 0, 1.1999999999999993, 1.1999999999999993], "texture": 2},
+      "down": {"uv": [0, 0, 1.1999999999999993, 1.1999999999999993], "texture": 2}
+    }, "uuid": "29532852-bc47-248e-27ce-7b87fd878098"
+  }
+], "outliner": [
+  "0ce99b53-ec0d-7908-9652-76a7d1c37ecb", "29532852-bc47-248e-27ce-7b87fd878098",
+  "c1458696-e593-d5f2-065f-a118c8d95128", "68c39a58-4602-57a6-f943-40b1ab59f410",
+  "f5dd21fc-a2c5-644b-9e36-88c707407e6c"
+], "textures": [
+  {
+    "path": "", "name": "wood1", "folder": "items/walking_stick", "namespace": "fairy",
+    "id": "wood1", "particle": true, "mode": "bitmap", "saved": true,
+    "uuid": "d1f45bae-a32c-4804-8b36-4b994eea7447",
+    "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAHklEQVQ4T2P0kWX4z0ABYBw1gGE0DBhGw4BhWIQBAHCIFpHi7KdUAAAAAElFTkSuQmCC"
+  }, {
+    "path": "", "name": "wood2", "folder": "items/walking_stick", "namespace": "fairy",
+    "id": "wood2", "particle": false, "mode": "bitmap", "saved": true,
+    "uuid": "d5121a29-93a4-c3ec-9078-27eb095d764a",
+    "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAKElEQVQ4T2PUE2L6z0ABYBw1gGE0DBhGRBjIcf9jePSVCWduGQbpAADPHxchPhH4cQAAAABJRU5ErkJggg=="
+  }, {
+    "path": "", "name": "brass", "folder": "items/walking_stick", "namespace": "fairy",
+    "id": "brass", "particle": false, "mode": "bitmap", "saved": true,
+    "uuid": "4549acd0-563b-7797-8ac8-0f124859c681",
+    "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAHklEQVQ4T2O8Mp3hPwMFgHHUAIbRMGAYDQOGYREGACflJrHAA5r7AAAAAElFTkSuQmCC"
+  }
+], "display": {
+  "thirdperson_righthand": {
+    "rotation": [0, 90, 41], "translation": [-1, -8.25, -4.75], "scale": [1.3, 1, 1]
+  }, "thirdperson_lefthand": {
+    "rotation": [0, 90, 41], "translation": [-1, -9.5, -3.5], "scale": [1.3, 1, 1]
+  }, "firstperson_righthand": {"rotation": [0, 100, 0], "translation": [1.5, -5, 0]},
+  "firstperson_lefthand": {"rotation": [0, -90, 0], "translation": [1.5, -5, 0]},
+  "ground": {"rotation": [90, 0, 90], "translation": [0, -1, 0]},
+  "gui": {"rotation": [0, 0, 45], "scale": [0.9, 0.9, 0.9]},
+  "head": {"translation": [-1.5, -19.75, 4], "scale": [2.55, 1.85, 2.55]},
+  "fixed": {"translation": [0, 0, -1.5]}, "pose": {
+    "right": {
+      "head": [0, 0, 0], "body": [0, 0, 0], "right_leg": [0, 0, 0], "left_leg": [0, 0, 0],
+      "right_arm": [45, 0, 0], "left_arm": [22.5, 0, 0]
+    }, "left": {
+      "head": [0, 0, 0], "body": [0, 0, 0], "right_leg": [0, 0, 0], "left_leg": [0, 0, 0],
+      "right_arm": [22.5, 0, 0], "left_arm": [45, 0, 0]
+    }
+  }
+}
+}

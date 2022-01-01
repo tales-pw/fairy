@@ -1,0 +1,40 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:samovar/samovar"
+  },
+  "variants": {
+    "boot": {
+      "true": {
+        "submodel": {
+          "boot": {
+            "model": "fairy:samovar/samovar_boot"
+          }
+        }
+      },
+      "false": {}
+    },
+    "lit": {
+      "true": {
+        "textures": {
+          "bottom_grid": "fairy:blocks/samovar/samovar_lit_grid"
+        }
+      },
+      "false": {}
+    },
+    "facing": {
+      "east": {"y": -90},
+      "south": {"y": 0},
+      "west": {"y": 90},
+      "north": {"y": 180}
+    },
+    "inventory": {
+      "model": "fairy:samovar/samovar",
+      "submodel": {
+        "boot": {
+          "model": "fairy:samovar/samovar_boot"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "credit": "Made with Blockbench",
+  "textures": {
+    "wood1": "fairy:items/walking_stick/wood1",
+    "particle": "fairy:items/walking_stick/wood1",
+    "wood2": "fairy:items/walking_stick/wood2",
+    "brass": "fairy:items/walking_stick/brass"
+  },
+  "elements": [
+    {
+      "from": [6.9, 0, 7.9],
+      "to": [8.1, 1, 9.1],
+      "faces": {
+        "north": {"uv": [0, 0, 15.2, 16], "texture": "#wood2"},
+        "east": {"uv": [0, 0, 1.2, 1], "texture": "#wood2"},
+        "south": {"uv": [0, 0, 1.2, 1], "texture": "#wood2"},
+        "west": {"uv": [0, 0, 1.2, 1], "texture": "#wood2"},
+        "up": {"uv": [0, 0, 1.2, 1.2], "texture": "#wood2"},
+        "down": {"uv": [0, 0, 1.2, 1.2], "texture": "#wood2"}
+      }
+    },
+    {
+      "from": [6.9, 13, 7.9],
+      "to": [8.1, 13.5, 9.1],
+      "faces": {
+        "north": {"uv": [0, 0, 15.2, 16], "texture": "#brass"},
+        "east": {"uv": [0, 0, 1.2, 1], "texture": "#brass"},
+        "south": {"uv": [0, 0, 1.2, 1], "texture": "#brass"},
+        "west": {"uv": [0, 0, 1.2, 1], "texture": "#brass"},
+        "up": {"uv": [0, 0, 1.2, 1.2], "texture": "#brass"},
+        "down": {"uv": [0, 0, 1.2, 1.2], "texture": "#brass"}
+      }
+    },
+    {
+      "from": [7, 0, 8],
+      "to": [8, 15, 9],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#wood1"},
+        "east": {"uv": [0, 0, 1, 15], "texture": "#wood1"},
+        "south": {"uv": [0, 0, 1, 15], "texture": "#wood1"},
+        "west": {"uv": [0, 0, 1, 15], "texture": "#wood1"},
+        "up": {"uv": [0, 0, 1, 1], "texture": "#wood1"},
+        "down": {"uv": [0, 0, 1, 1], "texture": "#wood1"}
+      }
+    },
+    {
+      "from": [5.45721, 14.69397, 8],
+      "to": [7.45721, 15.69397, 9],
+      "rotation": {"angle": -22.5, "axis": "z", "origin": [6.94537, 15.19593, 8.5144]},
+      "faces": {
+        "north": {"uv": [0, 0, 1, 2], "rotation": 90, "texture": "#wood1"},
+        "east": {"uv": [0, 0, 1, 1], "rotation": 270, "texture": "#wood1"},
+        "south": {"uv": [0, 0, 1, 2], "rotation": 270, "texture": "#wood1"},
+        "west": {"uv": [0, 0, 1, 1], "rotation": 270, "texture": "#wood1"},
+        "up": {"uv": [0, 0, 1, 2], "rotation": 270, "texture": "#wood1"},
+        "down": {"uv": [0, 0, 1, 2], "rotation": 270, "texture": "#wood1"}
+      }
+    },
+    {
+      "from": [6.7, 14.3, 8],
+      "to": [8.7, 15.3, 9],
+      "rotation": {"angle": 22.5, "axis": "z", "origin": [6.94537, 15.19593, 8.5144]},
+      "faces": {
+        "north": {"uv": [0, 0, 1, 2], "rotation": 90, "texture": "#wood1"},
+        "east": {"uv": [0, 0, 1, 1], "rotation": 270, "texture": "#wood1"},
+        "south": {"uv": [0, 0, 1, 2], "rotation": 270, "texture": "#wood1"},
+        "west": {"uv": [0, 0, 1, 1], "rotation": 270, "texture": "#wood1"},
+        "up": {"uv": [0, 0, 1, 2], "rotation": 270, "texture": "#wood1"},
+        "down": {"uv": [0, 0, 1, 2], "rotation": 270, "texture": "#wood1"}
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [0, 90, 41],
+      "translation": [-1, -8.25, -4.75],
+      "scale": [1.3, 1, 1]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [0, 90, 41],
+      "translation": [-1, -9.5, -3.5],
+      "scale": [1.3, 1, 1]
+    },
+    "firstperson_righthand": {
+      "rotation": [0, 100, 0],
+      "translation": [1.5, -5, 0]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, -90, 0],
+      "translation": [1.5, -5, 0]
+    },
+    "ground": {
+      "rotation": [90, 0, 90],
+      "translation": [0, -1, 0]
+    },
+    "gui": {
+      "rotation": [0, 0, 45],
+      "scale": [0.9, 0.9, 0.9]
+    },
+    "head": {
+      "translation": [-1.5, -19.75, 4],
+      "scale": [2.55, 1.85, 2.55]
+    },
+    "fixed": {
+      "translation": [0, 0, -1.5]
+    },
+    "pose": {
+      "right": {
+        "head": [0, 0, 0],
+        "body": [0, 0, 0],
+        "right_leg": [0, 0, 0],
+        "left_leg": [0, 0, 0],
+        "right_arm": [45, 0, 0],
+        "left_arm": [22.5, 0, 0]
+      },
+      "left": {
+        "head": [0, 0, 0],
+        "body": [0, 0, 0],
+        "right_leg": [0, 0, 0],
+        "left_leg": [0, 0, 0],
+        "right_arm": [22.5, 0, 0],
+        "left_arm": [45, 0, 0]
+      }
+    }
+  }
+}

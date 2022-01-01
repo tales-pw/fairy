@@ -1,0 +1,31 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:globe/globe_1"
+  },
+  "variants": {
+    "globe_rotation": {
+      "0": {
+        "model": "fairy:globe/globe_1"
+      },
+      "1": {
+        "model": "fairy:globe/globe_2"
+      },
+      "2": {
+        "model": "fairy:globe/globe_3"
+      },
+      "3": {
+        "model": "fairy:globe/globe_4"
+      }
+    },
+    "facing": {
+      "east": {"y": 90},
+      "south": {"y": 180},
+      "west": {"y": -90},
+      "north": {}
+    },
+    "inventory": {
+      "transform": "forge:default-block"
+    }
+  }
+}

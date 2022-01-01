@@ -1,0 +1,31 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:table_scholar/scholar_table"
+  },
+  "variants": {
+    "open_forward": {
+      "true": {},
+      "false": {}
+    },
+    "open_opposite": {
+      "true": {},
+      "false": {}
+    },
+    "open_status": {
+      "closed": {"model": "fairy:table_scholar/scholar_table"},
+      "forward":  {"model": "fairy:table_scholar/scholar_table_forward"},
+      "opposite":  {"model": "fairy:table_scholar/scholar_table_opposite"},
+      "both": {"model": "fairy:table_scholar/scholar_table_both"}
+    },
+    "facing": {
+      "east": {},
+      "south": {"y": 90},
+      "west": {"y": 180},
+      "north": {"y": -90}
+    },
+    "inventory": {
+      "model": "fairy:table_scholar/scholar_table"
+    }
+  }
+}

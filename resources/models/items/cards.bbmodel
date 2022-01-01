@@ -1,0 +1,124 @@
+{
+  "meta": {"format_version": "3.0", "model_format": "java_block", "box_uv": false}, "name": "cards",
+  "resolution": {"width": 16, "height": 16}, "elements": [
+  {
+    "name": "cube", "from": [8, 6, 7], "to": [10, 9, 7.15], "autouv": 0, "color": 0,
+    "origin": [8, 8, 8], "faces": {
+    "north": {"uv": [0, 0, 8, 12], "texture": 1},
+    "east": {"uv": [0, 0, 0.15000000000000036, 3], "texture": 2},
+    "south": {"uv": [0, 0, 16, 16], "texture": 0},
+    "west": {"uv": [0, 0, 0.15000000000000036, 3], "texture": 2},
+    "up": {"uv": [0, 0, 2, 0.15000000000000036], "texture": 2},
+    "down": {"uv": [0, 0, 2, 0.15000000000000036], "texture": 2}
+  }, "uuid": "5b2e4891-9ab4-994d-cdd7-1b089e82b81e"
+  }, {
+    "name": "cube", "from": [9, 6, 6.9], "to": [11, 9, 7.050000000000001], "autouv": 0, "color": 0,
+    "rotation": [0, 0, -22.5], "origin": [8.999255187944245, 7.503364323897455, 7.072386354893009],
+    "faces": {
+      "north": {"uv": [0, 0, 8, 12], "texture": 1},
+      "east": {"uv": [0, 0, 0.15000000000000036, 3], "texture": 2},
+      "south": {"uv": [0, 0, 16, 16], "texture": 4},
+      "west": {"uv": [0, 0, 0.15000000000000036, 3], "texture": 2},
+      "up": {"uv": [0, 0, 2, 0.15000000000000036], "texture": 2},
+      "down": {"uv": [0, 0, 2, 0.15000000000000036], "texture": 2}
+    }, "uuid": "53298a96-02b5-4e39-8f11-aa423c6b058e"
+  }, {
+    "name": "cube", "from": [7, 6, 7.12], "to": [9, 9, 7.2700000000000005], "autouv": 0, "color": 0,
+    "rotation": [0, 0, 22.5], "origin": [8.999255187944247, 7.503364323897455, 7.07238635489301],
+    "faces": {
+      "north": {"uv": [0, 0, 8, 12], "texture": 1},
+      "east": {"uv": [0, 0, 0.15000000000000036, 3], "texture": 2},
+      "south": {"uv": [0, 0, 16, 16], "texture": 3},
+      "west": {"uv": [0, 0, 0.15000000000000036, 3], "texture": 2},
+      "up": {"uv": [0, 0, 2, 0.15000000000000036], "texture": 2},
+      "down": {"uv": [0, 0, 2, 0.15000000000000036], "texture": 2}
+    }, "uuid": "ea010d87-894f-f8df-7395-78d472eb8a08"
+  }, {
+    "name": "cube2", "from": [6.999999999999999, 5, 7.21], "to": [10, 7.000000000000001, 7.36],
+    "autouv": 0, "color": 0, "rotation": [0, 0, -45],
+    "origin": [8.999255187944245, 7.503364323897455, 7.072386354893009], "faces": {
+      "north": {"uv": [0, 0, 8, 12], "rotation": 90, "texture": 1},
+      "east": {"uv": [0, 0, 2, 0.15000000000000036], "rotation": 270, "texture": 2},
+      "south": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": 5},
+      "west": {"uv": [0, 0, 2, 0.15000000000000036], "rotation": 270, "texture": 2},
+      "up": {"uv": [0, 0, 0.15000000000000036, 3], "rotation": 270, "texture": 2},
+      "down": {"uv": [0, 0, 0.15000000000000036, 3], "rotation": 270, "texture": 2}
+    }, "uuid": "917202ee-b2b5-da95-072a-7d1300a2aa79"
+  }, {
+    "name": "cube", "from": [9.8, 6.5, 6.8], "to": [11.8, 9.5, 6.95], "autouv": 0, "color": 0,
+    "rotation": [0, 0, -45], "origin": [8.999255187944245, 7.503364323897455, 7.072386354893009],
+    "faces": {
+      "north": {"uv": [0, 0, 8, 12], "texture": 1},
+      "east": {"uv": [0, 0, 0.15000000000000036, 3], "texture": 2},
+      "south": {"uv": [0, 0, 16, 16], "texture": 6},
+      "west": {"uv": [0, 0, 0.15000000000000036, 3], "texture": 2},
+      "up": {"uv": [0, 0, 2, 0.15000000000000036], "texture": 2},
+      "down": {"uv": [0, 0, 2, 0.15000000000000036], "texture": 2}
+    }, "uuid": "e4f69304-d43e-f3fd-0746-577a4799a1fc"
+  }
+], "outliner": [
+  {
+    "name": "group", "uuid": "5a6b4976-9037-4549-f19d-10f7a8ba983e", "export": true, "isOpen": true,
+    "visibility": true, "autouv": 0, "origin": [8, 8, 8], "children": [
+    "53298a96-02b5-4e39-8f11-aa423c6b058e", "ea010d87-894f-f8df-7395-78d472eb8a08",
+    "917202ee-b2b5-da95-072a-7d1300a2aa79", "e4f69304-d43e-f3fd-0746-577a4799a1fc",
+    "5b2e4891-9ab4-994d-cdd7-1b089e82b81e"
+  ]
+  }
+], "textures": [
+  {
+    "path": "", "name": "card1", "folder": "items/cards", "namespace": "fairy", "id": "card1",
+    "particle": true, "mode": "bitmap", "saved": true,
+    "uuid": "2df82606-07a1-ae49-9f4c-5fd829fda010",
+    "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYElEQVQ4T2P8////fwYKACPIgBJZcbARPY9fkmwUdQwg2VokDWAXUN0A9DDBF0YYLoApxuUq9IDG6gVchmCLJZxhgG4IrijGG4jEpA/axAIp0TowLkAOG7JcQLEByGEEAE7fXdHD65uzAAAAAElFTkSuQmCC"
+  }, {
+    "path": "", "name": "back", "folder": "items/cards", "namespace": "fairy", "id": "back",
+    "particle": false, "mode": "bitmap", "saved": true,
+    "uuid": "e1e30353-6213-b5b8-d42b-0160e6902b10",
+    "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAfUlEQVRYR2P8////fwYGBoYSWXGGnscvQUyqscGGEQCMxTJi/1c5fmd4tOgT2GJqsWGeIegA2Vje/2H7OcG+l4vjY6AWG+QhYgDjaBSMRsFoLhjNBaO5YDQXjOaC0VwwmgtGc8GgyQXEtGBpoQbeKqaF4cSYOeqA0RAYDQEA51AfzjTOXH8AAAAASUVORK5CYII="
+  }, {
+    "path": "", "name": "blank", "folder": "items/cards", "namespace": "fairy", "id": "blank",
+    "particle": false, "mode": "bitmap", "saved": true,
+    "uuid": "f54d6b67-3f0e-38a6-c6f5-4f159d01e84c",
+    "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAHklEQVQ4T2NkYGD4z0ABYBw1gGE0DBhGw4BhWIQBAE5OEAELnjVHAAAAAElFTkSuQmCC"
+  }, {
+    "path": "", "name": "card2", "folder": "items/cards", "namespace": "fairy", "id": "card2",
+    "particle": false, "mode": "bitmap", "saved": true,
+    "uuid": "e0550acb-9b52-37e6-b925-20b66d3170ea",
+    "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAARElEQVQ4T2P8////fwYKACPVDGBkZERxB7rDcMmjuACmCJev+Pn5wZZ8/PgRbhn1vEBuOFLPBaOBSG4cMDDAY2EEByIAQPdj0esK3fYAAAAASUVORK5CYII="
+  }, {
+    "path": "", "name": "card3", "folder": "items/cards", "namespace": "fairy", "id": "card3",
+    "particle": false, "mode": "bitmap", "saved": true,
+    "uuid": "5e72a4cf-29c2-e1eb-46db-e900ab841aa5",
+    "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWklEQVQ4T2P8////fwYGBgZGRkYQxQDlgtnYALo6RpABMEGYBlyGYFMHNoBiF+B0LxES1HEBzcIAW8xgjQV80UUwZvDFAtEuoFkYEJ0SiYhu3EmbKilxaIcBANmTkNHzHRqRAAAAAElFTkSuQmCC"
+  }, {
+    "path": "", "name": "card4", "folder": "items/cards", "namespace": "fairy", "id": "card4",
+    "particle": false, "mode": "bitmap", "saved": true,
+    "uuid": "bd1e4317-4beb-aacf-f351-cbb15edd387c",
+    "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAARklEQVQ4T2P8////fwYKACPMgBJZcbgxPY9fYjUSmxrqGYDNSpiNuFwE0gN3AcUGDM4wICZ28YYBSQYMzjAYTQfERCIDAwD1J3vR72GoxwAAAABJRU5ErkJggg=="
+  }, {
+    "path": "", "name": "card5", "folder": "items/cards", "namespace": "fairy", "id": "card5",
+    "particle": false, "mode": "bitmap", "saved": true,
+    "uuid": "c6df1c87-1aad-a1a6-22f4-09ea9b3e24d7",
+    "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDUlEQVQ4T2P8////fwYc4OgJHhQZa4svGCoZQQaUyIqDJXoev0RRABOHCaLLg8RxGgDT3PvkFQPIkYyMjGAaBEByMMPABqC7C6RgKXMyw4uH7XBNYNughkgqVMHlMAyAaQZpABmADEB2gTTDAEgexQBkyTUrJjGsD+VmCFz9lSEkIg8j8J4/aAOLwQ2AaYZphOnAZgBMM9wAkN94hNNxxSZW8S9vZ0ICFxSIFBsAswI5DEBi+LyDMwyQ3QszABSlyAAlDBgYGP5LyFfC5UGSIC8hA5h89N+5GKkVHgYgRTDNyGkLZBhIDptmlGhESZ7QFAfSXCwjhpFPkPMOzqSM7AVcmQwkjtUAYrIxzAIAMuPE1NC/Aa8AAAAASUVORK5CYII="
+  }
+], "display": {
+  "thirdperson_righthand": {
+    "rotation": [0, -33.25, 0], "translation": [-2.25, 3, 1.75], "scale": [1.5, 1.49, 1.5]
+  }, "thirdperson_lefthand": {
+    "rotation": [0, 327.75, 0], "translation": [1.25, 3, 3.5], "scale": [1.5, 1.49, 1.5]
+  }, "firstperson_righthand": {"translation": [-5.5, 4.5, 3.5], "scale": [1.5, 1.5, 1.5]},
+  "firstperson_lefthand": {"translation": [-5.5, 4.5, 3.5], "scale": [1.5, 1.5, 1.5]},
+  "ground": {"rotation": [102, 0, -31], "translation": [0, -2.25, 0]},
+  "gui": {"translation": [-1.5, 0.75, 0], "scale": [2, 2, 2]},
+  "fixed": {"translation": [-1, 0, 1.5], "scale": [2, 2, 2]}, "pose": {
+    "right": {
+      "head": [0, 0, 0], "body": [0, 0, 0], "right_leg": [0, 0, 0], "left_leg": [0, 0, 0],
+      "right_arm": [22.5, 0, 0], "left_arm": [22.5, 0, 0]
+    }, "left": {
+      "head": [0, 0, 0], "body": [0, 0, 0], "right_leg": [0, 0, 0], "left_leg": [0, 0, 0],
+      "right_arm": [22.5, 0, 0], "left_arm": [22.5, 0, 0]
+    }
+  }
+}
+}

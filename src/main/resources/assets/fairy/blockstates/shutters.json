@@ -1,0 +1,21 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:wooden_shutter_closed"
+  },
+  "variants": {
+    "open": {
+      "true": {"model": "fairy:wooden_shutter_open"},
+      "false": {}
+    },
+    "facing": {
+      "east": {"y": 90},
+      "south": {"y": 180},
+      "west": {"y": -90},
+      "north": {}
+    },
+    "inventory": {
+      "transform": "forge:default-block"
+    }
+  }
+}

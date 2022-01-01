@@ -1,0 +1,228 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "particle": "minecraft:blocks/door_wood_lower",
+      "door": "minecraft:blocks/door_wood_lower"
+    },
+    "model": "fairy:diagonal_door/closed"
+  },
+  "variants": {
+    "facing": {
+      "east": {},
+      "south": {},
+      "west": {},
+      "north": {}
+    },
+    "half": {
+      "upper": {
+        "textures": {
+          "particle": "minecraft:blocks/door_wood_upper",
+          "door": "minecraft:blocks/door_wood_upper"
+        }
+      },
+      "lower": {}
+    },
+    "hinge": {
+      "left": {},
+      "right": {}
+    },
+    "open": {
+      "true": {
+        "model": "fairy:diagonal_door/opened"
+      },
+      "false": {}
+    },
+    "powered": {
+      "true": {},
+      "false": {}
+    },
+    "facing=east,half=lower,hinge=right,open=false,powered=false": [
+      {
+        "model": "fairy:diagonal_door/closed"
+      }
+    ],
+    "facing=east,half=lower,hinge=left,open=false,powered=false": [
+      {
+        "model": "fairy:diagonal_door/closed",
+        "y": 180
+      }
+    ],
+    "facing=east,half=lower,hinge=right,open=true,powered=false": [
+      {
+        "model": "fairy:diagonal_door/opened"
+      }
+    ],
+    "facing=east,half=lower,hinge=left,open=true,powered=false": [
+      {
+        "model": "fairy:diagonal_door/opened_other",
+        "y": 180
+      }
+    ],
+    "facing=east,half=upper,hinge=right,open=false,powered=false": [
+      {
+        "model": "fairy:diagonal_door/closed"
+      }
+    ],
+    "facing=east,half=upper,hinge=left,open=false,powered=false": [
+      {
+        "model": "fairy:diagonal_door/closed",
+        "y": 180
+      }
+    ],
+    "facing=east,half=upper,hinge=right,open=true,powered=false": [
+      {
+        "model": "fairy:diagonal_door/opened"
+      }
+    ],
+    "facing=east,half=upper,hinge=left,open=true,powered=false": [
+      {
+        "model": "fairy:diagonal_door/opened_other",
+        "y": 180
+      }
+    ],
+    "facing=west,half=lower,hinge=right,open=false,powered=false": [
+      {
+        "model": "fairy:diagonal_door/closed"
+      }
+    ],
+    "facing=west,half=lower,hinge=left,open=false,powered=false": [
+      {
+        "model": "fairy:diagonal_door/closed",
+        "y": 180
+      }
+    ],
+    "facing=west,half=lower,hinge=right,open=true,powered=false": [
+      {
+        "model": "fairy:diagonal_door/opened_other"
+      }
+    ],
+    "facing=west,half=lower,hinge=left,open=true,powered=false": [
+      {
+        "model": "fairy:diagonal_door/opened",
+        "y": 180
+      }
+    ],
+    "facing=west,half=upper,hinge=right,open=false,powered=false": [
+      {
+        "model": "fairy:diagonal_door/closed"
+      }
+    ],
+    "facing=west,half=upper,hinge=left,open=false,powered=false": [
+      {
+        "model": "fairy:diagonal_door/closed",
+        "y": 180
+      }
+    ],
+    "facing=west,half=upper,hinge=right,open=true,powered=false": [
+      {
+        "model": "fairy:diagonal_door/opened_other"
+      }
+    ],
+    "facing=west,half=upper,hinge=left,open=true,powered=false": [
+      {
+        "model": "fairy:diagonal_door/opened",
+        "y": 180
+      }
+    ],
+    "facing=south,half=lower,hinge=right,open=false,powered=false": [
+      {
+        "model": "fairy:diagonal_door/closed",
+        "y": -270
+      }
+    ],
+    "facing=south,half=lower,hinge=left,open=false,powered=false": [
+      {
+        "model": "fairy:diagonal_door/closed",
+        "y": 270
+      }
+    ],
+    "facing=south,half=lower,hinge=right,open=true,powered=false": [
+      {
+        "model": "fairy:diagonal_door/opened_other",
+        "y": -270
+      }
+    ],
+    "facing=south,half=lower,hinge=left,open=true,powered=false": [
+      {
+        "model": "fairy:diagonal_door/opened",
+        "y": 270
+      }
+    ],
+    "facing=south,half=upper,hinge=right,open=false,powered=false": [
+      {
+        "model": "fairy:diagonal_door/closed",
+        "y": -270
+      }
+    ],
+    "facing=south,half=upper,hinge=left,open=false,powered=false": [
+      {
+        "model": "fairy:diagonal_door/closed",
+        "y": 270
+      }
+    ],
+    "facing=south,half=upper,hinge=right,open=true,powered=false": [
+      {
+        "model": "fairy:diagonal_door/opened_other",
+        "y": -270
+      }
+    ],
+    "facing=south,half=upper,hinge=left,open=true,powered=false": [
+      {
+        "model": "fairy:diagonal_door/opened",
+        "y": 270
+      }
+    ],
+    "facing=north,half=lower,hinge=left,open=false,powered=false": [
+      {
+        "model": "fairy:diagonal_door/closed",
+        "y": 90
+      }
+    ],
+    "facing=north,half=lower,hinge=right,open=false,powered=false": [
+      {
+        "model": "fairy:diagonal_door/closed",
+        "y": -90
+      }
+    ],
+    "facing=north,half=lower,hinge=left,open=true,powered=false": [
+      {
+        "model": "fairy:diagonal_door/opened",
+        "y": 90
+      }
+    ],
+    "facing=north,half=lower,hinge=right,open=true,powered=false": [
+      {
+        "model": "fairy:diagonal_door/opened_other",
+        "y": -90
+      }
+    ],
+    "facing=north,half=upper,hinge=left,open=false,powered=false": [
+      {
+        "model": "fairy:diagonal_door/closed",
+        "y": 90
+      }
+    ],
+    "facing=north,half=upper,hinge=right,open=false,powered=false": [
+      {
+        "model": "fairy:diagonal_door/closed",
+        "y": -90
+      }
+    ],
+    "facing=north,half=upper,hinge=left,open=true,powered=false": [
+      {
+        "model": "fairy:diagonal_door/opened",
+        "y": 90
+      }
+    ],
+    "facing=north,half=upper,hinge=right,open=true,powered=false": [
+      {
+        "model": "fairy:diagonal_door/opened_other",
+        "y": -90
+      }
+    ],
+    "inventory": {
+      "model": "fairy:diagonal_door/closed"
+    }
+  }
+}

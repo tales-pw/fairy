@@ -1,0 +1,8 @@
+# Made in Blockbench 3.7.5
+newmtl m_stone_2
+map_Kd fairy:blocks/obelisk/stone_2
+newmtl m_stone_1
+map_Kd fairy:blocks/obelisk/stone_1
+newmtl m_text
+map_Kd fairy:blocks/obelisk/text
+newmtl none

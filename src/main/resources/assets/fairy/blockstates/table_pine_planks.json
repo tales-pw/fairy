@@ -1,0 +1,84 @@
+{
+  "multipart": [
+    {
+      "when": {"facing": "north"},
+      "apply": {"model": "fairy:table_pine_planks/table_top"}
+    },
+    {
+      "when": {"facing": "south"},
+      "apply": {"model": "fairy:table_pine_planks/table_top"}
+    },
+    {
+      "when": {"facing": "east"},
+      "apply": {"model": "fairy:table_pine_planks/table_top", "y": 90}
+    },
+    {
+      "when": {"facing": "west"},
+      "apply": {"model": "fairy:table_pine_planks/table_top", "y": 90}
+    },
+    {
+      "when": {"north": false, "east": false},
+      "apply": {"model": "fairy:table_pine_planks/table_north_east"}
+    },
+    {
+      "when": {"north": false, "west": false},
+      "apply": {"model": "fairy:table_pine_planks/table_north_west"}
+    },
+    {
+      "when": {"south": false, "east": false},
+      "apply": {"model": "fairy:table_pine_planks/table_south_east"}
+    },
+    {
+      "when": {"south": false, "west": false},
+      "apply": {"model": "fairy:table_pine_planks/table_south_west"}
+    },
+    {
+      "when": {"north": false},
+      "apply": {"model": "fairy:table_pine_planks/table_side"}
+    },
+    {
+      "when": {"north": false, "west": true},
+      "apply": {"model": "fairy:table_pine_planks/table_side_right"}
+    },
+    {
+      "when": {"north": false, "east": true},
+      "apply": {"model": "fairy:table_pine_planks/table_side_left"}
+    },
+    {
+      "when": {"south": false},
+      "apply": {"model": "fairy:table_pine_planks/table_side", "y": 180}
+    },
+    {
+      "when": {"south": false, "west": true},
+      "apply": {"model": "fairy:table_pine_planks/table_side_left", "y": 180}
+    },
+    {
+      "when": {"south": false, "east": true},
+      "apply": {"model": "fairy:table_pine_planks/table_side_right", "y": 180}
+    },
+    {
+      "when": {"east": false},
+      "apply": {"model": "fairy:table_pine_planks/table_side", "y": 90}
+    },
+    {
+      "when": {"east": false, "south": true},
+      "apply": {"model": "fairy:table_pine_planks/table_side_left", "y": 90}
+    },
+    {
+      "when": {"east": false, "north": true},
+      "apply": {"model": "fairy:table_pine_planks/table_side_right", "y": 90}
+    },
+    {
+      "when": {"west": false},
+      "apply": {"model": "fairy:table_pine_planks/table_side", "y": 270}
+    },
+    {
+      "when": {"west": false, "south": true},
+      "apply": {"model": "fairy:table_pine_planks/table_side_right", "y": 270}
+    },
+    {
+      "when": {"west": false, "north": true},
+      "apply": {"model": "fairy:table_pine_planks/table_side_left", "y": 270}
+    }
+  ], "variants": {"inventory": {"model": "fairy:table_pine_planks/inventory"}}
+}

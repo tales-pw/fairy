@@ -1,0 +1,38 @@
+{
+  "credit": "Made with Blockbench",
+  "textures": {
+    "0": "conquest:blocks/6_food/cheese_cut/cheese",
+    "1": "conquest:blocks/6_food/cheese_cut/cloth",
+    "particle": "conquest:blocks/6_food/cheese_cut/cheese"
+  },
+  "elements": [
+    {
+      "name": "Element",
+      "from": [4.1875, 0.11, 4.3125],
+      "to": [12.1875, 5.11, 12.3125],
+      "rotation": {"angle": 22.5, "axis": "y", "origin": [8.1875, 8.1, 8.3125]},
+      "faces": {
+        "north": {"uv": [8, 0, 16, 5], "texture": "#0"},
+        "east": {"uv": [8, 0, 16, 5], "texture": "#0"},
+        "south": {"uv": [8, 0, 16, 5], "texture": "#0"},
+        "west": {"uv": [8, 0, 16, 5], "texture": "#0"},
+        "up": {"uv": [0, 0, 8, 8], "texture": "#0"},
+        "down": {"uv": [0, 0, 8, 8], "texture": "#0"}
+      }
+    },
+    {
+      "name": "Element",
+      "from": [5, 0.1, 0.5],
+      "to": [17, 0.1, 12.5],
+      "rotation": {"angle": -22.5, "axis": "y", "origin": [5, 0.1, 0.5]},
+      "faces": {
+        "north": {"uv": [0, 9.5, 12, 10], "rotation": 180, "texture": "#1"},
+        "east": {"uv": [0.5, 14, 12.5, 14.5], "texture": "#1"},
+        "south": {"uv": [0, 0, 12, 0.5], "texture": "#1"},
+        "west": {"uv": [0.5, 13, 12.5, 13.5], "texture": "#1"},
+        "up": {"uv": [0.5, 0.5, 15.5, 15.5], "texture": "#1"},
+        "down": {"uv": [0.5, 0.5, 15.5, 15.5], "texture": "#1"}
+      }
+    }
+  ]
+}

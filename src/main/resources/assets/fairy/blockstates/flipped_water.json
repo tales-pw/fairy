@@ -1,0 +1,23 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:flipped_water",
+    "textures": {
+      "side": "blocks/water_flow",
+      "end": "blocks/water_still"
+    }
+  },
+  "variants": {
+    "facing": {
+      "east": {"y": 90,"x": 180},
+      "south": {"y": 180,"x": 180},
+      "west": {"y": -90,"x": 180},
+      "north": {"x": 180}
+    },
+    "inventory": {
+      "transform": "forge:default-block"
+    }
+  }
+}
+
+

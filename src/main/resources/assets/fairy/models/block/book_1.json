@@ -1,0 +1,6 @@
+{
+  "parent": "fairy:item/book_closed",
+  "textures": {
+    "cover": "fairy:items/book/cover_1"
+  }
+}

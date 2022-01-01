@@ -1,0 +1,38 @@
+{
+  "meta": {"format_version": "3.0", "model_format": "java_block", "box_uv": false},
+  "name": "staff_pose_standing", "resolution": {"width": 16, "height": 16}, "elements": [
+  {
+    "name": "cube", "from": [8.2, 7, -13.899999999999995], "to": [9, 7.900000000000001, 31.7],
+    "autouv": 0, "color": 0, "origin": [8, 8, 18.300000000000004], "faces": {
+    "north": {"uv": [0, 0, 0.8, 0.9], "texture": 0},
+    "east": {"uv": [0, 0, 16, 0.9000000000000012], "texture": 0},
+    "south": {"uv": [0, 0, 0.8, 0.9], "texture": 0}, "west": {"uv": [0, 0, 16, 0.9], "texture": 0},
+    "up": {"uv": [0, 0, 0.8000000000000007, 16], "texture": 0},
+    "down": {"uv": [0, 0, 0.8000000000000007, 16], "texture": 0}
+  }, "uuid": "8e1356b5-f36e-f4f7-284a-2beab98a30e0"
+  }
+], "outliner": ["8e1356b5-f36e-f4f7-284a-2beab98a30e0"], "textures": [
+  {
+    "path": "wood.png", "name": "wood", "folder": "items/staff", "namespace": "fairy", "id": "wood",
+    "particle": true, "mode": "bitmap", "saved": true,
+    "uuid": "fecb81c2-74e1-c391-26a8-017b03230cdf",
+    "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAHklEQVQ4T2PsKo78z0ABYBw1gGE0DBhGw4BhWIQBAEsAJWH5NcSYAAAAAElFTkSuQmCC"
+  }
+], "display": {
+  "thirdperson_righthand": {"rotation": [90, 0, 90], "translation": [-0.5, -0.75, 1]},
+  "thirdperson_lefthand": {"rotation": [90, 0, 90], "translation": [-0.5, -1, 2.25]},
+  "firstperson_righthand": {"rotation": [82, 0, 90], "translation": [4.5, 0, 0]},
+  "firstperson_lefthand": {"rotation": [82, 0, 90], "translation": [4.5, 0, 0]},
+  "gui": {"rotation": [90, 0, 0], "scale": [0.3, 1, 0.3]},
+  "head": {"rotation": [-180, 0, 88], "translation": [-1, -13, -9.75], "scale": [1.2, 1.2, 1.2]},
+  "fixed": {"rotation": [90, 0, 0], "translation": [-1, 4, -1.25]}, "pose": {
+    "right": {
+      "head": [0, 0, 0], "body": [0, 0, 0], "right_leg": [0, 0, 0], "left_leg": [0, 0, 0],
+      "right_arm": [92.3, -28, -0.1], "left_arm": [8, 0, 0]
+    }, "left": {
+      "head": [0, 0, 0], "body": [0, 0, 0], "right_leg": [0, 0, 0], "left_leg": [0, 0, 0],
+      "right_arm": [9, 0, 0], "left_arm": [92.3, 28, 1.1]
+    }
+  }
+}
+}

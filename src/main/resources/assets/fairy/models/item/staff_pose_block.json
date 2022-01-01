@@ -1,0 +1,71 @@
+{
+  "credit": "Made with Blockbench",
+  "textures": {
+    "wood": "fairy:items/staff/wood",
+    "particle": "fairy:items/staff/wood"
+  },
+  "elements": [
+    {
+      "from": [8.2, 7, -13.9],
+      "to": [9, 7.9, 31.7],
+      "rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 18.3]},
+      "faces": {
+        "north": {"uv": [0, 0, 0.8, 0.9], "texture": "#wood"},
+        "east": {"uv": [0, 0, 16, 0.9], "texture": "#wood"},
+        "south": {"uv": [0, 0, 0.8, 0.9], "texture": "#wood"},
+        "west": {"uv": [0, 0, 16, 0.9], "texture": "#wood"},
+        "up": {"uv": [0, 0, 0.8, 16], "texture": "#wood"},
+        "down": {"uv": [0, 0, 0.8, 16], "texture": "#wood"}
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [101.75, -3.25, 88.75],
+      "translation": [-0.75, 5.5, 2]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [101.75, 3.25, -88.75],
+      "translation": [-0.75, 5.5, 2]
+    },
+    "firstperson_righthand": {
+      "rotation": [52, 89.25, 90],
+      "translation": [-9.25, 2.25, -3.75]
+    },
+    "firstperson_lefthand": {
+      "rotation": [52, 89.25, 90],
+      "translation": [-9.25, 2.25, -3.75]
+    },
+    "gui": {
+      "rotation": [90, 0, 0],
+      "scale": [0.3, 1, 0.3]
+    },
+    "head": {
+      "rotation": [-180, 0, 88],
+      "translation": [-0.5, -2.5, -24.5],
+      "scale": [1.2, 1.2, 1.2]
+    },
+    "fixed": {
+      "rotation": [90, 0, 0],
+      "translation": [-1, 4, -1.25]
+    },
+    "pose": {
+      "right": {
+        "head": [0, 0, 0],
+        "body": [0, 0, 0],
+        "right_leg": [0, 0, 0],
+        "left_leg": [0, 0, 0],
+        "right_arm": [79.7, 34, 77.2],
+        "left_arm": [77.3, 22.2, -16.1]
+      },
+      "left": {
+        "head": [0, 0, 0],
+        "body": [0, 0, 0],
+        "right_leg": [0, 0, 0],
+        "left_leg": [0, 0, 0],
+        "right_arm": [77.3, -22.2, 16.1],
+        "left_arm": [80.6, -25.2, -79]
+      }
+    }
+  }
+}

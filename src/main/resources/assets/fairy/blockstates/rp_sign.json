@@ -1,0 +1,17 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fairy:rp_sign"
+  },
+  "variants": {
+    "facing": {
+      "east": {},
+      "south": {},
+      "west": {},
+      "north": {}
+    },
+    "inventory": {
+      "model": "glass"
+    }
+  }
+}

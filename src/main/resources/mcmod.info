@@ -1,0 +1,17 @@
+[
+  {
+    "modid": "fairy",
+    "name": "fairy",
+    "description": "",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": ["xunto"],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "requiredMods": ["conquest"],
+    "dependencies": []
+  }
+]

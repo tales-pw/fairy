@@ -1,0 +1,77 @@
+{
+  "credit": "Made with Blockbench",
+  "textures": {
+    "0": "conquest:blocks/marble_baroqueslab",
+    "1": "conquest:blocks/emeraldblock1_top",
+    "2": "conquest:blocks/red_netherbrick",
+    "particle": "conquest:blocks/marble_baroqueslab"
+  },
+  "elements": [
+    {
+      "name": "cube2",
+      "from": [7.74, 0, 7.08709],
+      "to": [8, 0.26, 8],
+      "rotation": {"angle": 0, "axis": "y", "origin": [8, 2.08, 8]},
+      "faces": {
+        "north": {"uv": [6, 6, 6.26, 6.26], "texture": "#2"},
+        "east": {"uv": [0, 0, 0.91291, 0.26], "texture": "#0"},
+        "west": {"uv": [0, 0, 0.91291, 0.26], "texture": "#0"},
+        "up": {"uv": [0, 0, 0.91291, 0.26], "rotation": 270, "texture": "#0"},
+        "down": {"uv": [0, 0, 0.91291, 0.26], "rotation": 270, "texture": "#0"}
+      }
+    },
+    {
+      "from": [7.74, 0, 8],
+      "to": [8, 0.26, 8.4004],
+      "rotation": {"angle": 0, "axis": "y", "origin": [8, 2.08, 8]},
+      "faces": {
+        "east": {"uv": [0, 4, 0.4004, 4.26], "texture": "#1"},
+        "south": {"uv": [0, 0, 0.26, 0.26], "texture": "#0"},
+        "west": {"uv": [0, 0, 0.4004, 0.26], "texture": "#1"},
+        "up": {"uv": [0, 0, 0.4004, 0.26], "rotation": 270, "texture": "#1"},
+        "down": {"uv": [9.5, 12, 9.9004, 12.26], "rotation": 270, "texture": "#1"}
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [55.75, 14.75, 0],
+      "translation": [-0.5, 7.75, 10.75],
+      "scale": [1.7, 1.7, 2.18]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [55, -343.5, 0],
+      "translation": [-1.25, 7.75, 10.75],
+      "scale": [1.7, 1.7, 2.18]
+    },
+    "firstperson_righthand": {
+      "rotation": [28.25, 0, 0],
+      "translation": [0, 8, 4.5],
+      "scale": [1.10156, 1.07422, 1.94531]
+    },
+    "firstperson_lefthand": {
+      "rotation": [19.5, 0, 0],
+      "translation": [0, 7.75, 3],
+      "scale": [1, 1, 1.5957]
+    },
+    "ground": {
+      "translation": [0, 6, 0],
+      "scale": [1.32813, 1.19141, 2.58594]
+    },
+    "gui": {
+      "rotation": [90, 45, 0],
+      "translation": [1.25, 0, 0],
+      "scale": [3, 3, 3]
+    },
+    "head": {
+      "rotation": [0, -9.25, 0],
+      "translation": [0.5, 20.75, -7.75],
+      "scale": [3.14, 3.14, 4]
+    },
+    "fixed": {
+      "rotation": [35.75, -87.75, -8.75],
+      "translation": [0, 8, 11],
+      "scale": [2, 2, 3]
+    }
+  }
+}
