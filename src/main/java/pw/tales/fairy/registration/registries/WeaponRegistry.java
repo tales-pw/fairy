@@ -92,7 +92,9 @@ public class WeaponRegistry {
             // Special
             new ItemPistol("revolver"),
             new ItemPistol("pistol"),
+            new ItemPistol("pistol_2"),
             new ItemMusket("musket"),
+            new ItemMusket("revolver_rifle"),
 
             // One-handed
             new ItemWeapon("katana", oneHandedPoses),

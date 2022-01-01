@@ -27,7 +27,6 @@ public class Fairy {
     public void preInit(FMLPreInitializationEvent event) {
         Fairy.proxy.preInit(event);
         Fairy.registration.init();
-
         GameRegistry.registerTileEntity(TileRpSign.class, new ResourceLocation(MOD_ID, "rp_sign"));
         GameRegistry.registerTileEntity(TileWatermill.class, new ResourceLocation(MOD_ID, "watermill"));
     }
