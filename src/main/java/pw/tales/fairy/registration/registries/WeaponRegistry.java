@@ -60,6 +60,8 @@ public class WeaponRegistry {
     public final static ItemPoseManager staffPoses =
             ItemPoseManager.builder().add("pose_default").add("pose_standing").add("pose_block")
                     .add("pose_stance").build();
+    public final static ItemPoseManager ramrodPoses =
+            ItemPoseManager.builder().add("default").build();
     public final static ItemPoseManager macePoses =
             ItemPoseManager.builder().add("pose_default").add("pose_twohanded_stance").add("pose_up")
                     .build();
@@ -114,6 +116,7 @@ public class WeaponRegistry {
             new ItemWeapon("trident", tridentPoses),
             new ItemWeapon("halberd", halberdPoses),
             new ItemWeapon("staff", staffPoses),
+            new ItemWeapon("ramrod", ramrodPoses),
             new ItemWeapon("greataxe", greataxePoses),
 
             // Two-handed
