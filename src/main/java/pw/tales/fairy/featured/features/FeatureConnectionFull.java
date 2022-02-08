@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @MethodsReturnNonnullByDefault public class FeatureConnectionFull extends FeatureConnectionBasic {
-    public final static Feature DEFAULT = new FeatureConnectionFull();
+    public static final Feature DEFAULT = new FeatureConnectionFull();
 
     public static final PropertyBool NE = PropertyBool.create("north_east");
     public static final PropertyBool SE = PropertyBool.create("south_east");

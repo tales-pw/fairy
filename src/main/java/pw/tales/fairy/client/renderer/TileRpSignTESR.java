@@ -16,7 +16,7 @@ import java.util.List;
 
     private void applyRotation(TileRpSign te) {
         // bypassing get state from IBlockState for purpose of speed
-        EnumFacing facing = EnumFacing.getHorizontal(te.getBlockMetadata());
+        EnumFacing facing = EnumFacing.byHorizontalIndex(te.getBlockMetadata());
 
         float angle;
         switch (facing) {

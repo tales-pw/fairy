@@ -20,7 +20,7 @@ public class BlockBottle extends BlockSimple {
         return DEFAULT_AABB;
     }
 
-    @Override public BlockRenderLayer getBlockLayer() {
+    @Override public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT_MIPPED;
     }
 

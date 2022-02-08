@@ -15,7 +15,7 @@ public class BlockSimpleDouble extends BlockSimple {
     }
 
     @Override
-    public BlockRenderLayer getBlockLayer() {
+    public BlockRenderLayer getRenderLayer() {
         return  BlockRenderLayer.CUTOUT;
     }
 

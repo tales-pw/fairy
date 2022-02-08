@@ -16,7 +16,7 @@ public class ItemSimple extends Item implements IItemFairy {
 
     public ItemSimple setIdentifier(String name) {
         this.setRegistryName(Fairy.MOD_ID, name);
-        this.setUnlocalizedName(name);
+        this.setTranslationKey(name);
         return this;
     }
 }

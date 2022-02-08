@@ -34,7 +34,7 @@ public class ItemMask extends ItemWearable {
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack stack) {
+    public String getTranslationKey(ItemStack stack) {
         return this.itemModelMediator.getTranslationKey(stack);
     }
 

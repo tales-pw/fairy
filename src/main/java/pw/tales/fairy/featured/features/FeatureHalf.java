@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @MethodsReturnNonnullByDefault public class FeatureHalf extends Feature {
-    public final static Feature DEFAULT = new FeatureHalf();
+    public static final Feature DEFAULT = new FeatureHalf();
 
     public static final PropertyEnum<BlockSlab.EnumBlockHalf> HALF =
         PropertyEnum.<BlockSlab.EnumBlockHalf>create("half", BlockSlab.EnumBlockHalf.class);

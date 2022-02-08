@@ -52,7 +52,7 @@ import java.util.List;
         return false;
     }
 
-    @Override public BlockRenderLayer getBlockLayer() {
+    @Override public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT_MIPPED;
     }
 

@@ -20,74 +20,74 @@ import java.util.List;
 public class WeaponRegistry {
     public static CreativeTabs FAIRY_WEAPON_TAB = new CreativeTabs(String.format("%s.weapon", Fairy.MOD_ID)) {
         @Override
-        public ItemStack getTabIconItem() {
+        public ItemStack createIcon() {
             return new ItemStack(Items.crossbow, 1, 0);
         }
     };
 
-    public final static ItemPoseManager oneHandedPoses =
+    public static final ItemPoseManager oneHandedPoses =
             ItemPoseManager.builder().add("default").add("block").add("backswing")
                     .add("mordhau").add("preparing_to_attack").add("relaxed_holding")
                     .add("supporting_twohands").add("two_hand").build();
-    public final static ItemPoseManager twoHandedPoses =
+    public static final ItemPoseManager twoHandedPoses =
             ItemPoseManager.builder().add("default").add("shoulder").add("gerbeck").add("kohler")
                     .add("mordhau").add("relaxed_holding").add("relaxed_holding_onehand")
                     .add("supporting_hand").build();
-    public final static ItemPoseManager daggerPoses =
+    public static final ItemPoseManager daggerPoses =
             ItemPoseManager.builder().add("pose_default").add("pose_backswing").add("pose_reverse_1")
                     .add("pose_reverse_2").add("pose_behind_back").build();
-    public final static ItemPoseManager glaivePoses =
+    public static final ItemPoseManager glaivePoses =
             ItemPoseManager.builder().add("pose_1").add("pose_2").add("pose_3").add("pose_4").build();
-    public final static ItemPoseManager crossbowPoses =
+    public static final ItemPoseManager crossbowPoses =
             ItemPoseManager.builder().add("down").add("down_arrow").add("up_arrow").add("up").build();
-    public final static ItemPoseManager warhammerPoses =
+    public static final ItemPoseManager warhammerPoses =
             ItemPoseManager.builder().add("pose_default").add("pose_reverse_default").add("pose_hit")
                     .build();
-    public final static ItemPoseManager battleaxePoses =
+    public static final ItemPoseManager battleaxePoses =
             ItemPoseManager.builder().add("pose_default").add("pose_block").add("pose_backslash")
                     .build();
-    public final static ItemPoseManager batPoses =
+    public static final ItemPoseManager batPoses =
             ItemPoseManager.builder().add("pose_default").add("pose_backswing").add("pose_block").add("pose_handle")
                     .build();
-    public final static ItemPoseManager poleaxePoses =
+    public static final ItemPoseManager poleaxePoses =
             ItemPoseManager.builder().add("pose_stance").add("pose_stand")
                     .build();
-    public final static ItemPoseManager halberdPoses =
+    public static final ItemPoseManager halberdPoses =
             ItemPoseManager.builder().add("pose_default").add("pose_stance").add("pose_standing")
                     .build();
-    public final static ItemPoseManager greataxePoses =
+    public static final ItemPoseManager greataxePoses =
             ItemPoseManager.builder().add("pose_stand").add("pose_stance").build();
-    public final static ItemPoseManager staffPoses =
+    public static final ItemPoseManager staffPoses =
             ItemPoseManager.builder().add("pose_default").add("pose_standing").add("pose_block")
                     .add("pose_stance").build();
-    public final static ItemPoseManager ramrodPoses =
+    public static final ItemPoseManager ramrodPoses =
             ItemPoseManager.builder().add("default").build();
-    public final static ItemPoseManager macePoses =
+    public static final ItemPoseManager macePoses =
             ItemPoseManager.builder().add("pose_default").add("pose_twohanded_stance").add("pose_up")
                     .build();
-    public final static ItemPoseManager tridentPoses =
+    public static final ItemPoseManager tridentPoses =
             ItemPoseManager.builder().add("pose_default").add("pose_stance").add("pose_attack").build();
-    public final static ItemPoseManager brassKnucklesPoses =
+    public static final ItemPoseManager brassKnucklesPoses =
             ItemPoseManager.builder().add("pose_default").add("pose_hit_1").add("pose_hit_2").build();
-    public final static ItemPoseManager rapierPoses =
+    public static final ItemPoseManager rapierPoses =
             ItemPoseManager.builder().add("pose_default").add("pose_block").add("pose_parry")
                     .add("pose_thrusting").build();
-    public final static ItemPoseManager spearPoses =
+    public static final ItemPoseManager spearPoses =
             ItemPoseManager.builder().add("pose_default").add("pose_standing").add("pose_stance")
                     .build();
-    public final static ItemPoseManager longbowPoses =
+    public static final ItemPoseManager longbowPoses =
             ItemPoseManager.builder().add("pose_base").add("pose_behind_back")
                     .build();
-    public final static ItemPoseManager bombPoses =
+    public static final ItemPoseManager bombPoses =
             ItemPoseManager.builder().add("default").add("fire").add("throw")
                     .build();
-    public final static ItemPoseManager lucernHammerPoses =
+    public static final ItemPoseManager lucernHammerPoses =
             ItemPoseManager.builder().add("default").build();
-    public final static ItemPoseManager lancePoses =
+    public static final ItemPoseManager lancePoses =
             ItemPoseManager.builder().add("default").build();
-    public final static ItemPoseManager shieldPoses =
+    public static final ItemPoseManager shieldPoses =
             ItemPoseManager.builder().add("default").build();
-    public final static ItemPoseManager morningStarPoses =
+    public static final ItemPoseManager morningStarPoses =
             ItemPoseManager.builder().add("safe").add("idle").add("stance").build();
 
     public static List<IItemFairy> weapons = Arrays.asList(

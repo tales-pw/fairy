@@ -10,7 +10,7 @@ import net.minecraft.util.BlockRenderLayer;
         super(Material.IRON);
     }
 
-    @Override public BlockRenderLayer getBlockLayer() {
+    @Override public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.SOLID;
     }
 }

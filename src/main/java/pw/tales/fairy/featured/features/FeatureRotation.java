@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @MethodsReturnNonnullByDefault public class FeatureRotation extends Feature {
-    public final static Feature DEFAULT = new FeatureRotation();
+    public static final Feature DEFAULT = new FeatureRotation();
 
     public static final PropertyDirection FACING = PropertyDirection.create("facing");
 
@@ -39,7 +39,7 @@ import java.util.List;
 
     @Override public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
         return new Pair<>(oldMeta >> 3,
-            state.withProperty(FACING, EnumFacing.getFront(oldMeta & 7)));
+            state.withProperty(FACING, EnumFacing.byIndex(oldMeta & 7)));
     }
 
     @Override public List<IProperty> getProperties() {

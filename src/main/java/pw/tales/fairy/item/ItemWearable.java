@@ -38,14 +38,14 @@ public class ItemWearable extends ItemBlock implements IItemFairy {
 
     public ItemWearable setIdentifier(String name) {
         this.setRegistryName(Fairy.MOD_ID, name);
-        this.setUnlocalizedName(name);
+        this.setTranslationKey(name);
         return this;
     }
 
     @Override
     @ParametersAreNonnullByDefault
-    public Item setUnlocalizedName(String unlocalizedName) {
-        this.block.setUnlocalizedName(unlocalizedName);
+    public Item setTranslationKey(String translationKey) {
+        this.block.setTranslationKey(translationKey);
         return this;
     }
 
