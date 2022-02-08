@@ -13,7 +13,7 @@ public class ItemPistol extends pw.tales.pillars.item_legacy.weapon.ItemPistol i
 
     public ItemPistol setIdentifier(String name) {
         this.setRegistryName(Fairy.MOD_ID, name);
-        this.setUnlocalizedName(name);
+        this.setTranslationKey(name);
         return this;
     }
 }

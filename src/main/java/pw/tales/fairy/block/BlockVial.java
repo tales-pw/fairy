@@ -47,7 +47,7 @@ import java.util.List;
         return state.getValue(FeatureColor.COLOR).getMetadata();
     }
 
-    @Override public BlockRenderLayer getBlockLayer() {
+    @Override public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.TRANSLUCENT;
     }
 

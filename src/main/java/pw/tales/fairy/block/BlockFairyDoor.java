@@ -62,7 +62,7 @@ public class BlockFairyDoor extends BlockDoor implements IBlockFairy {
     @Override
     public BlockFairyDoor setIdentifier(String name) {
         this.setRegistryName(Fairy.MOD_ID, name);
-        this.setUnlocalizedName(name);
+        this.setTranslationKey(name);
         return this;
     }
 }

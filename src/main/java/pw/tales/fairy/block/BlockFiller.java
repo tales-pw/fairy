@@ -35,7 +35,7 @@ import pw.tales.fairy.registration.registries.ObjectRegistry;
 
     @Override public final BlockFiller setIdentifier(String name) {
         this.setRegistryName(Fairy.MOD_ID, name);
-        this.setUnlocalizedName(name);
+        this.setTranslationKey(name);
         return this;
     }
 }

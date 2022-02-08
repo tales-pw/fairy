@@ -13,7 +13,7 @@ public class ItemMusket extends pw.tales.pillars.item_legacy.weapon.ItemMusket i
 
     public ItemMusket setIdentifier(String name) {
         this.setRegistryName(Fairy.MOD_ID, name);
-        this.setUnlocalizedName(name);
+        this.setTranslationKey(name);
         return this;
     }
 }

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @MethodsReturnNonnullByDefault public class FeatureColor extends Feature {
-    public final static Feature DEFAULT = new FeatureColor();
+    public static final Feature DEFAULT = new FeatureColor();
 
     public static final PropertyEnum<EnumDyeColor> COLOR =
         PropertyEnum.<EnumDyeColor>create("color", EnumDyeColor.class);

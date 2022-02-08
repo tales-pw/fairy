@@ -26,7 +26,7 @@ import java.util.List;
 public class ObjectRegistry {
     public static CreativeTabs FAIRY_TAB = new CreativeTabs(Fairy.MOD_ID) {
         @Override
-        public ItemStack getTabIconItem() {
+        public ItemStack createIcon() {
             return new ItemStack(Items.aktanos_symbol_large, 1);
         }
     };

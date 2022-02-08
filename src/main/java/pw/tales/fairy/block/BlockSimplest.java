@@ -13,7 +13,7 @@ public class BlockSimplest extends Block implements IBlockFairy {
 
     @Override public final BlockSimplest setIdentifier(String name) {
         this.setRegistryName(Fairy.MOD_ID, name);
-        this.setUnlocalizedName(name);
+        this.setTranslationKey(name);
         return this;
     }
 }

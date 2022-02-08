@@ -25,23 +25,23 @@ import java.util.List;
 
 @Mod.EventBusSubscriber
 public class ItemsRegistry {
-    public final static ItemPoseManager maskPoses = ItemPoseManager.builder().add("pose_up").add("pose_normal")
+    public static final ItemPoseManager maskPoses = ItemPoseManager.builder().add("pose_up").add("pose_normal")
             .add("pose_down").add("pose_down2").build();
-    public final static ItemPoseManager clothMaskPoses = ItemPoseManager.builder().add("normal").add("down").build();
-    public final static ItemPoseManager walkingStickPoses = ItemPoseManager.builder().add("default").build();
-    public final static ItemPoseManager cigarettePoses = ItemPoseManager.builder().add("normal").add("down").build();
-    public final static ItemPoseManager censerPoses = ItemPoseManager.builder().add("lit").build();
-    public final static ItemPoseManager book_poses = ItemPoseManager.builder().add("open")
+    public static final ItemPoseManager clothMaskPoses = ItemPoseManager.builder().add("normal").add("down").build();
+    public static final ItemPoseManager walkingStickPoses = ItemPoseManager.builder().add("default").build();
+    public static final ItemPoseManager cigarettePoses = ItemPoseManager.builder().add("normal").add("down").build();
+    public static final ItemPoseManager censerPoses = ItemPoseManager.builder().add("lit").build();
+    public static final ItemPoseManager book_poses = ItemPoseManager.builder().add("open")
             .add("closed").add("one_hand").build();
     public static CreativeTabs FAIRY_MISC_TAB = new CreativeTabs(String.format("%s.misc", Fairy.MOD_ID)) {
         @Override
-        public ItemStack getTabIconItem() {
+        public ItemStack createIcon() {
             return new ItemStack(Items.cards, 1);
         }
     };
-    public final static ItemPoseManager trayPoses = ItemPoseManager.builder().add("default").build();
+    public static final ItemPoseManager trayPoses = ItemPoseManager.builder().add("default").build();
 
-    public final static List<IItemFairy> items = new ArrayList<>(Arrays.asList(
+    public static final List<IItemFairy> items = new ArrayList<>(Arrays.asList(
             new ItemCigarette(cigarettePoses).setIdentifier("cigarette"),
             new ItemSimple().setIdentifier("cards"),
             new ItemMask(maskPoses).setIdentifier("mask"),
