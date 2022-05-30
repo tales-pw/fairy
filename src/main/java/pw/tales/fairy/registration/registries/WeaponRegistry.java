@@ -16,7 +16,7 @@ import pw.tales.pillars.item.ItemPoseManager;
 import java.util.Arrays;
 import java.util.List;
 
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(modid = Fairy.MOD_ID)
 public class WeaponRegistry {
     public static CreativeTabs FAIRY_WEAPON_TAB = new CreativeTabs(String.format("%s.weapon", Fairy.MOD_ID)) {
         @Override

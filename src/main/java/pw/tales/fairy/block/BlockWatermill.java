@@ -10,21 +10,26 @@ import pw.tales.fairy.tile.TileWatermill;
 
 import javax.annotation.Nullable;
 
-@SuppressWarnings("deprecation") @MethodsReturnNonnullByDefault public class BlockWatermill
-    extends BlockSimple {
+@SuppressWarnings("deprecation")
+@MethodsReturnNonnullByDefault
+public class BlockWatermill
+        extends BlockSimple {
     public BlockWatermill() {
         super(Material.WOOD);
     }
 
-    @Override public boolean isFullBlock(IBlockState state) {
+    @Override
+    public boolean isFullBlock(IBlockState state) {
         return false;
     }
 
-    @Override public boolean isFullCube(IBlockState state) {
+    @Override
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
-    @Override public boolean isOpaqueCube(IBlockState state) {
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
@@ -32,11 +37,14 @@ import javax.annotation.Nullable;
         return EnumBlockRenderType.INVISIBLE;
     }
 
-    @Override public boolean hasTileEntity(IBlockState state) {
+    @Override
+    public boolean hasTileEntity(IBlockState state) {
         return true;
     }
 
-    @Nullable @Override public TileEntity createTileEntity(World world, IBlockState state) {
+    @Nullable
+    @Override
+    public TileEntity createTileEntity(World world, IBlockState state) {
         return new TileWatermill();
     }
 }

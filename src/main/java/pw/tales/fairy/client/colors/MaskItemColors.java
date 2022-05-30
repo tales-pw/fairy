@@ -9,7 +9,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.awt.*;
 
 public class MaskItemColors implements IItemColor {
-    @Override @ParametersAreNonnullByDefault
+    @Override
+    @ParametersAreNonnullByDefault
     public int colorMultiplier(ItemStack stack, int tintIndex) {
         Integer color = getColor(stack);
         if (color == null)
@@ -17,7 +18,8 @@ public class MaskItemColors implements IItemColor {
         return color;
     }
 
-    @Nullable public Integer getColor(ItemStack stack) {
+    @Nullable
+    public Integer getColor(ItemStack stack) {
         NBTTagCompound tagCompound = stack.getTagCompound();
 
         if (tagCompound == null)

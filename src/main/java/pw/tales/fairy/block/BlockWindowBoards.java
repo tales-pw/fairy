@@ -11,8 +11,10 @@ import pw.tales.fairy.featured.features.FeatureHRotation;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("deprecation") @MethodsReturnNonnullByDefault public class BlockWindowBoards
-    extends BlockSimple {
+@SuppressWarnings("deprecation")
+@MethodsReturnNonnullByDefault
+public class BlockWindowBoards
+        extends BlockSimple {
     public static final AxisAlignedBB NORTH_AABB = new AxisAlignedBB(-0.3D, 0.0D, 0.0D, 1.3D, 1.0D, 0.1D);
     public static final AxisAlignedBB SOUTH_AABB = new AxisAlignedBB(-0.3D, 0.0D, 0.9D, 1.3D, 1.0D, 1.0D);
     public static final AxisAlignedBB WEST_AABB = new AxisAlignedBB(0.0D, 0.0D, -0.3D, 0.1D, 1.0D, 1.3D);

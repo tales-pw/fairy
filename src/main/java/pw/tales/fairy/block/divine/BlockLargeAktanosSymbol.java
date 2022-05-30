@@ -12,18 +12,22 @@ import pw.tales.fairy.featured.features.FeatureSwitch;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("deprecation") @MethodsReturnNonnullByDefault public class BlockLargeAktanosSymbol
-    extends BlockDivineSymbol {
+@SuppressWarnings("deprecation")
+@MethodsReturnNonnullByDefault
+public class BlockLargeAktanosSymbol
+        extends BlockDivineSymbol {
     private static final PropertyBool LIT_PROPERTY = PropertyBool.create("lit");
     private static final FeatureSwitch SWITCH_FEATURE = new FeatureSwitch(LIT_PROPERTY);
 
-    @Override public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+    @Override
+    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
         if (state.getValue(LIT_PROPERTY))
             return 15;
         return super.getLightValue(state, world, pos);
     }
 
-    @Override public List<Feature> getFeatures() {
+    @Override
+    public List<Feature> getFeatures() {
         List<Feature> features = new ArrayList<>();
         features.add(FeatureHRotation.DEFAULT);
         features.add(SWITCH_FEATURE);

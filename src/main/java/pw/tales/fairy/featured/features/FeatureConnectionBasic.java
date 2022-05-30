@@ -12,7 +12,8 @@ import net.minecraft.world.IBlockAccess;
 import java.util.ArrayList;
 import java.util.List;
 
-@MethodsReturnNonnullByDefault public class FeatureConnectionBasic extends FeatureConnection {
+@MethodsReturnNonnullByDefault
+public class FeatureConnectionBasic extends FeatureConnection {
     public static final Feature DEFAULT = new FeatureConnectionBasic();
 
     public static final PropertyBool N = PropertyBool.create("north");
@@ -29,24 +30,27 @@ import java.util.List;
         properties.add(W);
     }
 
-    @Override public IBlockState getDefaultState(IBlockState state) {
+    @Override
+    public IBlockState getDefaultState(IBlockState state) {
         return super.getDefaultState(state).withProperty(N, false).withProperty(E, false)
-            .withProperty(S, false).withProperty(W, false);
+                .withProperty(S, false).withProperty(W, false);
     }
 
-    @Override public IBlockState getActualState(IBlockState state, Block block, IBlockAccess world,
-        BlockPos pos) {
+    @Override
+    public IBlockState getActualState(IBlockState state, Block block, IBlockAccess world,
+                                      BlockPos pos) {
         if (!(block instanceof IConnectible))
             return state;
 
         return state.withProperty(N, canConnectTo(world, state, pos, EnumFacing.NORTH))
-            .withProperty(E, canConnectTo(world, state, pos, EnumFacing.EAST))
-            .withProperty(S, canConnectTo(world, state, pos, EnumFacing.SOUTH))
-            .withProperty(W, canConnectTo(world, state, pos, EnumFacing.WEST));
+                .withProperty(E, canConnectTo(world, state, pos, EnumFacing.EAST))
+                .withProperty(S, canConnectTo(world, state, pos, EnumFacing.SOUTH))
+                .withProperty(W, canConnectTo(world, state, pos, EnumFacing.WEST));
 
     }
 
-    @Override public List<IProperty> getProperties() {
+    @Override
+    public List<IProperty> getProperties() {
         return properties;
     }
 }

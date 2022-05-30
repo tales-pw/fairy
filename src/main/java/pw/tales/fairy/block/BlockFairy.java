@@ -6,7 +6,8 @@ import pw.tales.fairy.Fairy;
 import pw.tales.fairy.featured.FeaturedBlock;
 import pw.tales.fairy.registration.registries.ObjectRegistry;
 
-@MethodsReturnNonnullByDefault public abstract class BlockFairy extends FeaturedBlock implements IBlockFairy {
+@MethodsReturnNonnullByDefault
+public abstract class BlockFairy extends FeaturedBlock implements IBlockFairy {
     public BlockFairy(Material material) {
         super(material);
         this.setCreativeTab(ObjectRegistry.FAIRY_TAB);

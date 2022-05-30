@@ -8,24 +8,29 @@ import pw.tales.fairy.featured.features.FeatureHRotation;
 import java.util.Collections;
 import java.util.List;
 
-@SuppressWarnings("deprecation") public class BlockSimple extends BlockFairy {
+@SuppressWarnings("deprecation")
+public class BlockSimple extends BlockFairy {
     public BlockSimple(Material material) {
         super(material);
     }
 
-    @Override public boolean isFullBlock(IBlockState state) {
+    @Override
+    public boolean isFullBlock(IBlockState state) {
         return false;
     }
 
-    @Override public boolean isFullCube(IBlockState state) {
+    @Override
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
-    @Override public boolean isOpaqueCube(IBlockState state) {
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
-    @Override public List<Feature> getFeatures() {
+    @Override
+    public List<Feature> getFeatures() {
         return Collections.singletonList(FeatureHRotation.DEFAULT);
     }
 }

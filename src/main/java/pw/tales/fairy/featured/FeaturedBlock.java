@@ -23,7 +23,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 
-@MethodsReturnNonnullByDefault public abstract class FeaturedBlock extends Block {
+@MethodsReturnNonnullByDefault
+public abstract class FeaturedBlock extends Block {
     /*
     It is set up in createBlockState as it's needed by this function
     but there is no way to set up before it.
@@ -47,7 +48,9 @@ import java.util.List;
 
     public abstract List<Feature> getFeatures();
 
-    @Override @ParametersAreNonnullByDefault @SuppressWarnings("deprecation")
+    @Override
+    @ParametersAreNonnullByDefault
+    @SuppressWarnings("deprecation")
     public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
         for (Feature feature : features) {
             state = feature.getActualState(state, this, worldIn, pos);
@@ -55,10 +58,12 @@ import java.util.List;
         return state;
     }
 
-    @Override @ParametersAreNonnullByDefault @SuppressWarnings("deprecation")
+    @Override
+    @ParametersAreNonnullByDefault
+    @SuppressWarnings("deprecation")
     public IBlockState getStateForPlacement(@Nullable World world, @Nullable BlockPos pos,
-        @Nullable EnumFacing facing, float hitX, float hitY, float hitZ, int meta,
-        @Nullable EntityLivingBase placer) {
+                                            @Nullable EnumFacing facing, float hitX, float hitY, float hitZ, int meta,
+                                            @Nullable EntityLivingBase placer) {
         IBlockState state = this.getDefaultState();
 
         for (Feature feature : features) {
@@ -68,7 +73,9 @@ import java.util.List;
         return state;
     }
 
-    @Override @SuppressWarnings("deprecation") public IBlockState getStateFromMeta(int meta) {
+    @Override
+    @SuppressWarnings("deprecation")
+    public IBlockState getStateFromMeta(int meta) {
         IBlockState state = this.getDefaultState();
         for (Feature feature : Lists.reverse(features)) {
             Pair<Integer, IBlockState> pair = feature.getFromMeta(meta, state);
@@ -78,7 +85,8 @@ import java.util.List;
         return state;
     }
 
-    @Override public int getMetaFromState(IBlockState state) {
+    @Override
+    public int getMetaFromState(IBlockState state) {
         int meta = 0;
         for (Feature feature : features) {
             meta = feature.putToMeta(meta, state);
@@ -87,13 +95,14 @@ import java.util.List;
     }
 
 
-    @Override public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state,
-        EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY,
-        float hitZ) {
+    @Override
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state,
+                                    EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY,
+                                    float hitZ) {
         if (worldIn.isRemote) return true;
 
         boolean f =
-            super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
+                super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
 
         for (Feature feature : features) {
             f |= feature.onActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
@@ -102,7 +111,8 @@ import java.util.List;
         return f;
     }
 
-    @Override protected BlockStateContainer createBlockState() {
+    @Override
+    protected BlockStateContainer createBlockState() {
         this.features = this.getFeatures();
 
         ArrayList<IProperty> properties = new ArrayList<>();

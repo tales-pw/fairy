@@ -15,25 +15,30 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("deprecation") @MethodsReturnNonnullByDefault public class BlockCouch
-    extends BlockFairy implements FeatureConnection.IConnectible, FeatureRotation.IRotationAccess {
+@SuppressWarnings("deprecation")
+@MethodsReturnNonnullByDefault
+public class BlockCouch
+        extends BlockFairy implements FeatureConnection.IConnectible, FeatureRotation.IRotationAccess {
 
     protected static final AxisAlignedBB AABB_BOTTOM_HALF =
-        new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.45D, 1.0D);
+            new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.45D, 1.0D);
 
     public BlockCouch() {
         super(Material.WOOD);
     }
 
-    @Override public boolean isFullBlock(IBlockState state) {
+    @Override
+    public boolean isFullBlock(IBlockState state) {
         return false;
     }
 
-    @Override public boolean isBlockNormalCube(IBlockState state) {
+    @Override
+    public boolean isBlockNormalCube(IBlockState state) {
         return false;
     }
 
-    @Override public boolean isFullCube(IBlockState state) {
+    @Override
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
@@ -44,28 +49,32 @@ import java.util.List;
 
     @Override
     public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos,
-        EnumFacing face) {
+                                            EnumFacing face) {
         return BlockFaceShape.UNDEFINED;
     }
 
-    @Nullable @Override
+    @Nullable
+    @Override
     public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn,
-        BlockPos pos) {
+                                                 BlockPos pos) {
         return AABB_BOTTOM_HALF;
     }
 
-    @Override public boolean isOpaqueCube(IBlockState state) {
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
-    @Override public List<Feature> getFeatures() {
+    @Override
+    public List<Feature> getFeatures() {
         List<Feature> features = new ArrayList<>();
         features.add(FeatureHRotation.DEFAULT);
         features.add(FeatureConnectionDirectional.DEFAULT);
         return features;
     }
 
-    @Override public boolean canConnect(Block block2) {
+    @Override
+    public boolean canConnect(Block block2) {
         return block2 instanceof BlockCouch;
     }
 

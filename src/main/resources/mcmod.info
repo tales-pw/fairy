@@ -7,11 +7,15 @@
     "mcversion": "${mcversion}",
     "url": "",
     "updateUrl": "",
-    "authorList": ["xunto"],
+    "authorList": [
+      "xunto"
+    ],
     "credits": "",
     "logoFile": "",
     "screenshots": [],
-    "requiredMods": ["conquest"],
+    "requiredMods": [
+      "conquest"
+    ],
     "dependencies": []
   }
 ]

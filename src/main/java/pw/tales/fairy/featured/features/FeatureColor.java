@@ -14,11 +14,12 @@ import pw.tales.fairy.featured.Pair;
 import java.util.ArrayList;
 import java.util.List;
 
-@MethodsReturnNonnullByDefault public class FeatureColor extends Feature {
+@MethodsReturnNonnullByDefault
+public class FeatureColor extends Feature {
     public static final Feature DEFAULT = new FeatureColor();
 
     public static final PropertyEnum<EnumDyeColor> COLOR =
-        PropertyEnum.<EnumDyeColor>create("color", EnumDyeColor.class);
+            PropertyEnum.<EnumDyeColor>create("color", EnumDyeColor.class);
 
     private static final List<IProperty> properties = new ArrayList<>();
 
@@ -26,25 +27,30 @@ import java.util.List;
         properties.add(COLOR);
     }
 
-    @Override public IBlockState getDefaultState(IBlockState state) {
+    @Override
+    public IBlockState getDefaultState(IBlockState state) {
         return super.getDefaultState(state).withProperty(COLOR, EnumDyeColor.WHITE);
     }
 
-    @Override public int putToMeta(int oldMeta, IBlockState state) {
+    @Override
+    public int putToMeta(int oldMeta, IBlockState state) {
         return oldMeta << 4 | state.getValue(COLOR).getMetadata();
     }
 
-    @Override public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
+    @Override
+    public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
         return new Pair<>(oldMeta >> 4,
-            state.withProperty(COLOR, EnumDyeColor.byMetadata(oldMeta & 15)));
+                state.withProperty(COLOR, EnumDyeColor.byMetadata(oldMeta & 15)));
     }
 
-    @Override public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
-        EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+    @Override
+    public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
+                                   EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return state.withProperty(COLOR, EnumDyeColor.byMetadata(meta));
     }
 
-    @Override public List<IProperty> getProperties() {
+    @Override
+    public List<IProperty> getProperties() {
         return properties;
     }
 }

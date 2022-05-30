@@ -7,7 +7,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-@SuppressWarnings("deprecation") @MethodsReturnNonnullByDefault
+@SuppressWarnings("deprecation")
+@MethodsReturnNonnullByDefault
 public class BlockCradle extends BlockSimple {
     private static final AxisAlignedBB BOUNDING_BOX =
             new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 0.3D, 0.9D);

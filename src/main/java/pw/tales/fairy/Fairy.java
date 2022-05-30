@@ -14,9 +14,9 @@ import pw.tales.fairy.tile.TileWatermill;
 
 @Mod(modid = Fairy.MOD_ID, name = Fairy.MOD_NAME, version = Fairy.VERSION, dependencies = "required-after:conquest; required-after:pillars;")
 public class Fairy {
-    public static final String MOD_ID = "@MODID@";
-    public static final String MOD_NAME = "@MODID@";
-    public static final String VERSION = "@VERSION@";
+    public static final String MOD_ID = "fairy";
+    public static final String MOD_NAME = "fairy";
+    public static final String VERSION = "dev";
 
     @SidedProxy(clientSide = "pw.tales.fairy.client.ClientProxy", serverSide = "pw.tales.fairy.server.ServerProxy")
     public static ServerProxy proxy;
@@ -36,7 +36,8 @@ public class Fairy {
         proxy.init(event);
     }
 
-    @Mod.EventHandler public void postInit(FMLPostInitializationEvent event) {
+    @Mod.EventHandler
+    public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
     }
 

@@ -12,11 +12,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class WaterColorHandler implements IBlockColor {
     public static WaterColorHandler INSTANCE = new WaterColorHandler();
 
-    @ParametersAreNonnullByDefault @Override
+    @ParametersAreNonnullByDefault
+    @Override
     public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn,
-        @Nullable BlockPos pos, int tintIndex) {
+                               @Nullable BlockPos pos, int tintIndex) {
         return worldIn != null && pos != null ?
-            BiomeColorHelper.getWaterColorAtPos(worldIn, pos) :
-            -1;
+                BiomeColorHelper.getWaterColorAtPos(worldIn, pos) :
+                -1;
     }
 }

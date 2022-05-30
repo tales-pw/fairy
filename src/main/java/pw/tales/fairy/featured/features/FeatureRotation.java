@@ -13,7 +13,8 @@ import pw.tales.fairy.featured.Pair;
 import java.util.ArrayList;
 import java.util.List;
 
-@MethodsReturnNonnullByDefault public class FeatureRotation extends Feature {
+@MethodsReturnNonnullByDefault
+public class FeatureRotation extends Feature {
     public static final Feature DEFAULT = new FeatureRotation();
 
     public static final PropertyDirection FACING = PropertyDirection.create("facing");
@@ -24,25 +25,30 @@ import java.util.List;
         properties.add(FACING);
     }
 
-    @Override public IBlockState getDefaultState(IBlockState state) {
+    @Override
+    public IBlockState getDefaultState(IBlockState state) {
         return super.getDefaultState(state).withProperty(FACING, EnumFacing.NORTH);
     }
 
-    @Override public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
-        EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+    @Override
+    public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
+                                   EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return state.withProperty(FACING, facing);
     }
 
-    @Override public int putToMeta(int oldMeta, IBlockState state) {
+    @Override
+    public int putToMeta(int oldMeta, IBlockState state) {
         return oldMeta << 3 | state.getValue(FACING).getIndex();
     }
 
-    @Override public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
+    @Override
+    public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
         return new Pair<>(oldMeta >> 3,
-            state.withProperty(FACING, EnumFacing.byIndex(oldMeta & 7)));
+                state.withProperty(FACING, EnumFacing.byIndex(oldMeta & 7)));
     }
 
-    @Override public List<IProperty> getProperties() {
+    @Override
+    public List<IProperty> getProperties() {
         return properties;
     }
 

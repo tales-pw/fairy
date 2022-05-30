@@ -15,13 +15,15 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class MetaColorHandler implements IItemColor, IBlockColor {
     public static MetaColorHandler DEFAULT = new MetaColorHandler();
 
-    @ParametersAreNonnullByDefault @Override
+    @ParametersAreNonnullByDefault
+    @Override
     public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn,
-        @Nullable BlockPos pos, int tintIndex) {
+                               @Nullable BlockPos pos, int tintIndex) {
         return state.getValue(FeatureColor.COLOR).getColorValue();
     }
 
-    @ParametersAreNonnullByDefault @Override
+    @ParametersAreNonnullByDefault
+    @Override
     public int colorMultiplier(ItemStack stack, int tintIndex) {
         return EnumDyeColor.byMetadata(stack.getMetadata()).getColorValue();
     }

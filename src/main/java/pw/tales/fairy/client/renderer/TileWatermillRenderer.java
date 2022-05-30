@@ -22,14 +22,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Mod.EventBusSubscriber(Side.CLIENT) public class TileWatermillRenderer
-    extends TileEntitySpecialRenderer<TileWatermill> {
+@Mod.EventBusSubscriber(Side.CLIENT)
+public class TileWatermillRenderer
+        extends TileEntitySpecialRenderer<TileWatermill> {
     private static final float SPEED = 0.003f;
     private static final float SCALE = 10f;
     private static Map<String, List<BakedQuad>> cache = new HashMap<>();
     private static float rotation = 0;
 
-    @SubscribeEvent public static void onClientTick(TickEvent.ClientTickEvent event) {
+    @SubscribeEvent
+    public static void onClientTick(TickEvent.ClientTickEvent event) {
         rotation += SPEED;
         rotation %= 1;
     }
@@ -42,7 +44,7 @@ import java.util.Map;
             return quads;
 
         BlockRendererDispatcher blockRenderer =
-            Minecraft.getMinecraft().getBlockRendererDispatcher();
+                Minecraft.getMinecraft().getBlockRendererDispatcher();
 
         state = state.getActualState(getWorld(), blockPos);
 
@@ -55,7 +57,7 @@ import java.util.Map;
 
     @Override
     public void render(TileWatermill tile, double x, double y, double z, float partialTicks,
-        int destroyStage, float alpha) {
+                       int destroyStage, float alpha) {
         BlockPos blockPos = tile.getPos();
         IBlockState state = getWorld().getBlockState(blockPos);
 

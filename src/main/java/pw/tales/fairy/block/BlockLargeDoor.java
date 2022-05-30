@@ -23,8 +23,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-@SuppressWarnings("deprecation") @MethodsReturnNonnullByDefault public class BlockLargeDoor
-    extends BlockFairy {
+@SuppressWarnings("deprecation")
+@MethodsReturnNonnullByDefault
+public class BlockLargeDoor
+        extends BlockFairy {
     private final AxisAlignedBB AABB_X;
     private final AxisAlignedBB AABB_Z;
 
@@ -35,15 +37,18 @@ import java.util.List;
         AABB_Z = new AxisAlignedBB(0.3D, 0.0D, 1 - width, 0.7, height, width);
     }
 
-    @Override public boolean isFullBlock(IBlockState state) {
+    @Override
+    public boolean isFullBlock(IBlockState state) {
         return false;
     }
 
-    @Override public boolean isBlockNormalCube(IBlockState state) {
+    @Override
+    public boolean isBlockNormalCube(IBlockState state) {
         return false;
     }
 
-    @Override public boolean isFullCube(IBlockState state) {
+    @Override
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
@@ -68,27 +73,31 @@ import java.util.List;
         return super.getBoundingBox(state, source, pos);
     }
 
-    @Nullable @Override
+    @Nullable
+    @Override
     public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess worldIn,
-        BlockPos pos) {
+                                                 BlockPos pos) {
         OpenStatus status = state.getValue(FeatureOpenStatus.OPEN_STATUS);
         if (status.getIsOpen())
             return NULL_AABB;
         return getBoundingBox(state, worldIn, pos);
     }
 
-    @Override public boolean isOpaqueCube(IBlockState state) {
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
-    @Override public List<Feature> getFeatures() {
+    @Override
+    public List<Feature> getFeatures() {
         List<Feature> features = new ArrayList<>();
         features.add(FeatureHRotation.DEFAULT);
         features.add(FeatureOpenStatus.DEFAULT);
         return features;
     }
 
-    @MethodsReturnNonnullByDefault enum OpenStatus implements IStringSerializable {
+    @MethodsReturnNonnullByDefault
+    enum OpenStatus implements IStringSerializable {
         IN(0, "in"), CLOSED(1, "closed", false), OUT(2, "out");
 
         private final int index;
@@ -116,7 +125,8 @@ import java.util.List;
             }
         }
 
-        @Override public String getName() {
+        @Override
+        public String getName() {
             return this.name;
         }
 
@@ -130,23 +140,27 @@ import java.util.List;
     }
 
 
-    @MethodsReturnNonnullByDefault static class FeatureOpenStatus extends Feature {
+    @MethodsReturnNonnullByDefault
+    static class FeatureOpenStatus extends Feature {
         public static final Feature DEFAULT = new FeatureOpenStatus();
         public static final PropertyEnum<OpenStatus> OPEN_STATUS =
-            PropertyEnum.create("open", OpenStatus.class);
+                PropertyEnum.create("open", OpenStatus.class);
 
-        @Override public int putToMeta(int oldMeta, IBlockState state) {
+        @Override
+        public int putToMeta(int oldMeta, IBlockState state) {
             return oldMeta << 2 | state.getValue(OPEN_STATUS).getIndex();
         }
 
-        @Override public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
+        @Override
+        public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
             return new Pair<>(oldMeta >> 2,
-                state.withProperty(OPEN_STATUS, OpenStatus.getByIndex(oldMeta & 3)));
+                    state.withProperty(OPEN_STATUS, OpenStatus.getByIndex(oldMeta & 3)));
         }
 
-        @Override public boolean onActivated(World worldIn, BlockPos pos, IBlockState state,
-            EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY,
-            float hitZ) {
+        @Override
+        public boolean onActivated(World worldIn, BlockPos pos, IBlockState state,
+                                   EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY,
+                                   float hitZ) {
 
             OpenStatus status = state.getValue(OPEN_STATUS);
             if (status.getIsOpen()) {
@@ -154,10 +168,10 @@ import java.util.List;
             } else {
                 Vec3i playerFacing = playerIn.getHorizontalFacing().getDirectionVec();
                 Vec3i openFacing =
-                    state.getValue(FeatureHRotation.FACING).rotateY().getDirectionVec();
+                        state.getValue(FeatureHRotation.FACING).rotateY().getDirectionVec();
 
                 double distance = playerFacing
-                    .getDistance(openFacing.getX(), openFacing.getY(), openFacing.getZ());
+                        .getDistance(openFacing.getX(), openFacing.getY(), openFacing.getZ());
                 if (distance > 0)
                     status = OpenStatus.OUT;
                 else
@@ -167,11 +181,13 @@ import java.util.List;
             return worldIn.setBlockState(pos, state.withProperty(OPEN_STATUS, status));
         }
 
-        @Override public List<IProperty> getProperties() {
+        @Override
+        public List<IProperty> getProperties() {
             return Collections.singletonList(OPEN_STATUS);
         }
 
-        @Override public IBlockState getDefaultState(IBlockState state) {
+        @Override
+        public IBlockState getDefaultState(IBlockState state) {
             return super.getDefaultState(state).withProperty(OPEN_STATUS, OpenStatus.CLOSED);
         }
     }

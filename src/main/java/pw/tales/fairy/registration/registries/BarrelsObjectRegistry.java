@@ -2,6 +2,7 @@ package pw.tales.fairy.registration.registries;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import pw.tales.fairy.Fairy;
 import pw.tales.fairy.block.BlockBarrel;
 import pw.tales.fairy.block.IBlockFairy;
 import pw.tales.fairy.registration.events.FairyRegisterEvent;
@@ -9,7 +10,7 @@ import pw.tales.fairy.registration.events.FairyRegisterEvent;
 import java.util.Arrays;
 import java.util.List;
 
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(modid = Fairy.MOD_ID)
 public class BarrelsObjectRegistry {
     public static List<IBlockFairy> blocks = Arrays.asList(
             new BlockBarrel().setIdentifier("barrel_cocoa_2"),

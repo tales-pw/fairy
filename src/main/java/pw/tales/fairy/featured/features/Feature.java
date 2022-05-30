@@ -15,9 +15,10 @@ import pw.tales.fairy.featured.Pair;
 
 import java.util.List;
 
-@MethodsReturnNonnullByDefault public abstract class Feature {
+@MethodsReturnNonnullByDefault
+public abstract class Feature {
     public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
-        EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+                                   EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return state;
     }
 
@@ -30,8 +31,8 @@ import java.util.List;
     }
 
     public boolean onActivated(World worldIn, BlockPos pos, IBlockState state,
-        EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY,
-        float hitZ) {
+                               EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY,
+                               float hitZ) {
         return false;
     }
 
@@ -42,7 +43,7 @@ import java.util.List;
     }
 
     public IBlockState getActualState(IBlockState state, Block block, IBlockAccess world,
-        BlockPos pos) {
+                                      BlockPos pos) {
         return state;
     }
 }

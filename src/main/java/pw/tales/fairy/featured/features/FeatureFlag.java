@@ -11,7 +11,8 @@ import net.minecraft.world.IBlockAccess;
 import java.util.ArrayList;
 import java.util.List;
 
-@MethodsReturnNonnullByDefault public class FeatureFlag extends Feature {
+@MethodsReturnNonnullByDefault
+public class FeatureFlag extends Feature {
     private final String name;
     private final PropertyBool property;
     private final List<IProperty> properties = new ArrayList<>();
@@ -22,14 +23,16 @@ import java.util.List;
         this.properties.add(this.property);
     }
 
-    @Override public IBlockState getActualState(IBlockState state, Block block, IBlockAccess world,
-        BlockPos pos) {
+    @Override
+    public IBlockState getActualState(IBlockState state, Block block, IBlockAccess world,
+                                      BlockPos pos) {
         IFlagHandler flagHandler = (IFlagHandler) block;
         return super.getActualState(state, block, world, pos)
-            .withProperty(property, flagHandler.handleFlag(this.name, state, block, world, pos));
+                .withProperty(property, flagHandler.handleFlag(this.name, state, block, world, pos));
     }
 
-    @Override public List<IProperty> getProperties() {
+    @Override
+    public List<IProperty> getProperties() {
         return this.properties;
     }
 
@@ -43,6 +46,6 @@ import java.util.List;
 
     public interface IFlagHandler {
         boolean handleFlag(String name, IBlockState state, Block block, IBlockAccess world,
-            BlockPos pos);
+                           BlockPos pos);
     }
 }

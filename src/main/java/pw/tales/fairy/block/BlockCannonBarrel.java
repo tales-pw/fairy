@@ -14,25 +14,30 @@ import pw.tales.fairy.featured.features.FeatureHalf;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("deprecation") public class BlockCannonBarrel extends BlockFairy
-    implements FeatureFlag.IFlagHandler {
+@SuppressWarnings("deprecation")
+public class BlockCannonBarrel extends BlockFairy
+        implements FeatureFlag.IFlagHandler {
     public BlockCannonBarrel() {
         super(Material.IRON);
     }
 
-    @Override public boolean isFullBlock(IBlockState state) {
+    @Override
+    public boolean isFullBlock(IBlockState state) {
         return false;
     }
 
-    @Override public boolean isFullCube(IBlockState state) {
+    @Override
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
-    @Override public boolean isOpaqueCube(IBlockState state) {
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
-    @Override public List<Feature> getFeatures() {
+    @Override
+    public List<Feature> getFeatures() {
         List<Feature> features = new ArrayList<>();
         features.add(FeatureHRotation.DEFAULT);
         features.add(FeatureHalf.DEFAULT);
@@ -42,7 +47,7 @@ import java.util.List;
 
     @Override
     public boolean handleFlag(String name, IBlockState state, Block block, IBlockAccess world,
-        BlockPos pos) {
+                              BlockPos pos) {
         return this.checkIsHanging(state, world, pos);
     }
 

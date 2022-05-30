@@ -12,7 +12,8 @@ import net.minecraft.world.IBlockAccess;
 import java.util.ArrayList;
 import java.util.List;
 
-@MethodsReturnNonnullByDefault public class FeatureConnectionDirectional extends FeatureConnection {
+@MethodsReturnNonnullByDefault
+public class FeatureConnectionDirectional extends FeatureConnection {
     public static final Feature DEFAULT = new FeatureConnectionDirectional();
 
     public static final PropertyBool LEFT = PropertyBool.create("left");
@@ -25,7 +26,8 @@ import java.util.List;
         properties.add(RIGHT);
     }
 
-    @Override public boolean canConnectTo(IBlockState state1, IBlockState state2) {
+    @Override
+    public boolean canConnectTo(IBlockState state1, IBlockState state2) {
         Block block1 = state1.getBlock();
         Block block2 = state2.getBlock();
 
@@ -43,25 +45,28 @@ import java.util.List;
         return super.canConnectTo(state1, state2);
     }
 
-    @Override public IBlockState getDefaultState(IBlockState state) {
+    @Override
+    public IBlockState getDefaultState(IBlockState state) {
         return state.withProperty(FeatureHRotation.FACING, EnumFacing.NORTH)
-            .withProperty(LEFT, false).withProperty(RIGHT, false);
+                .withProperty(LEFT, false).withProperty(RIGHT, false);
     }
 
-    @Override public IBlockState getActualState(IBlockState state, Block block, IBlockAccess world,
-        BlockPos pos) {
+    @Override
+    public IBlockState getActualState(IBlockState state, Block block, IBlockAccess world,
+                                      BlockPos pos) {
         if (!(block instanceof FeatureConnection.IConnectible
-            && block instanceof FeatureRotation.IRotationAccess))
+                && block instanceof FeatureRotation.IRotationAccess))
             return state;
 
         FeatureRotation.IRotationAccess rotatable = (FeatureRotation.IRotationAccess) block;
         EnumFacing facing = rotatable.getFacing(state);
 
         return state.withProperty(LEFT, this.canConnectTo(world, state, pos, facing.rotateY()))
-            .withProperty(RIGHT, this.canConnectTo(world, state, pos, facing.rotateYCCW()));
+                .withProperty(RIGHT, this.canConnectTo(world, state, pos, facing.rotateYCCW()));
     }
 
-    @Override public List<IProperty> getProperties() {
+    @Override
+    public List<IProperty> getProperties() {
         return properties;
     }
 }

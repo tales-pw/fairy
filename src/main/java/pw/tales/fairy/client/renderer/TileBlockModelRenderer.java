@@ -16,7 +16,7 @@ import org.lwjgl.opengl.GL11;
 import java.util.List;
 
 public abstract class TileBlockModelRenderer<T extends TileEntity>
-    extends TileEntitySpecialRenderer<T> {
+        extends TileEntitySpecialRenderer<T> {
     protected float rotationX = 0;
     protected float rotationY = 0;
     protected float rotationZ = 0;
@@ -32,7 +32,7 @@ public abstract class TileBlockModelRenderer<T extends TileEntity>
     private List<BakedQuad> quads;
 
     public static void renderModelTESRFast(List<BakedQuad> quads, BufferBuilder renderer,
-        World world, BlockPos pos) {
+                                           World world, BlockPos pos) {
         int brightness = world.getCombinedLight(pos, 0);
         int l1 = (brightness >> 0x10) & 0xFFFF;
         int l2 = brightness & 0xFFFF;
@@ -43,11 +43,11 @@ public abstract class TileBlockModelRenderer<T extends TileEntity>
             int uv = format.getUvOffsetById(0) / 4;
             for (int i = 0; i < 4; ++i) {
                 renderer.pos(Float.intBitsToFloat(vData[size * i]),
-                    Float.intBitsToFloat(vData[size * i + 1]),
-                    Float.intBitsToFloat(vData[size * i + 2])).color(255, 255, 255, 255)
-                    .tex(Float.intBitsToFloat(vData[size * i + uv]),
-                        Float.intBitsToFloat(vData[size * i + uv + 1])).lightmap(l1, l2)
-                    .endVertex();
+                                Float.intBitsToFloat(vData[size * i + 1]),
+                                Float.intBitsToFloat(vData[size * i + 2])).color(255, 255, 255, 255)
+                        .tex(Float.intBitsToFloat(vData[size * i + uv]),
+                                Float.intBitsToFloat(vData[size * i + uv + 1])).lightmap(l1, l2)
+                        .endVertex();
             }
 
         }
@@ -55,14 +55,15 @@ public abstract class TileBlockModelRenderer<T extends TileEntity>
 
     abstract public void setUp(T tile, float partialTicks);
 
-    @Override public void render(T tile, double x, double y, double z, float partialTicks,
-        int destroyStage, float alpha) {
+    @Override
+    public void render(T tile, double x, double y, double z, float partialTicks,
+                       int destroyStage, float alpha) {
         if (!tile.getWorld().isBlockLoaded(tile.getPos(), false))
             return;
 
         if (quads == null) {
             final BlockRendererDispatcher blockRenderer =
-                Minecraft.getMinecraft().getBlockRendererDispatcher();
+                    Minecraft.getMinecraft().getBlockRendererDispatcher();
             IBlockState state = tile.getBlockType().getDefaultState();
             quads = blockRenderer.getModelForState(state).getQuads(state, null, 0);
         }

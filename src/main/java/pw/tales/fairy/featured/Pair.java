@@ -9,7 +9,8 @@ public class Pair<T, T1> {
         this.second = second;
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return super.toString() + "[" + first.toString() + "; " + second.toString() + "];";
     }
 }

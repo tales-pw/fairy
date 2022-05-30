@@ -13,21 +13,21 @@ public abstract class FeatureConnection extends Feature {
         Vec3i dir2 = facing2.getDirectionVec();
 
         return new Vec3i(dir1.getX() + dir2.getX(), dir1.getY() + dir2.getY(),
-            dir1.getZ() + dir2.getZ());
+                dir1.getZ() + dir2.getZ());
     }
 
     protected boolean canConnectTo(IBlockAccess worldIn, IBlockState state1, BlockPos pos,
-        EnumFacing facing1, EnumFacing facing2) {
+                                   EnumFacing facing1, EnumFacing facing2) {
         return this.canConnectTo(worldIn, state1, pos, this.createDirVector(facing1, facing2));
     }
 
     protected boolean canConnectTo(IBlockAccess worldIn, IBlockState state1, BlockPos pos,
-        EnumFacing facing) {
+                                   EnumFacing facing) {
         return this.canConnectTo(worldIn, state1, pos, facing.getDirectionVec());
     }
 
     protected boolean canConnectTo(IBlockAccess worldIn, IBlockState state1, BlockPos pos,
-        Vec3i directionalVector) {
+                                   Vec3i directionalVector) {
         IBlockState state2 = worldIn.getBlockState(pos.add(directionalVector));
         return this.canConnectTo(state1, state2);
     }

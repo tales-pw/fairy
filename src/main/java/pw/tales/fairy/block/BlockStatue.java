@@ -10,7 +10,8 @@ public class BlockStatue extends BlockSimple {
         super(Material.ROCK);
     }
 
-    @Override public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+    @Override
+    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
         return 1;
     }
 }

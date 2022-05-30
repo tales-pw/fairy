@@ -7,7 +7,8 @@ import net.minecraft.block.state.IBlockState;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("NullableProblems") public class FeatureDefaultValue extends Feature {
+@SuppressWarnings("NullableProblems")
+public class FeatureDefaultValue extends Feature {
     private final PropertyBool property;
     private final String name;
 
@@ -19,13 +20,15 @@ import java.util.List;
         this.properties.add(this.property);
     }
 
-    @Override public IBlockState getDefaultState(IBlockState state) {
+    @Override
+    public IBlockState getDefaultState(IBlockState state) {
         IDefaultValueHandler block = (IDefaultValueHandler) state.getBlock();
 
         return state.withProperty(property, block.getDefaultValue(this.name));
     }
 
-    @Override public List<IProperty> getProperties() {
+    @Override
+    public List<IProperty> getProperties() {
         return properties;
     }
 

@@ -15,7 +15,8 @@ import pw.tales.fairy.featured.Pair;
 import java.util.ArrayList;
 import java.util.List;
 
-@MethodsReturnNonnullByDefault public class FeatureHRotation extends Feature {
+@MethodsReturnNonnullByDefault
+public class FeatureHRotation extends Feature {
     public static final Feature DEFAULT = new FeatureHRotation();
 
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
@@ -41,34 +42,39 @@ import java.util.List;
         System.out.println("East: " + east_meta);
 
         System.out.println("South: " + DEFAULT
-            .getFromMeta(south_meta, defaultState.withProperty(FACING, EnumFacing.SOUTH)));
+                .getFromMeta(south_meta, defaultState.withProperty(FACING, EnumFacing.SOUTH)));
         System.out.println("West: " + DEFAULT
-            .getFromMeta(west_meta, defaultState.withProperty(FACING, EnumFacing.WEST)));
+                .getFromMeta(west_meta, defaultState.withProperty(FACING, EnumFacing.WEST)));
         System.out.println("North: " + DEFAULT
-            .getFromMeta(north_meta, defaultState.withProperty(FACING, EnumFacing.NORTH)));
+                .getFromMeta(north_meta, defaultState.withProperty(FACING, EnumFacing.NORTH)));
         System.out.println("East: " + DEFAULT
-            .getFromMeta(east_meta, defaultState.withProperty(FACING, EnumFacing.EAST)));
+                .getFromMeta(east_meta, defaultState.withProperty(FACING, EnumFacing.EAST)));
     }
 
-    @Override public IBlockState getDefaultState(IBlockState state) {
+    @Override
+    public IBlockState getDefaultState(IBlockState state) {
         return super.getDefaultState(state).withProperty(FACING, EnumFacing.NORTH);
     }
 
-    @Override public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
-        EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+    @Override
+    public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
+                                   EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return state.withProperty(FACING, placer.getHorizontalFacing());
     }
 
-    @Override public int putToMeta(int oldMeta, IBlockState state) {
+    @Override
+    public int putToMeta(int oldMeta, IBlockState state) {
         return oldMeta << 2 | state.getValue(FACING).getHorizontalIndex();
     }
 
-    @Override public List<IProperty> getProperties() {
+    @Override
+    public List<IProperty> getProperties() {
         return properties;
     }
 
-    @Override public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
+    @Override
+    public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
         return new Pair<>(oldMeta >> 2,
-            state.withProperty(FACING, EnumFacing.byHorizontalIndex(oldMeta & 3)));
+                state.withProperty(FACING, EnumFacing.byHorizontalIndex(oldMeta & 3)));
     }
 }

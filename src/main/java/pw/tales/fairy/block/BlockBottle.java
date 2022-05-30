@@ -9,7 +9,7 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockBottle extends BlockSimple {
     protected static final AxisAlignedBB DEFAULT_AABB =
-        new AxisAlignedBB(0.4D, 0.0D, 0.4D, 0.6D, 0.6D, 0.6D);
+            new AxisAlignedBB(0.4D, 0.0D, 0.4D, 0.6D, 0.6D, 0.6D);
 
     public BlockBottle() {
         super(Material.CLOTH);
@@ -20,19 +20,23 @@ public class BlockBottle extends BlockSimple {
         return DEFAULT_AABB;
     }
 
-    @Override public BlockRenderLayer getRenderLayer() {
+    @Override
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT_MIPPED;
     }
 
-    @Override public boolean isOpaqueCube(IBlockState state) {
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
-    @Override public boolean isFullBlock(IBlockState state) {
+    @Override
+    public boolean isFullBlock(IBlockState state) {
         return false;
     }
 
-    @Override public boolean isFullCube(IBlockState state) {
+    @Override
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 }

@@ -20,45 +20,53 @@ import pw.tales.fairy.item.ItemFCloth;
 import java.util.Collections;
 import java.util.List;
 
-@SuppressWarnings("deprecation") public class BlockVial extends BlockFairy {
+@SuppressWarnings("deprecation")
+public class BlockVial extends BlockFairy {
     public BlockVial() {
         super(Material.IRON);
     }
 
-    @Override public boolean isFullBlock(IBlockState state) {
+    @Override
+    public boolean isFullBlock(IBlockState state) {
         return false;
     }
 
-    @Override public boolean isFullCube(IBlockState state) {
+    @Override
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
     @Override
     public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos,
-        EnumFacing face) {
+                                            EnumFacing face) {
         return BlockFaceShape.UNDEFINED;
     }
 
-    @Override public boolean isOpaqueCube(IBlockState state) {
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
-    @Override public int damageDropped(IBlockState state) {
+    @Override
+    public int damageDropped(IBlockState state) {
         return state.getValue(FeatureColor.COLOR).getMetadata();
     }
 
-    @Override public BlockRenderLayer getRenderLayer() {
+    @Override
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.TRANSLUCENT;
     }
 
-    @Override public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
+    @Override
+    public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
         for (EnumDyeColor enumdyecolor : EnumDyeColor.values()) {
             ItemStack itemStack = new ItemStack(this, 1, enumdyecolor.getMetadata());
             items.add(itemStack);
         }
     }
 
-    @Override public List<Feature> getFeatures() {
+    @Override
+    public List<Feature> getFeatures() {
         return Collections.singletonList(FeatureColor.DEFAULT);
     }
 

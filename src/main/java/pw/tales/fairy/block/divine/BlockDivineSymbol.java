@@ -9,15 +9,17 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import pw.tales.fairy.block.BlockSimple;
 
-@SuppressWarnings("deprecation") @MethodsReturnNonnullByDefault public class BlockDivineSymbol
-    extends BlockSimple {
+@SuppressWarnings("deprecation")
+@MethodsReturnNonnullByDefault
+public class BlockDivineSymbol
+        extends BlockSimple {
     public BlockDivineSymbol() {
         super(Material.IRON);
     }
 
     @Override
     public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos,
-        EnumFacing face) {
+                                            EnumFacing face) {
         return BlockFaceShape.UNDEFINED;
     }
 }

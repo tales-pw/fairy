@@ -15,7 +15,8 @@ import pw.tales.fairy.featured.Pair;
 import java.util.Collections;
 import java.util.List;
 
-@MethodsReturnNonnullByDefault public class FeatureLayers extends Feature {
+@MethodsReturnNonnullByDefault
+public class FeatureLayers extends Feature {
     public static final FeatureLayers DEFAULT = new FeatureLayers();
     public static final PropertyInteger LAYERS = PropertyInteger.create("layers", 1, 8);
 
@@ -42,43 +43,48 @@ import java.util.List;
         System.out.println("8: " + meta_8);
 
         System.out
-            .println("1: " + DEFAULT.getFromMeta(meta_1, defaultState.withProperty(LAYERS, 1)));
+                .println("1: " + DEFAULT.getFromMeta(meta_1, defaultState.withProperty(LAYERS, 1)));
         System.out
-            .println("2: " + DEFAULT.getFromMeta(meta_2, defaultState.withProperty(LAYERS, 2)));
+                .println("2: " + DEFAULT.getFromMeta(meta_2, defaultState.withProperty(LAYERS, 2)));
         System.out
-            .println("3: " + DEFAULT.getFromMeta(meta_3, defaultState.withProperty(LAYERS, 3)));
+                .println("3: " + DEFAULT.getFromMeta(meta_3, defaultState.withProperty(LAYERS, 3)));
         System.out
-            .println("4: " + DEFAULT.getFromMeta(meta_4, defaultState.withProperty(LAYERS, 4)));
+                .println("4: " + DEFAULT.getFromMeta(meta_4, defaultState.withProperty(LAYERS, 4)));
         System.out
-            .println("5: " + DEFAULT.getFromMeta(meta_5, defaultState.withProperty(LAYERS, 5)));
+                .println("5: " + DEFAULT.getFromMeta(meta_5, defaultState.withProperty(LAYERS, 5)));
         System.out
-            .println("6: " + DEFAULT.getFromMeta(meta_6, defaultState.withProperty(LAYERS, 6)));
+                .println("6: " + DEFAULT.getFromMeta(meta_6, defaultState.withProperty(LAYERS, 6)));
         System.out
-            .println("7: " + DEFAULT.getFromMeta(meta_7, defaultState.withProperty(LAYERS, 7)));
+                .println("7: " + DEFAULT.getFromMeta(meta_7, defaultState.withProperty(LAYERS, 7)));
         System.out
-            .println("8: " + DEFAULT.getFromMeta(meta_8, defaultState.withProperty(LAYERS, 8)));
+                .println("8: " + DEFAULT.getFromMeta(meta_8, defaultState.withProperty(LAYERS, 8)));
     }
 
-    @Override public IBlockState getDefaultState(IBlockState state) {
+    @Override
+    public IBlockState getDefaultState(IBlockState state) {
         return state.withProperty(LAYERS, 1);
     }
 
-    @Override public int putToMeta(int oldMeta, IBlockState state) {
+    @Override
+    public int putToMeta(int oldMeta, IBlockState state) {
         return oldMeta << 3 | (state.getValue(LAYERS) - 1);
     }
 
-    @Override public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
+    @Override
+    public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
         return new Pair<>(oldMeta >> 3, state.withProperty(LAYERS, (oldMeta & 7) + 1));
     }
 
-    @Override public boolean onActivated(World worldIn, BlockPos pos, IBlockState state,
-        EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY,
-        float hitZ) {
+    @Override
+    public boolean onActivated(World worldIn, BlockPos pos, IBlockState state,
+                               EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY,
+                               float hitZ) {
 
         return worldIn.setBlockState(pos, state.cycleProperty(LAYERS));
     }
 
-    @Override public List<IProperty> getProperties() {
+    @Override
+    public List<IProperty> getProperties() {
         return Collections.singletonList(LAYERS);
     }
 }

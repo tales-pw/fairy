@@ -12,7 +12,8 @@ import net.minecraft.world.IBlockAccess;
 import java.util.ArrayList;
 import java.util.List;
 
-@MethodsReturnNonnullByDefault public class FeatureConnectionFull extends FeatureConnectionBasic {
+@MethodsReturnNonnullByDefault
+public class FeatureConnectionFull extends FeatureConnectionBasic {
     public static final Feature DEFAULT = new FeatureConnectionFull();
 
     public static final PropertyBool NE = PropertyBool.create("north_east");
@@ -30,47 +31,50 @@ import java.util.List;
         properties.add(NW);
     }
 
-    @Override public List<IProperty> getProperties() {
+    @Override
+    public List<IProperty> getProperties() {
         return properties;
     }
 
-    @Override public IBlockState getDefaultState(IBlockState state) {
+    @Override
+    public IBlockState getDefaultState(IBlockState state) {
         return super.getDefaultState(state).withProperty(NE, false).withProperty(SE, false)
-            .withProperty(SW, false).withProperty(NW, false);
+                .withProperty(SW, false).withProperty(NW, false);
     }
 
-    @Override public IBlockState getActualState(IBlockState state, Block block, IBlockAccess world,
-        BlockPos pos) {
+    @Override
+    public IBlockState getActualState(IBlockState state, Block block, IBlockAccess world,
+                                      BlockPos pos) {
         IBlockState newState = super.getActualState(state, block, world, pos);
 
         if (!(block instanceof IConnectible))
             return state;
 
         newState = newState.withProperty(N,
-            newState.getValue(N) || canConnectTo(world, state, pos, EnumFacing.NORTH,
-                EnumFacing.UP)).withProperty(E,
-            newState.getValue(E) || canConnectTo(world, state, pos, EnumFacing.EAST, EnumFacing.UP))
-            .withProperty(S,
-                newState.getValue(S) || canConnectTo(world, state, pos, EnumFacing.SOUTH,
-                    EnumFacing.UP)).withProperty(W,
-                newState.getValue(W) || canConnectTo(world, state, pos, EnumFacing.WEST,
-                    EnumFacing.UP));
+                        newState.getValue(N) || canConnectTo(world, state, pos, EnumFacing.NORTH,
+                                EnumFacing.UP)).withProperty(E,
+                        newState.getValue(E) || canConnectTo(world, state, pos, EnumFacing.EAST, EnumFacing.UP))
+                .withProperty(S,
+                        newState.getValue(S) || canConnectTo(world, state, pos, EnumFacing.SOUTH,
+                                EnumFacing.UP)).withProperty(W,
+                        newState.getValue(W) || canConnectTo(world, state, pos, EnumFacing.WEST,
+                                EnumFacing.UP));
 
         if (!(newState.getValue(S) || newState.getValue(E)))
             newState = newState.withProperty(SE,
-                canConnectTo(world, state, pos, EnumFacing.SOUTH, EnumFacing.EAST));
+                    canConnectTo(world, state, pos, EnumFacing.SOUTH, EnumFacing.EAST));
 
         if (!(newState.getValue(S) || newState.getValue(W)))
             newState = newState.withProperty(SW,
-                canConnectTo(world, state, pos, EnumFacing.SOUTH, EnumFacing.WEST));
+                    canConnectTo(world, state, pos, EnumFacing.SOUTH, EnumFacing.WEST));
 
         if (!(newState.getValue(N) || newState.getValue(W)))
             newState = newState.withProperty(NW,
-                canConnectTo(world, state, pos, EnumFacing.NORTH, EnumFacing.WEST));
+                    canConnectTo(world, state, pos, EnumFacing.NORTH, EnumFacing.WEST));
 
         if (!(newState.getValue(N) || newState.getValue(E)))
             newState = newState.withProperty(NE,
-                canConnectTo(world, state, pos, EnumFacing.NORTH, EnumFacing.EAST));
+                    canConnectTo(world, state, pos, EnumFacing.NORTH, EnumFacing.EAST));
 
         return newState;
     }

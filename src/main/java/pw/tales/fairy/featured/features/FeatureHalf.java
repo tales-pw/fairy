@@ -14,11 +14,12 @@ import pw.tales.fairy.featured.Pair;
 import java.util.ArrayList;
 import java.util.List;
 
-@MethodsReturnNonnullByDefault public class FeatureHalf extends Feature {
+@MethodsReturnNonnullByDefault
+public class FeatureHalf extends Feature {
     public static final Feature DEFAULT = new FeatureHalf();
 
     public static final PropertyEnum<BlockSlab.EnumBlockHalf> HALF =
-        PropertyEnum.<BlockSlab.EnumBlockHalf>create("half", BlockSlab.EnumBlockHalf.class);
+            PropertyEnum.<BlockSlab.EnumBlockHalf>create("half", BlockSlab.EnumBlockHalf.class);
 
     private static final List<IProperty> properties = new ArrayList<>();
 
@@ -26,28 +27,33 @@ import java.util.List;
         properties.add(HALF);
     }
 
-    @Override public IBlockState getDefaultState(IBlockState state) {
+    @Override
+    public IBlockState getDefaultState(IBlockState state) {
         return super.getDefaultState(state).withProperty(HALF, BlockSlab.EnumBlockHalf.TOP);
     }
 
-    @Override public int putToMeta(int oldMeta, IBlockState state) {
+    @Override
+    public int putToMeta(int oldMeta, IBlockState state) {
         return oldMeta << 1 | (state.getValue(HALF) == BlockSlab.EnumBlockHalf.TOP ? 0 : 1);
     }
 
-    @Override public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
+    @Override
+    public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
         int i = oldMeta & 1;
         return new Pair<>(oldMeta >> 1, state.withProperty(HALF,
-            i == 0 ? BlockSlab.EnumBlockHalf.TOP : BlockSlab.EnumBlockHalf.BOTTOM));
+                i == 0 ? BlockSlab.EnumBlockHalf.TOP : BlockSlab.EnumBlockHalf.BOTTOM));
     }
 
-    @Override public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
-        EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+    @Override
+    public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
+                                   EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return facing != EnumFacing.DOWN && (facing == EnumFacing.UP || (double) hitY <= 0.5D) ?
-            state.withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM) :
-            state.withProperty(HALF, BlockSlab.EnumBlockHalf.TOP);
+                state.withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM) :
+                state.withProperty(HALF, BlockSlab.EnumBlockHalf.TOP);
     }
 
-    @Override public List<IProperty> getProperties() {
+    @Override
+    public List<IProperty> getProperties() {
         return properties;
     }
 }

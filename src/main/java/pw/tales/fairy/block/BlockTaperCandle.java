@@ -17,23 +17,27 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("deprecation") @MethodsReturnNonnullByDefault public class BlockTaperCandle
-    extends BlockFairy {
+@SuppressWarnings("deprecation")
+@MethodsReturnNonnullByDefault
+public class BlockTaperCandle
+        extends BlockFairy {
     private static final PropertyBool LIT_PROPERTY = PropertyBool.create("lit");
     private static final FeatureSwitch SWITCH_FEATURE = new FeatureSwitch(LIT_PROPERTY);
 
     private static final AxisAlignedBB BOUNDING_BOX =
-        new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5D, 1.0D);
+            new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5D, 1.0D);
 
     public BlockTaperCandle() {
         super(Material.CLAY);
     }
 
-    @Override public boolean isFullBlock(IBlockState state) {
+    @Override
+    public boolean isFullBlock(IBlockState state) {
         return false;
     }
 
-    @Override public boolean isFullCube(IBlockState state) {
+    @Override
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
@@ -42,27 +46,32 @@ import java.util.List;
         return BOUNDING_BOX;
     }
 
-    @ParametersAreNonnullByDefault @Nullable
+    @ParametersAreNonnullByDefault
+    @Nullable
     public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn,
-        BlockPos pos) {
+                                                 BlockPos pos) {
         return NULL_AABB;
     }
 
-    @Override public boolean isOpaqueCube(IBlockState state) {
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
-    @Override public BlockRenderLayer getRenderLayer() {
+    @Override
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT_MIPPED;
     }
 
-    @Override public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+    @Override
+    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
         if (state.getValue(LIT_PROPERTY))
             return 15;
         return super.getLightValue(state, world, pos);
     }
 
-    @Override public List<Feature> getFeatures() {
+    @Override
+    public List<Feature> getFeatures() {
         List<Feature> features = new ArrayList<>();
         features.add(FeatureHRotation.DEFAULT);
         features.add(SWITCH_FEATURE);

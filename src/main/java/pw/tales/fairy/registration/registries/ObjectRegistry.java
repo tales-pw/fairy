@@ -22,7 +22,7 @@ import pw.tales.fairy.registration.events.FairyRegisterEvent;
 import java.util.Arrays;
 import java.util.List;
 
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(modid = Fairy.MOD_ID)
 public class ObjectRegistry {
     public static CreativeTabs FAIRY_TAB = new CreativeTabs(Fairy.MOD_ID) {
         @Override

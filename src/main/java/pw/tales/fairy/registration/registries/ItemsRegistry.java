@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(modid = Fairy.MOD_ID)
 public class ItemsRegistry {
     public static final ItemPoseManager maskPoses = ItemPoseManager.builder().add("pose_up").add("pose_normal")
             .add("pose_down").add("pose_down2").build();

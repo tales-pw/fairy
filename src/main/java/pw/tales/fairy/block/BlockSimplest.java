@@ -11,7 +11,8 @@ public class BlockSimplest extends Block implements IBlockFairy {
         this.setCreativeTab(ObjectRegistry.FAIRY_TAB);
     }
 
-    @Override public final BlockSimplest setIdentifier(String name) {
+    @Override
+    public final BlockSimplest setIdentifier(String name) {
         this.setRegistryName(Fairy.MOD_ID, name);
         this.setTranslationKey(name);
         return this;

@@ -18,23 +18,27 @@ public class Feature360Rotation extends Feature {
     public static final PropertyInteger ROTATION = PropertyInteger.create("rotation", 0, 15);
 
     private static List<IProperty> properties =
-        Collections.singletonList(Feature360Rotation.ROTATION);
+            Collections.singletonList(Feature360Rotation.ROTATION);
 
-    @Override public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
-        EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+    @Override
+    public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
+                                   EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         float rotation = MathHelper.floor((placer.rotationYaw * 16.0F / 360.0F) + 0.5D) & 15;
         return state.withProperty(ROTATION, (int) rotation);
     }
 
-    @Override public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
+    @Override
+    public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
         return new Pair<>(0, state.withProperty(ROTATION, oldMeta));
     }
 
-    @Override public int putToMeta(int oldMeta, IBlockState state) {
+    @Override
+    public int putToMeta(int oldMeta, IBlockState state) {
         return oldMeta << 4 | state.getValue(ROTATION);
     }
 
-    @Override public List<IProperty> getProperties() {
+    @Override
+    public List<IProperty> getProperties() {
         return properties;
     }
 }
