@@ -9,13 +9,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import pw.tales.fairy.Fairy;
-import pw.tales.fairy.registration.registries.ObjectRegistry;
+import pw.tales.fairy.registries.ObjectRegistry;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@MethodsReturnNonnullByDefault public class BlockRiverHolder extends BlockBarrier
-    implements IBlockFairy {
+@MethodsReturnNonnullByDefault
+public class BlockRiverHolder extends BlockBarrier
+        implements IBlockFairy {
     public static final AxisAlignedBB EMPTY = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
 
     public BlockRiverHolder() {
@@ -33,25 +34,34 @@ import javax.annotation.ParametersAreNonnullByDefault;
         return false;
     }
 
-    @SuppressWarnings("deprecation") @Override public boolean causesSuffocation(IBlockState state) {
+    @SuppressWarnings("deprecation")
+    @Override
+    public boolean causesSuffocation(IBlockState state) {
         return false;
     }
 
-    @SuppressWarnings("deprecation") public boolean isFullCube(IBlockState state) {
+    @SuppressWarnings("deprecation")
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
-    @Override public boolean isPassable(IBlockAccess worldIn, BlockPos pos) {
+    @Override
+    public boolean isPassable(IBlockAccess worldIn, BlockPos pos) {
         return true;
     }
 
-    @SuppressWarnings("deprecation") @Nullable @Override @ParametersAreNonnullByDefault
+    @SuppressWarnings("deprecation")
+    @Nullable
+    @Override
+    @ParametersAreNonnullByDefault
     public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn,
-        BlockPos pos) {
+                                                 BlockPos pos) {
         return NULL_AABB;
     }
 
-    @SuppressWarnings("deprecation") @Override @ParametersAreNonnullByDefault
+    @SuppressWarnings("deprecation")
+    @Override
+    @ParametersAreNonnullByDefault
     public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World worldIn, BlockPos pos) {
         AxisAlignedBB selectedBoundingBox = super.getSelectedBoundingBox(state, worldIn, pos);
 

@@ -11,8 +11,9 @@ import pw.tales.fairy.tile.TileRpSign;
 
 import java.util.List;
 
-@SuppressWarnings("deprecation") public class TileRpSignTESR
-    extends TileEntitySpecialRenderer<TileRpSign> {
+@SuppressWarnings("deprecation")
+public class TileRpSignTESR
+        extends TileEntitySpecialRenderer<TileRpSign> {
 
     private void applyRotation(TileRpSign te) {
         // bypassing get state from IBlockState for purpose of speed
@@ -40,7 +41,7 @@ import java.util.List;
             if (signText[j] != null) {
                 ITextComponent itextcomponent = signText[j];
                 List<ITextComponent> list = GuiUtilRenderComponents
-                    .splitText(itextcomponent, 90, fontrenderer, false, true);
+                        .splitText(itextcomponent, 90, fontrenderer, false, true);
 
                 String s = !list.isEmpty() ? list.get(0).getFormattedText() : "";
 
@@ -48,7 +49,7 @@ import java.util.List;
                     s = "> " + s + " <";
 
                 fontrenderer.drawString(s, -fontrenderer.getStringWidth(s) / 2,
-                    j * 10 - signText.length * 5, EnumDyeColor.WHITE.getColorValue());
+                        j * 10 - signText.length * 5, EnumDyeColor.WHITE.getColorValue());
             }
         }
 
@@ -56,7 +57,7 @@ import java.util.List;
     }
 
     public void render(TileRpSign te, double x, double y, double z, float partialTicks,
-        int destroyStage, float alpha) {
+                       int destroyStage, float alpha) {
 
         // TODO: Get rid of this stupid hack and move everything to separate gui
         boolean isGUI = partialTicks == 0.0f;

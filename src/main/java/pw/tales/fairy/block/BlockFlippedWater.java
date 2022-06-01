@@ -4,13 +4,15 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.BlockRenderLayer;
 
-@MethodsReturnNonnullByDefault public class BlockFlippedWater extends BlockSimple {
+@MethodsReturnNonnullByDefault
+public class BlockFlippedWater extends BlockSimple {
 
     public BlockFlippedWater() {
         super(Material.IRON);
     }
 
-    @Override public BlockRenderLayer getRenderLayer() {
+    @Override
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.SOLID;
     }
 }

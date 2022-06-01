@@ -38,8 +38,7 @@ public class BlockDiagonalDoor extends BlockFairyDoor {
     }
 
     @Override
-    public boolean isPassable(IBlockAccess worldIn, BlockPos pos)
-    {
+    public boolean isPassable(IBlockAccess worldIn, BlockPos pos) {
         return worldIn.getBlockState(pos).getValue(BlockDoor.OPEN);
     }
 

@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.7.5",
+  "package": "pw.tales.pillars.mixin",
+  "refmap": "mixins.pillars.refmap.json",
+  "target": "@env(DEFAULT)",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [],
+  "client": [
+    "ItemPoseBipedModel",
+    "MusketBipedModel",
+    "PistolBipedModel"
+  ]
+}

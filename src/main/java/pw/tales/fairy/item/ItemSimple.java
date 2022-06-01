@@ -2,7 +2,7 @@ package pw.tales.fairy.item;
 
 import net.minecraft.item.Item;
 import pw.tales.fairy.Fairy;
-import pw.tales.fairy.registration.registries.ItemsRegistry;
+import pw.tales.fairy.registries.ItemsRegistry;
 
 public class ItemSimple extends Item implements IItemFairy {
     public ItemSimple() {
