@@ -7,10 +7,10 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import pw.tales.fairy.featured.features.Feature;
-import pw.tales.fairy.featured.features.FeatureDefaultValue;
-import pw.tales.fairy.featured.features.FeatureHRotation;
-import pw.tales.fairy.featured.features.FeatureSwitch;
+import pw.tales.fairy.featured_block.features.Feature;
+import pw.tales.fairy.featured_block.features.FeatureDefaultValue;
+import pw.tales.fairy.featured_block.features.FeatureHRotation;
+import pw.tales.fairy.featured_block.features.FeatureSwitch;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -6,8 +6,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import pw.tales.fairy.featured.features.Feature;
-import pw.tales.fairy.featured.features.FeatureLayers;
+import pw.tales.fairy.featured_block.features.Feature;
+import pw.tales.fairy.featured_block.features.FeatureLayers;
 
 import java.util.Collections;
 import java.util.List;

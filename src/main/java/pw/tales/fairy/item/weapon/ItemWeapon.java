@@ -3,7 +3,7 @@ package pw.tales.fairy.item.weapon;
 import net.minecraft.util.ResourceLocation;
 import pw.tales.fairy.Fairy;
 import pw.tales.fairy.item.IItemFairy;
-import pw.tales.fairy.registration.registries.WeaponRegistry;
+import pw.tales.fairy.registries.WeaponRegistry;
 import pw.tales.pillars.item.ItemPoseManager;
 
 public class ItemWeapon extends pw.tales.pillars.item.ItemPosed implements IItemFairy {

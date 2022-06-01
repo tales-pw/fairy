@@ -13,7 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import pw.tales.fairy.Fairy;
-import pw.tales.fairy.registration.registries.ObjectRegistry;
+import pw.tales.fairy.registries.ObjectRegistry;
 
 import java.util.Random;
 

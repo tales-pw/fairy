@@ -1,4 +1,4 @@
-package pw.tales.fairy.registration.registries;
+package pw.tales.fairy.registries;
 
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.Mod;

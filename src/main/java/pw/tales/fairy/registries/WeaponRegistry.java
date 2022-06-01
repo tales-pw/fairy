@@ -1,4 +1,4 @@
-package pw.tales.fairy.registration.registries;
+package pw.tales.fairy.registries;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;

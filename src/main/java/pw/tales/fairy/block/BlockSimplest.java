@@ -3,7 +3,7 @@ package pw.tales.fairy.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import pw.tales.fairy.Fairy;
-import pw.tales.fairy.registration.registries.ObjectRegistry;
+import pw.tales.fairy.registries.ObjectRegistry;
 
 public class BlockSimplest extends Block implements IBlockFairy {
     public BlockSimplest(Material materialIn) {

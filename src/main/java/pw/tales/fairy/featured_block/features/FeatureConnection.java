@@ -1,4 +1,4 @@
-package pw.tales.fairy.featured.features;
+package pw.tales.fairy.featured_block.features;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;

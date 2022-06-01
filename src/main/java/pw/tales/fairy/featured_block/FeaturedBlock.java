@@ -1,4 +1,4 @@
-package pw.tales.fairy.featured;
+package pw.tales.fairy.featured_block;
 
 
 import com.google.common.collect.Lists;
@@ -16,7 +16,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import pw.tales.fairy.featured.features.Feature;
+import pw.tales.fairy.featured_block.features.Feature;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;

@@ -7,7 +7,7 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import pw.tales.fairy.featured.features.FeatureColor;
+import pw.tales.fairy.featured_block.features.FeatureColor;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;

@@ -9,7 +9,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import pw.tales.fairy.Fairy;
-import pw.tales.fairy.registration.registries.ObjectRegistry;
+import pw.tales.fairy.registries.ObjectRegistry;
 
 @MethodsReturnNonnullByDefault
 public class BlockFiller extends BlockEmptyDrops

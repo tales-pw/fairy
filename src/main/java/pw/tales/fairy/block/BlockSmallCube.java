@@ -8,8 +8,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import pw.tales.fairy.featured.features.Feature;
-import pw.tales.fairy.featured.features.Feature360Rotation;
+import pw.tales.fairy.featured_block.features.Feature;
+import pw.tales.fairy.featured_block.features.Feature360Rotation;
 
 import java.util.Collections;
 import java.util.List;

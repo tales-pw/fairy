@@ -1,4 +1,4 @@
-package pw.tales.fairy.featured.features;
+package pw.tales.fairy.featured_block.features;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.properties.IProperty;
@@ -10,7 +10,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import pw.tales.fairy.featured.Pair;
+import pw.tales.fairy.featured_block.Pair;
 
 import java.util.Collections;
 import java.util.List;

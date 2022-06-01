@@ -1,4 +1,4 @@
-package pw.tales.fairy.featured;
+package pw.tales.fairy.featured_block;
 
 public class Pair<T, T1> {
     public T first = null;

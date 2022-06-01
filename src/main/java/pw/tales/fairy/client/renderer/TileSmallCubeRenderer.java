@@ -1,7 +1,7 @@
 package pw.tales.fairy.client.renderer;
 
 import net.minecraft.client.renderer.GlStateManager;
-import pw.tales.fairy.featured.features.Feature360Rotation;
+import pw.tales.fairy.featured_block.features.Feature360Rotation;
 import pw.tales.fairy.tile.TileSmallCube;
 
 @SuppressWarnings("deprecation")

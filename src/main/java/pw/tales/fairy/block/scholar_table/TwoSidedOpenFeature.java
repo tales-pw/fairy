@@ -9,9 +9,9 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import pw.tales.fairy.featured.Pair;
-import pw.tales.fairy.featured.features.Feature;
-import pw.tales.fairy.featured.features.FeatureHRotation;
+import pw.tales.fairy.featured_block.Pair;
+import pw.tales.fairy.featured_block.features.Feature;
+import pw.tales.fairy.featured_block.features.FeatureHRotation;
 
 import java.util.ArrayList;
 import java.util.List;

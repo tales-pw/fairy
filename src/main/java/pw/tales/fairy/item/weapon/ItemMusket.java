@@ -2,7 +2,7 @@ package pw.tales.fairy.item.weapon;
 
 import pw.tales.fairy.Fairy;
 import pw.tales.fairy.item.IItemFairy;
-import pw.tales.fairy.registration.registries.WeaponRegistry;
+import pw.tales.fairy.registries.WeaponRegistry;
 
 public class ItemMusket extends pw.tales.pillars.item_legacy.weapon.ItemMusket implements IItemFairy {
     public ItemMusket(String name) {

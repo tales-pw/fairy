@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import org.lwjgl.opengl.GL11;
-import pw.tales.fairy.featured.features.FeatureHRotation;
+import pw.tales.fairy.featured_block.features.FeatureHRotation;
 import pw.tales.fairy.tile.TileWatermill;
 
 import java.util.HashMap;

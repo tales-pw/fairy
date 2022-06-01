@@ -1,10 +1,10 @@
-package pw.tales.fairy.featured.features;
+package pw.tales.fairy.featured_block.features;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.IBlockState;
-import pw.tales.fairy.featured.Pair;
+import pw.tales.fairy.featured_block.Pair;
 
 import java.util.ArrayList;
 import java.util.List;

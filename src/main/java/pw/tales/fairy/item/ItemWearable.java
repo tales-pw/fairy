@@ -14,7 +14,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import pw.tales.fairy.Fairy;
-import pw.tales.fairy.registration.registries.ItemsRegistry;
+import pw.tales.fairy.registries.ItemsRegistry;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;

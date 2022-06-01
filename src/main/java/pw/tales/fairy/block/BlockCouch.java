@@ -9,7 +9,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import pw.tales.fairy.featured.features.*;
+import pw.tales.fairy.featured_block.features.*;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;

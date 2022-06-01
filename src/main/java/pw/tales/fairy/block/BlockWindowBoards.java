@@ -6,10 +6,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import pw.tales.fairy.featured.features.FeatureHRotation;
-
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import pw.tales.fairy.featured_block.features.FeatureHRotation;
 
 @SuppressWarnings("deprecation")
 @MethodsReturnNonnullByDefault
