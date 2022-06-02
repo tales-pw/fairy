@@ -8,7 +8,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntitySign;
-import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -35,10 +35,10 @@ public class ItemRPSign extends ItemFBlock {
     }
 
     @ParametersAreNonnullByDefault
-    public EnumActionResult onItemUse(PlayerEntity player, World worldIn, BlockPos pos, Hand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        EnumActionResult result = super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
+    public ActionResultType onItemUse(PlayerEntity player, World worldIn, BlockPos pos, Hand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        ActionResultType result = super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
 
-        if (worldIn.isRemote || result != EnumActionResult.SUCCESS)
+        if (worldIn.isRemote || result != ActionResultType.SUCCESS)
             return result;
 
         pos = this.determinePosition(worldIn, pos, facing);

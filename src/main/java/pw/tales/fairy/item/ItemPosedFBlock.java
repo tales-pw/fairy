@@ -7,7 +7,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -42,8 +42,8 @@ public class ItemPosedFBlock extends BlockItem implements IItemFairy {
     }
 
     @Override
-    public EnumActionResult onItemUse(PlayerEntity player, World worldIn, BlockPos pos, Hand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        if (!player.isSneaking()) return EnumActionResult.PASS;
+    public ActionResultType onItemUse(PlayerEntity player, World worldIn, BlockPos pos, Hand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        if (!player.isSneaking()) return ActionResultType.PASS;
         return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
     }
 

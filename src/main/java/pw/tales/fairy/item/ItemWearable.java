@@ -8,7 +8,7 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -27,9 +27,9 @@ public class ItemWearable extends BlockItem implements IItemFairy {
     }
 
     @ParametersAreNonnullByDefault
-    public EnumActionResult onItemUse(PlayerEntity player, World worldIn, BlockPos pos,
+    public ActionResultType onItemUse(PlayerEntity player, World worldIn, BlockPos pos,
                                       Hand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        return EnumActionResult.PASS;
+        return ActionResultType.PASS;
     }
 
     public void registerModels() {
