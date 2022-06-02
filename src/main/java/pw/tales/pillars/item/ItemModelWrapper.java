@@ -1,7 +1,7 @@
 package pw.tales.pillars.item;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
@@ -22,7 +22,7 @@ public class ItemModelWrapper {
         this(item, new ItemPoseManager(poses));
     }
 
-    public void onItemRightClick(EntityPlayer playerIn, EnumHand handIn) {
+    public void onItemRightClick(PlayerEntity playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.getHeldItem(handIn);
 
         String pose = this.poses.fromMeta(stack.getMetadata());

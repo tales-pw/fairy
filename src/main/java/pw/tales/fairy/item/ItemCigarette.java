@@ -1,7 +1,7 @@
 package pw.tales.fairy.item;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
@@ -23,7 +23,7 @@ public class ItemCigarette extends ItemWearable {
 
     @Override
     @ParametersAreNonnullByDefault
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn,
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn,
                                                     EnumHand handIn) {
         this.itemModelMediator.onItemRightClick(playerIn, handIn);
         return super.onItemRightClick(worldIn, playerIn, handIn);

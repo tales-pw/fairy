@@ -5,7 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.IStringSerializable;
@@ -159,7 +159,7 @@ public class BlockLargeDoor
 
         @Override
         public boolean onActivated(World worldIn, BlockPos pos, IBlockState state,
-                                   EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY,
+                                   PlayerEntity playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY,
                                    float hitZ) {
 
             OpenStatus status = state.getValue(OPEN_STATUS);

@@ -2,7 +2,7 @@ package pw.tales.pillars.item_legacy.posed;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -53,7 +53,7 @@ public abstract class ItemPosed<T extends IPoseEnum<T>>
 
     @Override
     @ParametersAreNonnullByDefault
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn,
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn,
                                                     EnumHand handIn) {
         ItemStack stack = playerIn.getHeldItem(handIn);
 

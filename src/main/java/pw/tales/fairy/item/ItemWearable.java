@@ -3,7 +3,7 @@ package pw.tales.fairy.item;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -27,7 +27,7 @@ public class ItemWearable extends ItemBlock implements IItemFairy {
     }
 
     @ParametersAreNonnullByDefault
-    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos,
+    public EnumActionResult onItemUse(PlayerEntity player, World worldIn, BlockPos pos,
                                       EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         return EnumActionResult.PASS;
     }

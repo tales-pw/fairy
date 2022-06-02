@@ -3,7 +3,7 @@ package pw.tales.fairy.featured_block.features;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
@@ -21,7 +21,7 @@ public class FeatureSwitch extends FeatureStoreFlag {
 
     @Override
     public boolean onActivated(World worldIn, BlockPos pos, IBlockState state,
-                               EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY,
+                               PlayerEntity playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY,
                                float hitZ) {
         return worldIn.setBlockState(pos, state.cycleProperty(property));
     }
