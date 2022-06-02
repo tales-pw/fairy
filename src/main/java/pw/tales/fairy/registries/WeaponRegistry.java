@@ -1,6 +1,6 @@
 package pw.tales.fairy.registries;
 
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,9 +18,9 @@ import java.util.List;
 
 @Mod.EventBusSubscriber(modid = Fairy.MOD_ID)
 public class WeaponRegistry {
-    public static CreativeTabs FAIRY_WEAPON_TAB = new CreativeTabs(String.format("%s.weapon", Fairy.MOD_ID)) {
+    public static ItemGroup FAIRY_WEAPON_TAB = new ItemGroup(String.format("%s.weapon", Fairy.MOD_ID)) {
         @Override
-        public ItemStack createIcon() {
+        public ItemStack makeIcon() {
             return new ItemStack(Items.crossbow, 1, 0);
         }
     };

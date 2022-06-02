@@ -3,7 +3,7 @@ package pw.tales.fairy.block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
@@ -57,7 +57,7 @@ public class BlockVial extends BlockFairy {
     }
 
     @Override
-    public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
+    public void getSubBlocks(ItemGroup itemIn, NonNullList<ItemStack> items) {
         for (EnumDyeColor enumdyecolor : EnumDyeColor.values()) {
             ItemStack itemStack = new ItemStack(this, 1, enumdyecolor.getMetadata());
             items.add(itemStack);

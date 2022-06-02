@@ -2,7 +2,7 @@ package pw.tales.fairy.item;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
@@ -27,7 +27,7 @@ public class ItemPosedFBlock extends BlockItem implements IItemFairy {
         this.itemModelMediator = new ItemModelWrapper(this, poseManager);
     }
 
-    public ItemPosedFBlock setCreativeTab(CreativeTabs tab) {
+    public ItemPosedFBlock setCreativeTab(ItemGroup tab) {
         super.setCreativeTab(tab);
         return this;
     }

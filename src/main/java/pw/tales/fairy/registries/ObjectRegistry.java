@@ -3,7 +3,7 @@ package pw.tales.fairy.registries;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
@@ -24,9 +24,9 @@ import java.util.List;
 
 @Mod.EventBusSubscriber(modid = Fairy.MOD_ID)
 public class ObjectRegistry {
-    public static CreativeTabs FAIRY_TAB = new CreativeTabs(Fairy.MOD_ID) {
+    public static ItemGroup FAIRY_TAB = new ItemGroup(Fairy.MOD_ID) {
         @Override
-        public ItemStack createIcon() {
+        public ItemStack makeIcon() {
             return new ItemStack(Items.aktanos_symbol_large, 1);
         }
     };

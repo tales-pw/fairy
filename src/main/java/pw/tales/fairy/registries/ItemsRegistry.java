@@ -1,8 +1,9 @@
 package pw.tales.fairy.registries;
 
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.color.ItemColors;
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -33,9 +34,9 @@ public class ItemsRegistry {
     public static final ItemPoseManager censerPoses = ItemPoseManager.builder().add("lit").build();
     public static final ItemPoseManager book_poses = ItemPoseManager.builder().add("open")
             .add("closed").add("one_hand").build();
-    public static CreativeTabs FAIRY_MISC_TAB = new CreativeTabs(String.format("%s.misc", Fairy.MOD_ID)) {
+    public static ItemGroup FAIRY_MISC_TAB = new ItemGroup(String.format("%s.misc", Fairy.MOD_ID)) {
         @Override
-        public ItemStack createIcon() {
+        public ItemStack makeIcon() {
             return new ItemStack(Items.cards, 1);
         }
     };

@@ -1,7 +1,7 @@
 package pw.tales.fairy.item;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -39,7 +39,7 @@ public class ItemMask extends ItemWearable {
     }
 
     @Override
-    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+    public void getSubItems(ItemGroup tab, NonNullList<ItemStack> items) {
         if (this.isInCreativeTab(tab)) {
             items.add(this.getColorSubItem(Color.yellow));
             items.add(this.getColorSubItem(Color.white));
