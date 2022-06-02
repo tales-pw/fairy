@@ -2,8 +2,8 @@ package pw.tales.pillars;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.minecraft.client.resources.IResource;
-import net.minecraft.client.resources.IResourceManager;
+import net.minecraft.resources.IResource;
+import net.minecraft.resources.IResourceManager;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import org.apache.commons.io.IOUtils;

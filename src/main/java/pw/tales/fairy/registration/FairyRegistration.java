@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 import pw.tales.fairy.block.IBlockFairy;
 import pw.tales.fairy.item.IItemFairy;
@@ -18,8 +18,8 @@ import static net.minecraftforge.common.MinecraftForge.EVENT_BUS;
 public class FairyRegistration {
     private static FairyRegistration instance = null;
 
-    private List<IBlockFairy> blocks = new ArrayList<>();
-    private List<IItemFairy> items = new ArrayList<>();
+    private final List<IBlockFairy> blocks = new ArrayList<>();
+    private final List<IItemFairy> items = new ArrayList<>();
 
     public FairyRegistration() {
     }

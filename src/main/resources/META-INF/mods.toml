@@ -1,0 +1,29 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All rights reserved"
+
+[[mods]]
+modId="fairy"
+version="${file.jarVersion}"
+displayName="Fairy"
+description=''''''
+
+[[mods]]
+modId="pillars"
+version="${file.jarVersion}"
+displayName="Pillars"
+description=''''''
+
+[[dependencies.fairy]]
+    modId="pillars"
+    mandatory=true
+    versionRange="[${file.jarVersion}]"
+    ordering="AFTER"
+    side="CLIENT"
+
+[[dependencies.fairy]]
+    modId="conquest"
+    mandatory=true
+    versionRange="[]"
+    ordering="AFTER"
+    side="BOTH"

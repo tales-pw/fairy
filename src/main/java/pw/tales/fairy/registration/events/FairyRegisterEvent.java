@@ -1,6 +1,6 @@
 package pw.tales.fairy.registration.events;
 
-import net.minecraftforge.fml.common.eventhandler.Event;
+import net.minecraftforge.eventbus.api.Event;
 import pw.tales.fairy.block.IBlockFairy;
 import pw.tales.fairy.item.IItemFairy;
 

@@ -2,7 +2,7 @@ package pw.tales.fairy.registries;
 
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import pw.tales.fairy.Fairy;
 import pw.tales.fairy.block.*;
 import pw.tales.fairy.block.scholar_table.BlockScholarTable;

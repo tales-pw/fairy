@@ -3,7 +3,7 @@ package pw.tales.fairy.registries;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import pw.tales.fairy.Fairy;
 import pw.tales.fairy.item.IItemFairy;

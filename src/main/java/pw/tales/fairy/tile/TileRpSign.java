@@ -1,6 +1,6 @@
 package pw.tales.fairy.tile;
 
-import net.minecraft.tileentity.TileEntitySign;
+import net.minecraft.tileentity.SignTileEntity;
 
-public class TileRpSign extends TileEntitySign {
+public class TileRpSign extends SignTileEntity {
 }

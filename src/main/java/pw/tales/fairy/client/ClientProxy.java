@@ -10,6 +10,7 @@ import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import pw.tales.fairy.Fairy;
 import pw.tales.fairy.client.renderer.TileRpSignTESR;
 import pw.tales.fairy.client.renderer.TileWatermillRenderer;
@@ -21,18 +22,14 @@ import static net.minecraftforge.common.MinecraftForge.EVENT_BUS;
 
 public class ClientProxy extends ServerProxy {
     @Override
-    public void preInit(FMLPreInitializationEvent event) {
-        super.preInit(event);
+    public void setup(FMLCommonSetupEvent event) {
+        super.setup(event);
         ClientRegistry.bindTileEntitySpecialRenderer(TileRpSign.class, new TileRpSignTESR());
         ClientRegistry
                 .bindTileEntitySpecialRenderer(TileWatermill.class, new TileWatermillRenderer());
 
         OBJLoader.INSTANCE.addDomain(Fairy.MOD_ID);
-    }
 
-    @Override
-    public void postInit(FMLPostInitializationEvent event) {
-        super.postInit(event);
         this.setUpBlockColors();
     }
 

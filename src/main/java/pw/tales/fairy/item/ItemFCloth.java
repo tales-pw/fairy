@@ -1,7 +1,7 @@
 package pw.tales.fairy.item;
 
 import net.minecraft.block.Block;
-import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemCloth;
 import pw.tales.fairy.Fairy;
 
@@ -13,8 +13,8 @@ public class ItemFCloth extends ItemCloth implements IItemFairy {
 
     @Override
     public void registerModels() {
-        for (EnumDyeColor color : EnumDyeColor.values()) {
-            Fairy.proxy.setUpItemVariant(this, color.getMetadata(), "inventory");
+        for (DyeColor color : DyeColor.values()) {
+            Fairy.proxy.setUpItemVariant(this, color.getColorValue(), "inventory");
         }
     }
 }
