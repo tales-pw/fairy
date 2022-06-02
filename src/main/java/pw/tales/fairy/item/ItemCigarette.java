@@ -4,7 +4,7 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import pw.tales.pillars.item.ItemModelWrapper;
 import pw.tales.pillars.item.ItemPoseManager;
@@ -24,7 +24,7 @@ public class ItemCigarette extends ItemWearable {
     @Override
     @ParametersAreNonnullByDefault
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn,
-                                                    EnumHand handIn) {
+                                                    Hand handIn) {
         this.itemModelMediator.onItemRightClick(playerIn, handIn);
         return super.onItemRightClick(worldIn, playerIn, handIn);
     }

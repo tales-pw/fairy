@@ -10,7 +10,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import pw.tales.fairy.Fairy;
@@ -28,7 +28,7 @@ public class ItemWearable extends ItemBlock implements IItemFairy {
 
     @ParametersAreNonnullByDefault
     public EnumActionResult onItemUse(PlayerEntity player, World worldIn, BlockPos pos,
-                                      EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+                                      Hand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         return EnumActionResult.PASS;
     }
 

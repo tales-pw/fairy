@@ -6,7 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
@@ -54,7 +54,7 @@ public abstract class ItemPosed<T extends IPoseEnum<T>>
     @Override
     @ParametersAreNonnullByDefault
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn,
-                                                    EnumHand handIn) {
+                                                    Hand handIn) {
         ItemStack stack = playerIn.getHeldItem(handIn);
 
         T poseEnum = poseManager.fromId(stack.getMetadata()).cycle();

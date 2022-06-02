@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,7 +27,7 @@ public abstract class MusketBipedModel {
     @Shadow
     public ModelRenderer bipedLeftArm;
 
-    public void processPreHand(EntityLivingBase entityLiving, EnumHand hand) {
+    public void processPreHand(EntityLivingBase entityLiving, Hand hand) {
         ItemStack itemStack = entityLiving.getHeldItem(hand);
         Item item = itemStack.getItem();
 
@@ -43,7 +43,7 @@ public abstract class MusketBipedModel {
         }
     }
 
-    public void processPostHand(EntityLivingBase entityLiving, EnumHand hand, ModelRenderer model) {
+    public void processPostHand(EntityLivingBase entityLiving, Hand hand, ModelRenderer model) {
         ItemStack itemStack = entityLiving.getHeldItem(hand);
         Item item = itemStack.getItem();
 
@@ -68,8 +68,8 @@ public abstract class MusketBipedModel {
 
         EntityLivingBase entityLiving = (EntityLivingBase) entity;
 
-        processPreHand(entityLiving, EnumHand.MAIN_HAND);
-        processPreHand(entityLiving, EnumHand.OFF_HAND);
+        processPreHand(entityLiving, Hand.MAIN_HAND);
+        processPreHand(entityLiving, Hand.OFF_HAND);
     }
 
     @Inject(method = "setRotationAngles", at = @At("RETURN"))
@@ -81,7 +81,7 @@ public abstract class MusketBipedModel {
 
         EntityLivingBase entityLiving = (EntityLivingBase) entity;
 
-        processPostHand(entityLiving, EnumHand.MAIN_HAND, this.bipedRightArm);
-        processPostHand(entityLiving, EnumHand.OFF_HAND, this.bipedLeftArm);
+        processPostHand(entityLiving, Hand.MAIN_HAND, this.bipedRightArm);
+        processPostHand(entityLiving, Hand.OFF_HAND, this.bipedLeftArm);
     }
 }

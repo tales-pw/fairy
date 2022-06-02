@@ -7,7 +7,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -31,7 +31,7 @@ public abstract class Feature {
     }
 
     public boolean onActivated(World worldIn, BlockPos pos, IBlockState state,
-                               PlayerEntity playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY,
+                               PlayerEntity playerIn, Hand hand, EnumFacing facing, float hitX, float hitY,
                                float hitZ) {
         return false;
     }
