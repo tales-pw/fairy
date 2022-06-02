@@ -6,7 +6,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -61,7 +61,7 @@ public class BlockLargeDoor
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         state = state.getActualState(source, pos);
 
-        EnumFacing facing = state.getValue(FeatureHRotation.FACING);
+        Direction facing = state.getValue(FeatureHRotation.FACING);
 
         switch (facing.getAxis()) {
             case X:
@@ -159,7 +159,7 @@ public class BlockLargeDoor
 
         @Override
         public boolean onActivated(World worldIn, BlockPos pos, IBlockState state,
-                                   PlayerEntity playerIn, Hand hand, EnumFacing facing, float hitX, float hitY,
+                                   PlayerEntity playerIn, Hand hand, Direction facing, float hitX, float hitY,
                                    float hitZ) {
 
             OpenStatus status = state.getValue(OPEN_STATUS);

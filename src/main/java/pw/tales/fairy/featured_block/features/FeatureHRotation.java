@@ -7,7 +7,7 @@ import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import pw.tales.fairy.featured_block.Pair;
@@ -31,10 +31,10 @@ public class FeatureHRotation extends Feature {
         BlockStateContainer container = new BlockStateContainer(null, FACING);
         IBlockState defaultState = DEFAULT.getDefaultState(container.getBaseState());
 
-        int south_meta = DEFAULT.putToMeta(0, defaultState.withProperty(FACING, EnumFacing.SOUTH));
-        int west_meta = DEFAULT.putToMeta(0, defaultState.withProperty(FACING, EnumFacing.WEST));
-        int north_meta = DEFAULT.putToMeta(0, defaultState.withProperty(FACING, EnumFacing.NORTH));
-        int east_meta = DEFAULT.putToMeta(0, defaultState.withProperty(FACING, EnumFacing.EAST));
+        int south_meta = DEFAULT.putToMeta(0, defaultState.withProperty(FACING, Direction.SOUTH));
+        int west_meta = DEFAULT.putToMeta(0, defaultState.withProperty(FACING, Direction.WEST));
+        int north_meta = DEFAULT.putToMeta(0, defaultState.withProperty(FACING, Direction.NORTH));
+        int east_meta = DEFAULT.putToMeta(0, defaultState.withProperty(FACING, Direction.EAST));
 
         System.out.println("South: " + south_meta);
         System.out.println("West: " + west_meta);
@@ -42,23 +42,23 @@ public class FeatureHRotation extends Feature {
         System.out.println("East: " + east_meta);
 
         System.out.println("South: " + DEFAULT
-                .getFromMeta(south_meta, defaultState.withProperty(FACING, EnumFacing.SOUTH)));
+                .getFromMeta(south_meta, defaultState.withProperty(FACING, Direction.SOUTH)));
         System.out.println("West: " + DEFAULT
-                .getFromMeta(west_meta, defaultState.withProperty(FACING, EnumFacing.WEST)));
+                .getFromMeta(west_meta, defaultState.withProperty(FACING, Direction.WEST)));
         System.out.println("North: " + DEFAULT
-                .getFromMeta(north_meta, defaultState.withProperty(FACING, EnumFacing.NORTH)));
+                .getFromMeta(north_meta, defaultState.withProperty(FACING, Direction.NORTH)));
         System.out.println("East: " + DEFAULT
-                .getFromMeta(east_meta, defaultState.withProperty(FACING, EnumFacing.EAST)));
+                .getFromMeta(east_meta, defaultState.withProperty(FACING, Direction.EAST)));
     }
 
     @Override
     public IBlockState getDefaultState(IBlockState state) {
-        return super.getDefaultState(state).withProperty(FACING, EnumFacing.NORTH);
+        return super.getDefaultState(state).withProperty(FACING, Direction.NORTH);
     }
 
     @Override
     public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
-                                   EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+                                   Direction facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return state.withProperty(FACING, placer.getHorizontalFacing());
     }
 
@@ -75,6 +75,6 @@ public class FeatureHRotation extends Feature {
     @Override
     public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
         return new Pair<>(oldMeta >> 2,
-                state.withProperty(FACING, EnumFacing.byHorizontalIndex(oldMeta & 3)));
+                state.withProperty(FACING, Direction.byHorizontalIndex(oldMeta & 3)));
     }
 }

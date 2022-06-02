@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntitySign;
 import net.minecraft.util.ActionResultType;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -23,7 +23,7 @@ public class ItemRPSign extends ItemFBlock {
         super(block);
     }
 
-    private BlockPos determinePosition(World worldIn, BlockPos pos, EnumFacing facing) {
+    private BlockPos determinePosition(World worldIn, BlockPos pos, Direction facing) {
         IBlockState iblockstate = worldIn.getBlockState(pos);
         Block block = iblockstate.getBlock();
 
@@ -35,7 +35,7 @@ public class ItemRPSign extends ItemFBlock {
     }
 
     @ParametersAreNonnullByDefault
-    public ActionResultType onItemUse(PlayerEntity player, World worldIn, BlockPos pos, Hand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+    public ActionResultType onItemUse(PlayerEntity player, World worldIn, BlockPos pos, Hand hand, Direction facing, float hitX, float hitY, float hitZ) {
         ActionResultType result = super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
 
         if (worldIn.isRemote || result != ActionResultType.SUCCESS)

@@ -7,7 +7,7 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumBlockRenderType;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -48,11 +48,11 @@ public class BlockMiddleDoor extends BlockFairyDoor {
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         state = state.getActualState(source, pos);
 
-        EnumFacing enumfacing = state.getValue(FACING);
+        Direction Direction = state.getValue(FACING);
         boolean isNotOpen = !state.getValue(OPEN);
         boolean isRHinge = state.getValue(HINGE) == EnumHingePosition.RIGHT;
 
-        switch (enumfacing) {
+        switch (Direction) {
             case EAST:
             default:
                 return isNotOpen ? Z_AABB : (isRHinge ? OPEN_EAST_RIGHT_AABB : OPEN_EAST_LEFT_AABB);
@@ -73,7 +73,7 @@ public class BlockMiddleDoor extends BlockFairyDoor {
     }
 
     @Override
-    public boolean canBeConnectedTo(IBlockAccess world, BlockPos pos, EnumFacing facing) {
+    public boolean canBeConnectedTo(IBlockAccess world, BlockPos pos, Direction facing) {
         return true;
     }
 

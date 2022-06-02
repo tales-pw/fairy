@@ -5,7 +5,7 @@ import net.minecraft.client.gui.GuiUtilRenderComponents;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.EnumDyeColor;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.text.ITextComponent;
 import pw.tales.fairy.tile.TileRpSign;
 
@@ -17,7 +17,7 @@ public class TileRpSignTESR
 
     private void applyRotation(TileRpSign te) {
         // bypassing get state from IBlockState for purpose of speed
-        EnumFacing facing = EnumFacing.byHorizontalIndex(te.getBlockMetadata());
+        Direction facing = Direction.byHorizontalIndex(te.getBlockMetadata());
 
         float angle;
         switch (facing) {

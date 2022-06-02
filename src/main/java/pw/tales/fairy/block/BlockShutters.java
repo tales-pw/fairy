@@ -5,7 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -51,7 +51,7 @@ public class BlockShutters
 
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-        EnumFacing facing = state.getValue(FeatureHRotation.FACING);
+        Direction facing = state.getValue(FeatureHRotation.FACING);
         switch (facing) {
             case SOUTH:
                 return SOUTH_CLOSE_AABB;
@@ -67,7 +67,7 @@ public class BlockShutters
 
     @Override
     public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos,
-                                            EnumFacing face) {
+                                            Direction face) {
         return BlockFaceShape.UNDEFINED;
     }
 

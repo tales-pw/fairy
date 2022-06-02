@@ -2,13 +2,13 @@ package pw.tales.fairy.featured_block.features;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.IBlockAccess;
 
 public abstract class FeatureConnection extends Feature {
-    protected Vec3i createDirVector(EnumFacing facing1, EnumFacing facing2) {
+    protected Vec3i createDirVector(Direction facing1, Direction facing2) {
         Vec3i dir1 = facing1.getDirectionVec();
         Vec3i dir2 = facing2.getDirectionVec();
 
@@ -17,12 +17,12 @@ public abstract class FeatureConnection extends Feature {
     }
 
     protected boolean canConnectTo(IBlockAccess worldIn, IBlockState state1, BlockPos pos,
-                                   EnumFacing facing1, EnumFacing facing2) {
+                                   Direction facing1, Direction facing2) {
         return this.canConnectTo(worldIn, state1, pos, this.createDirVector(facing1, facing2));
     }
 
     protected boolean canConnectTo(IBlockAccess worldIn, IBlockState state1, BlockPos pos,
-                                   EnumFacing facing) {
+                                   Direction facing) {
         return this.canConnectTo(worldIn, state1, pos, facing.getDirectionVec());
     }
 

@@ -6,7 +6,7 @@ import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -77,7 +77,7 @@ public class FeatureLayers extends Feature {
 
     @Override
     public boolean onActivated(World worldIn, BlockPos pos, IBlockState state,
-                               PlayerEntity playerIn, Hand hand, EnumFacing facing, float hitX, float hitY,
+                               PlayerEntity playerIn, Hand hand, Direction facing, float hitX, float hitY,
                                float hitZ) {
 
         return worldIn.setBlockState(pos, state.cycleProperty(LAYERS));

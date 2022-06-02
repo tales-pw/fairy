@@ -6,7 +6,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -18,7 +18,7 @@ import java.util.List;
 @MethodsReturnNonnullByDefault
 public abstract class Feature {
     public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
-                                   EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+                                   Direction facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return state;
     }
 
@@ -31,7 +31,7 @@ public abstract class Feature {
     }
 
     public boolean onActivated(World worldIn, BlockPos pos, IBlockState state,
-                               PlayerEntity playerIn, Hand hand, EnumFacing facing, float hitX, float hitY,
+                               PlayerEntity playerIn, Hand hand, Direction facing, float hitX, float hitY,
                                float hitZ) {
         return false;
     }

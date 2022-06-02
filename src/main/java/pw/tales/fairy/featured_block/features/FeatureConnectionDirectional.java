@@ -5,7 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
@@ -47,7 +47,7 @@ public class FeatureConnectionDirectional extends FeatureConnection {
 
     @Override
     public IBlockState getDefaultState(IBlockState state) {
-        return state.withProperty(FeatureHRotation.FACING, EnumFacing.NORTH)
+        return state.withProperty(FeatureHRotation.FACING, Direction.NORTH)
                 .withProperty(LEFT, false).withProperty(RIGHT, false);
     }
 
@@ -59,7 +59,7 @@ public class FeatureConnectionDirectional extends FeatureConnection {
             return state;
 
         FeatureRotation.IRotationAccess rotatable = (FeatureRotation.IRotationAccess) block;
-        EnumFacing facing = rotatable.getFacing(state);
+        Direction facing = rotatable.getFacing(state);
 
         return state.withProperty(LEFT, this.canConnectTo(world, state, pos, facing.rotateY()))
                 .withProperty(RIGHT, this.canConnectTo(world, state, pos, facing.rotateYCCW()));

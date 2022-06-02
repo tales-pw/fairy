@@ -6,7 +6,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -77,7 +77,7 @@ public class BlockGlobe extends BlockFairy {
 
         @Override
         public boolean onActivated(World worldIn, BlockPos pos, IBlockState state,
-                                   PlayerEntity playerIn, Hand hand, EnumFacing facing, float hitX, float hitY,
+                                   PlayerEntity playerIn, Hand hand, Direction facing, float hitX, float hitY,
                                    float hitZ) {
             return worldIn.setBlockState(pos, state.cycleProperty(GLOBE_ROTATION));
         }

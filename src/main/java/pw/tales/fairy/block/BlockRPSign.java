@@ -9,7 +9,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntitySign;
 import net.minecraft.util.EnumBlockRenderType;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -45,7 +45,7 @@ public class BlockRPSign
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state,
-                                    PlayerEntity playerIn, Hand hand, EnumFacing facing, float hitX, float hitY,
+                                    PlayerEntity playerIn, Hand hand, Direction facing, float hitX, float hitY,
                                     float hitZ) {
         if (worldIn.isRemote) {
             return true;
@@ -93,7 +93,7 @@ public class BlockRPSign
     }
 
     public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos,
-                                            EnumFacing face) {
+                                            Direction face) {
         return BlockFaceShape.UNDEFINED;
     }
 

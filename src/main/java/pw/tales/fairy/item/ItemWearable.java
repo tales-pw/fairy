@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResultType;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -28,7 +28,7 @@ public class ItemWearable extends BlockItem implements IItemFairy {
 
     @ParametersAreNonnullByDefault
     public ActionResultType onItemUse(PlayerEntity player, World worldIn, BlockPos pos,
-                                      Hand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+                                      Hand hand, Direction facing, float hitX, float hitY, float hitZ) {
         return ActionResultType.PASS;
     }
 

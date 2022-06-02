@@ -4,7 +4,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -22,7 +22,7 @@ public class Feature360Rotation extends Feature {
 
     @Override
     public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
-                                   EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+                                   Direction facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         float rotation = MathHelper.floor((placer.rotationYaw * 16.0F / 360.0F) + 0.5D) & 15;
         return state.withProperty(ROTATION, (int) rotation);
     }

@@ -5,7 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
@@ -42,10 +42,10 @@ public class FeatureConnectionBasic extends FeatureConnection {
         if (!(block instanceof IConnectible))
             return state;
 
-        return state.withProperty(N, canConnectTo(world, state, pos, EnumFacing.NORTH))
-                .withProperty(E, canConnectTo(world, state, pos, EnumFacing.EAST))
-                .withProperty(S, canConnectTo(world, state, pos, EnumFacing.SOUTH))
-                .withProperty(W, canConnectTo(world, state, pos, EnumFacing.WEST));
+        return state.withProperty(N, canConnectTo(world, state, pos, Direction.NORTH))
+                .withProperty(E, canConnectTo(world, state, pos, Direction.EAST))
+                .withProperty(S, canConnectTo(world, state, pos, Direction.SOUTH))
+                .withProperty(W, canConnectTo(world, state, pos, Direction.WEST));
 
     }
 

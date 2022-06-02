@@ -11,7 +11,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -62,7 +62,7 @@ public abstract class FeaturedBlock extends Block {
     @ParametersAreNonnullByDefault
     @SuppressWarnings("deprecation")
     public IBlockState getStateForPlacement(@Nullable World world, @Nullable BlockPos pos,
-                                            @Nullable EnumFacing facing, float hitX, float hitY, float hitZ, int meta,
+                                            @Nullable Direction facing, float hitX, float hitY, float hitZ, int meta,
                                             @Nullable EntityLivingBase placer) {
         IBlockState state = this.getDefaultState();
 
@@ -97,7 +97,7 @@ public abstract class FeaturedBlock extends Block {
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state,
-                                    PlayerEntity playerIn, Hand hand, EnumFacing facing, float hitX, float hitY,
+                                    PlayerEntity playerIn, Hand hand, Direction facing, float hitX, float hitY,
                                     float hitZ) {
         if (worldIn.isRemote) return true;
 

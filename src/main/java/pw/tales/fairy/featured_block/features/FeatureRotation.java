@@ -5,7 +5,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import pw.tales.fairy.featured_block.Pair;
@@ -27,12 +27,12 @@ public class FeatureRotation extends Feature {
 
     @Override
     public IBlockState getDefaultState(IBlockState state) {
-        return super.getDefaultState(state).withProperty(FACING, EnumFacing.NORTH);
+        return super.getDefaultState(state).withProperty(FACING, Direction.NORTH);
     }
 
     @Override
     public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
-                                   EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+                                   Direction facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return state.withProperty(FACING, facing);
     }
 
@@ -44,7 +44,7 @@ public class FeatureRotation extends Feature {
     @Override
     public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
         return new Pair<>(oldMeta >> 3,
-                state.withProperty(FACING, EnumFacing.byIndex(oldMeta & 7)));
+                state.withProperty(FACING, Direction.byIndex(oldMeta & 7)));
     }
 
     @Override
@@ -54,6 +54,6 @@ public class FeatureRotation extends Feature {
 
 
     public interface IRotationAccess {
-        EnumFacing getFacing(IBlockState state);
+        Direction getFacing(IBlockState state);
     }
 }
