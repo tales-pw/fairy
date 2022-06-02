@@ -4,7 +4,7 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
@@ -51,7 +51,7 @@ public class ItemWearable extends BlockItem implements IItemFairy {
 
     @Nullable
     @Override
-    public EntityEquipmentSlot getEquipmentSlot(ItemStack stack) {
-        return EntityEquipmentSlot.HEAD;
+    public EquipmentSlotType getEquipmentSlot(ItemStack stack) {
+        return EquipmentSlotType.HEAD;
     }
 }

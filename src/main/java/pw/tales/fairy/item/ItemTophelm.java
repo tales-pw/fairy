@@ -1,7 +1,7 @@
 package pw.tales.fairy.item;
 
 import net.minecraft.block.Block;
-import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 
 import javax.annotation.Nullable;
@@ -13,7 +13,7 @@ public class ItemTophelm extends ItemFBlock {
 
     @Nullable
     @Override
-    public EntityEquipmentSlot getEquipmentSlot(ItemStack stack) {
-        return EntityEquipmentSlot.HEAD;
+    public EquipmentSlotType getEquipmentSlot(ItemStack stack) {
+        return EquipmentSlotType.HEAD;
     }
 }
