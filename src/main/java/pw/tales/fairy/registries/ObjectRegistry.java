@@ -4,7 +4,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemBlock;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -127,8 +127,8 @@ public class ObjectRegistry {
 
     @GameRegistry.ObjectHolder(Fairy.MOD_ID)
     public static class Items {
-        public static final ItemBlock vial = null;
-        public static final ItemBlock vial_small = null;
-        public static final ItemBlock aktanos_symbol_large = null;
+        public static final BlockItem vial = null;
+        public static final BlockItem vial_small = null;
+        public static final BlockItem aktanos_symbol_large = null;
     }
 }

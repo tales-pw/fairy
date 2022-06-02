@@ -4,7 +4,7 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemBlock;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -18,7 +18,7 @@ import pw.tales.pillars.item.ItemPoseManager;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
-public class ItemPosedFBlock extends ItemBlock implements IItemFairy {
+public class ItemPosedFBlock extends BlockItem implements IItemFairy {
     private ItemModelWrapper itemModelMediator;
 
     public ItemPosedFBlock(Block block, ItemPoseManager poseManager) {

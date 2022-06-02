@@ -1,10 +1,10 @@
 package pw.tales.fairy.item;
 
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemBlock;
+import net.minecraft.item.BlockItem;
 import pw.tales.fairy.Fairy;
 
-public class ItemFBlock extends ItemBlock implements IItemFairy {
+public class ItemFBlock extends BlockItem implements IItemFairy {
     public ItemFBlock(Block block) {
         super(block);
         this.setRegistryName(block.getRegistryName());

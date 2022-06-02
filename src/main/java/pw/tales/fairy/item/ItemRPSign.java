@@ -4,7 +4,7 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemBlock;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntitySign;
@@ -45,7 +45,7 @@ public class ItemRPSign extends ItemFBlock {
         ItemStack itemstack = player.getHeldItem(hand);
         TileEntity tileentity = worldIn.getTileEntity(pos);
 
-        if (!ItemBlock.setTileEntityNBT(worldIn, player, pos, itemstack)) {
+        if (!BlockItem.setTileEntityNBT(worldIn, player, pos, itemstack)) {
             player.openEditSign((TileEntitySign) tileentity);
         }
 
