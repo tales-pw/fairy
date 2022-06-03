@@ -8,8 +8,10 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.relauncher.Side;
 import pw.tales.pillars.pose_render.ModelPoseRenderer;
 
-@Mod("pillars")
+@Mod(PillarsMod.MOD_ID)
 public class PillarsMod {
+    public static final String MOD_ID = "pillars";
+
     @Mod.Instance(MOD_ID)
     public static PillarsMod INSTANCE;
 

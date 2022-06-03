@@ -18,15 +18,12 @@ public class ItemPoseManager {
 
     public String next(String pose) {
         int poseIndex = ArrayUtils.indexOf(poseIds, pose);
-        if (poseIndex == -1)
-            return poseIds[0];
-        int newIndex = poseIndex + 1;
-        return this.fromMeta(newIndex);
-    }
 
-    public String fromMeta(int meta) {
-        int index = meta % poseIds.length;
-        return poseIds[index];
+        if (poseIndex == -1)
+            return this.getFirst();
+
+        int newIndex = poseIndex + 1;
+        return poseIds[newIndex % poseIds.length];
     }
 
     public int getAmount() {
@@ -35,5 +32,9 @@ public class ItemPoseManager {
 
     public static PoseListBuilder builder() {
         return new PoseListBuilder();
+    }
+
+    public String getFirst() {
+        return poseIds[0];
     }
 }

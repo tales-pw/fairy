@@ -13,32 +13,18 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 public class ItemPosed extends Item {
-    private ItemModelWrapper itemModelMediator;
+    private final ItemModelMediator itemModelMediator;
 
     public ItemPosed(ResourceLocation resourceLocation, ItemPoseManager poseManager) {
+        super(new Properties());
         this.setRegistryName(resourceLocation);
-        this.setTranslationKey(resourceLocation.getPath());
-        itemModelMediator = new ItemModelWrapper(this, poseManager);
-    }
-
-    public ItemPosed(ResourceLocation resourceLocation, String... poses) {
-        this(resourceLocation, new ItemPoseManager(poses));
+        this.itemModelMediator = new ItemModelMediator(this, poseManager);
     }
 
     @Override
     @ParametersAreNonnullByDefault
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn,
-                                                    Hand handIn) {
-        this.itemModelMediator.onItemRightClick(playerIn, handIn);
-        return super.onItemRightClick(worldIn, playerIn, handIn);
-    }
-
-    @Override
-    public String getTranslationKey(ItemStack stack) {
-        return this.itemModelMediator.getTranslationKey(stack);
-    }
-
-    public void registerModels() {
-        this.itemModelMediator.registerModels();
+    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+        this.itemModelMediator.onItemRightClick(player, hand);
+        return super.use(world, player, hand);
     }
 }

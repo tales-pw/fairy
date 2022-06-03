@@ -6,18 +6,18 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-import pw.tales.pillars.item.ItemModelWrapper;
+import pw.tales.pillars.item.ItemModelMediator;
 import pw.tales.pillars.item.ItemPoseManager;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 public class ItemCigarette extends ItemWearable {
-    private ItemModelWrapper itemModelMediator;
+    private ItemModelMediator itemModelMediator;
 
     public ItemCigarette(ItemPoseManager poseManager) {
         super();
-        this.itemModelMediator = new ItemModelWrapper(this, poseManager);
+        this.itemModelMediator = new ItemModelMediator(this, poseManager);
         this.setMaxStackSize(10);
     }
 
@@ -36,6 +36,6 @@ public class ItemCigarette extends ItemWearable {
 
     @Override
     public void registerModels() {
-        this.itemModelMediator.registerModels();
+        this.itemModelMediator.registerItemModelsProperties();
     }
 }

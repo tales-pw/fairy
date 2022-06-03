@@ -12,19 +12,19 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import pw.tales.pillars.item.ItemModelWrapper;
+import pw.tales.pillars.item.ItemModelMediator;
 import pw.tales.pillars.item.ItemPoseManager;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 public class ItemPosedFBlock extends BlockItem implements IItemFairy {
-    private ItemModelWrapper itemModelMediator;
+    private ItemModelMediator itemModelMediator;
 
     public ItemPosedFBlock(Block block, ItemPoseManager poseManager) {
         super(block);
         this.setRegistryName(block.getRegistryName());
-        this.itemModelMediator = new ItemModelWrapper(this, poseManager);
+        this.itemModelMediator = new ItemModelMediator(this, poseManager);
     }
 
     public ItemPosedFBlock setCreativeTab(ItemGroup tab) {
@@ -53,6 +53,6 @@ public class ItemPosedFBlock extends BlockItem implements IItemFairy {
     }
 
     public void registerModels() {
-        this.itemModelMediator.registerModels();
+        this.itemModelMediator.registerItemModelsProperties();
     }
 }

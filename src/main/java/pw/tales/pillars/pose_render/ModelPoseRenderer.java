@@ -21,7 +21,7 @@ public class ModelPoseRenderer {
         ItemStack rightItemStack, leftItemStack;
         PoseState state = new PoseState();
 
-        HandSide primaryHand = entity.getPrimaryHand();
+        HandSide primaryHand = entity.getMainArm();
         if (primaryHand == HandSide.RIGHT) {
             rightItemStack = entity.getItemInHand(Hand.MAIN_HAND);
             leftItemStack = entity.getItemInHand(Hand.OFF_HAND);
@@ -57,8 +57,8 @@ public class ModelPoseRenderer {
     }
 
     public void applyArmRotation(ModelRenderer bipedArm, float[] angles) {
-        bipedArm.rotateAngleX = -(float) Math.toRadians(angles[0]);
-        bipedArm.rotateAngleY = -(float) Math.toRadians(angles[1]);
-        bipedArm.rotateAngleZ = (float) Math.toRadians(angles[2]);
+        bipedArm.xRot = -(float) Math.toRadians(angles[0]);
+        bipedArm.yRot = -(float) Math.toRadians(angles[1]);
+        bipedArm.zRot = (float) Math.toRadians(angles[2]);
     }
 }
