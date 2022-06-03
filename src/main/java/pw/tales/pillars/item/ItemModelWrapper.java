@@ -23,7 +23,7 @@ public class ItemModelWrapper {
     }
 
     public void onItemRightClick(PlayerEntity playerIn, Hand handIn) {
-        ItemStack stack = playerIn.getHeldItem(handIn);
+        ItemStack stack = playerIn.getItemInHand(handIn);
 
         String pose = this.poses.fromMeta(stack.getMetadata());
         String newPose = poses.next(pose);

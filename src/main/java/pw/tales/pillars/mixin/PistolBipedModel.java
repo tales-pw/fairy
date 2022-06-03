@@ -2,7 +2,6 @@ package pw.tales.pillars.mixin;
 
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,15 +16,14 @@ import pw.tales.pillars.item_legacy.weapon.ItemPistol;
 @Mixin(BipedModel.class)
 public abstract class PistolBipedModel {
     @Shadow
-    public ModelRenderer bipedRightArm;
+    public ModelRenderer rightArm;
     @Shadow
-    public ModelRenderer bipedLeftArm;
-
+    public ModelRenderer leftArm;
     @Shadow
-    public ModelRenderer bipedHead;
+    public ModelRenderer head;
 
     private void processHand(LivingEntity entityLiving, Hand hand, ModelRenderer model) {
-        ItemStack itemStack = entityLiving.getHeldItem(hand);
+        ItemStack itemStack = entityLiving.getItemInHand(hand);
         Item item = itemStack.getItem();
 
         if (!(item instanceof ItemPistol))
@@ -35,20 +33,21 @@ public abstract class PistolBipedModel {
         ItemPistol.Pose pose = itemPistol.getPose(itemStack);
 
         if (pose == ItemPistol.Pose.AIM) {
-            model.rotateAngleX = (float) (this.bipedHead.rotateAngleX + Math.toRadians(-90));
+            model.xRot = (float) (this.head.xRot + Math.toRadians(-90));
         }
     }
 
-    @Inject(method = "setRotationAngles", at = @At("RETURN"))
-    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks,
-                                  float netHeadYaw, float headPitch, float scaleFactor, Entity entity, CallbackInfo ci) {
-
-        if (!(entity instanceof LivingEntity))
-            return;
-
-        LivingEntity entityLiving = (LivingEntity) entity;
-
-        processHand(entityLiving, Hand.MAIN_HAND, this.bipedRightArm);
-        processHand(entityLiving, Hand.OFF_HAND, this.bipedLeftArm);
+    @Inject(method = "setupAnim*", at = @At("RETURN"))
+    public void setRotationAngles(
+            LivingEntity entity,
+            float p_225597_2_,
+            float p_225597_3_,
+            float p_225597_4_,
+            float p_225597_5_,
+            float p_225597_6_,
+            CallbackInfo ci
+    ) {
+        processHand(entity, Hand.MAIN_HAND, this.rightArm);
+        processHand(entity, Hand.OFF_HAND, this.leftArm);
     }
 }

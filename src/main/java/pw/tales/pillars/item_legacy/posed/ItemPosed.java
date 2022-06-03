@@ -55,7 +55,7 @@ public abstract class ItemPosed<T extends IPoseEnum<T>>
     @ParametersAreNonnullByDefault
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn,
                                                     Hand handIn) {
-        ItemStack stack = playerIn.getHeldItem(handIn);
+        ItemStack stack = playerIn.getItemInHand(handIn);
 
         T poseEnum = poseManager.fromId(stack.getMetadata()).cycle();
 

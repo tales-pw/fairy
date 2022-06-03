@@ -23,11 +23,11 @@ public class ModelPoseRenderer {
 
         HandSide primaryHand = entity.getPrimaryHand();
         if (primaryHand == HandSide.RIGHT) {
-            rightItemStack = entity.getHeldItem(Hand.MAIN_HAND);
-            leftItemStack = entity.getHeldItem(Hand.OFF_HAND);
+            rightItemStack = entity.getItemInHand(Hand.MAIN_HAND);
+            leftItemStack = entity.getItemInHand(Hand.OFF_HAND);
         } else {
-            rightItemStack = entity.getHeldItem(Hand.OFF_HAND);
-            leftItemStack = entity.getHeldItem(Hand.MAIN_HAND);
+            rightItemStack = entity.getItemInHand(Hand.OFF_HAND);
+            leftItemStack = entity.getItemInHand(Hand.MAIN_HAND);
         }
 
         ModelPose rPose = registry.getPose(rightItemStack.getItem(), rightItemStack.getMetadata());

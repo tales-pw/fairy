@@ -42,7 +42,7 @@ public class ItemRPSign extends ItemFBlock {
             return result;
 
         pos = this.determinePosition(worldIn, pos, facing);
-        ItemStack itemstack = player.getHeldItem(hand);
+        ItemStack itemstack = player.getItemInHand(hand);
         TileEntity tileentity = worldIn.getTileEntity(pos);
 
         if (!BlockItem.setTileEntityNBT(worldIn, player, pos, itemstack)) {

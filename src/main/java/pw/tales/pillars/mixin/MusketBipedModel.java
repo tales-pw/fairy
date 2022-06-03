@@ -2,7 +2,6 @@ package pw.tales.pillars.mixin;
 
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,15 +19,13 @@ public abstract class MusketBipedModel {
     public BipedModel.ArmPose rightArmPose;
     @Shadow
     public BipedModel.ArmPose leftArmPose;
-
     @Shadow
-    public ModelRenderer bipedRightArm;
-
+    public ModelRenderer rightArm;
     @Shadow
-    public ModelRenderer bipedLeftArm;
+    public ModelRenderer leftArm;
 
     public void processPreHand(LivingEntity entityLiving, Hand hand) {
-        ItemStack itemStack = entityLiving.getHeldItem(hand);
+        ItemStack itemStack = entityLiving.getItemInHand(hand);
         Item item = itemStack.getItem();
 
         if (!(item instanceof ItemMusket))
@@ -44,7 +41,7 @@ public abstract class MusketBipedModel {
     }
 
     public void processPostHand(LivingEntity entityLiving, Hand hand, ModelRenderer model) {
-        ItemStack itemStack = entityLiving.getHeldItem(hand);
+        ItemStack itemStack = entityLiving.getItemInHand(hand);
         Item item = itemStack.getItem();
 
         if (!(item instanceof ItemMusket))
@@ -54,34 +51,36 @@ public abstract class MusketBipedModel {
         ItemMusket.Pose pose = itemMusket.getPose(itemStack);
 
         if (pose == ItemMusket.Pose.MARCH) {
-            model.rotateAngleX = (float) Math.toRadians(-45);
+            model.xRot = (float) Math.toRadians(-45);
         }
     }
 
 
-    @Inject(method = "setRotationAngles", at = @At("HEAD"))
-    public void onPreRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks,
-                                    float netHeadYaw, float headPitch, float scaleFactor, Entity entity, CallbackInfo ci) {
-
-        if (!(entity instanceof LivingEntity))
-            return;
-
-        LivingEntity entityLiving = (LivingEntity) entity;
-
-        processPreHand(entityLiving, Hand.MAIN_HAND);
-        processPreHand(entityLiving, Hand.OFF_HAND);
+    @Inject(method = "setupAnim*", at = @At("HEAD"))
+    public void onPreRotationAngles(
+            LivingEntity entity,
+            float p_225597_2_,
+            float p_225597_3_,
+            float p_225597_4_,
+            float p_225597_5_,
+            float p_225597_6_,
+            CallbackInfo ci
+    ) {
+        processPreHand(entity, Hand.MAIN_HAND);
+        processPreHand(entity, Hand.OFF_HAND);
     }
 
-    @Inject(method = "setRotationAngles", at = @At("RETURN"))
-    public void onPostRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks,
-                                     float netHeadYaw, float headPitch, float scaleFactor, Entity entity, CallbackInfo ci) {
-
-        if (!(entity instanceof LivingEntity))
-            return;
-
-        LivingEntity entityLiving = (LivingEntity) entity;
-
-        processPostHand(entityLiving, Hand.MAIN_HAND, this.bipedRightArm);
-        processPostHand(entityLiving, Hand.OFF_HAND, this.bipedLeftArm);
+    @Inject(method = "setupAnim*", at = @At("RETURN"))
+    public void onPostRotationAngles(
+            LivingEntity entity,
+            float p_225597_2_,
+            float p_225597_3_,
+            float p_225597_4_,
+            float p_225597_5_,
+            float p_225597_6_,
+            CallbackInfo ci
+    ) {
+        processPostHand(entity, Hand.MAIN_HAND, this.rightArm);
+        processPostHand(entity, Hand.OFF_HAND, this.leftArm);
     }
 }
