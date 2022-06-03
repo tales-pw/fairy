@@ -4,7 +4,7 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
@@ -18,7 +18,7 @@ import java.util.List;
 @MethodsReturnNonnullByDefault
 public abstract class Feature {
     public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
-                                   Direction facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+                                   Direction facing, float hitX, float hitY, float hitZ, int meta, LivingEntity placer) {
         return state;
     }
 

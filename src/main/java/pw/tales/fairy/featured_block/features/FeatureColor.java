@@ -4,7 +4,7 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -45,7 +45,7 @@ public class FeatureColor extends Feature {
 
     @Override
     public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
-                                   Direction facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+                                   Direction facing, float hitX, float hitY, float hitZ, int meta, LivingEntity placer) {
         return state.withProperty(COLOR, EnumDyeColor.byMetadata(meta));
     }
 

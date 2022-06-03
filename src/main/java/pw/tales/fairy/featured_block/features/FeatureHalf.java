@@ -5,7 +5,7 @@ import net.minecraft.block.BlockSlab;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -46,7 +46,7 @@ public class FeatureHalf extends Feature {
 
     @Override
     public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
-                                   Direction facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+                                   Direction facing, float hitX, float hitY, float hitZ, int meta, LivingEntity placer) {
         return facing != Direction.DOWN && (facing == Direction.UP || (double) hitY <= 0.5D) ?
                 state.withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM) :
                 state.withProperty(HALF, BlockSlab.EnumBlockHalf.TOP);

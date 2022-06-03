@@ -9,7 +9,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
@@ -63,7 +63,7 @@ public abstract class FeaturedBlock extends Block {
     @SuppressWarnings("deprecation")
     public IBlockState getStateForPlacement(@Nullable World world, @Nullable BlockPos pos,
                                             @Nullable Direction facing, float hitX, float hitY, float hitZ, int meta,
-                                            @Nullable EntityLivingBase placer) {
+                                            @Nullable LivingEntity placer) {
         IBlockState state = this.getDefaultState();
 
         for (Feature feature : features) {

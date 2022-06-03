@@ -1,7 +1,7 @@
 package pw.tales.pillars.pose_render;
 
-import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.HandSide;
@@ -16,7 +16,7 @@ public class ModelPoseRenderer {
         this.registry = registry;
     }
 
-    public void updateRotation(EntityLivingBase entity, ModelRenderer bipedRightArm,
+    public void updateRotation(LivingEntity entity, ModelRenderer bipedRightArm,
                                ModelRenderer bipedLeftArm) {
         ItemStack rightItemStack, leftItemStack;
         PoseState state = new PoseState();
