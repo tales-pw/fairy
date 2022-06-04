@@ -72,8 +72,8 @@ class TwoSidedOpenFeature extends Feature {
     }
 
     @Override
-    public BlockState getDefaultState(BlockState state) {
-        state = super.getDefaultState(state);
+    public BlockState updateDefaultState(BlockState state) {
+        state = super.updateDefaultState(state);
         state = state.withProperty(OPEN_FORWARD, false);
         state = state.withProperty(OPEN_OPPOSITE, false);
         return this.updateStatus(state);

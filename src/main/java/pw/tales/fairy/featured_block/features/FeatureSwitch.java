@@ -23,6 +23,12 @@ public class FeatureSwitch extends FeatureStoreFlag {
     @Override
     public ActionResultType onUse(World worldIn, BlockPos pos, BlockState state,
                                   PlayerEntity playerIn, Hand hand, BlockRayTraceResult hit) {
-        return worldIn.setBlockState(pos, state.cycle(property));
+        boolean result = worldIn.setBlockAndUpdate(pos, state.cycle(property));
+
+        if (!result) {
+            return ActionResultType.FAIL;
+        }
+
+        return ActionResultType.SUCCESS;
     }
 }

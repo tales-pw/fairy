@@ -1,14 +1,12 @@
 package pw.tales.fairy.featured_block.features;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.minecraft.block.BlockSlab;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.state.Property;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.EnumProperty;
+import net.minecraft.state.Property;
+import net.minecraft.state.properties.SlabType;
 import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import pw.tales.fairy.featured_block.Pair;
 
 import java.util.ArrayList;
@@ -18,8 +16,7 @@ import java.util.List;
 public class FeatureHalf extends Feature {
     public static final Feature DEFAULT = new FeatureHalf();
 
-    public static final EnumProperty<BlockSlab.EnumBlockHalf> HALF =
-            EnumProperty.<BlockSlab.EnumBlockHalf>create("half", BlockSlab.EnumBlockHalf.class);
+    public static final EnumProperty<SlabType> HALF = EnumProperty.create("half", SlabType.class);
 
     private static final List<Property<?>> properties = new ArrayList<>();
 
@@ -28,26 +25,16 @@ public class FeatureHalf extends Feature {
     }
 
     @Override
-    public BlockState getDefaultState(BlockState state) {
-        return super.getDefaultState(state).withProperty(HALF, BlockSlab.EnumBlockHalf.TOP);
-    }
-
-    private int putToMeta(int oldMeta, BlockState state) {
-        return oldMeta << 1 | (state.getValue(HALF) == BlockSlab.EnumBlockHalf.TOP ? 0 : 1);
-    }
-
-    private Pair<Integer, BlockState> getFromMeta(int oldMeta, BlockState state) {
-        int i = oldMeta & 1;
-        return new Pair<>(oldMeta >> 1, state.withProperty(HALF,
-                i == 0 ? BlockSlab.EnumBlockHalf.TOP : BlockSlab.EnumBlockHalf.BOTTOM));
+    public BlockState updateDefaultState(BlockState state) {
+        return super.updateDefaultState(state).setValue(HALF, SlabType.TOP);
     }
 
     @Override
-    public BlockState onPlacement(BlockState state, World worldIn, BlockPos pos,
-                                   Direction facing, float hitX, float hitY, float hitZ, int meta, LivingEntity placer) {
+    public BlockState onPlacement(
+            BlockState state, BlockItemUseContext itemUseContext) {
         return facing != Direction.DOWN && (facing == Direction.UP || (double) hitY <= 0.5D) ?
-                state.withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM) :
-                state.withProperty(HALF, BlockSlab.EnumBlockHalf.TOP);
+                state.setValue(HALF, SlabType.BOTTOM) :
+                state.setValue(HALF, SlabType.TOP);
     }
 
     @Override

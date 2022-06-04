@@ -28,7 +28,7 @@ public class FeatureFlag extends Feature {
                                       BlockPos pos) {
         IFlagHandler flagHandler = (IFlagHandler) block;
         return super.getActualState(state, block, world, pos)
-                .withProperty(property, flagHandler.handleFlag(this.name, state, block, world, pos));
+                .setValue(property, flagHandler.handleFlag(this.name, state, block, world, pos));
     }
 
     @Override

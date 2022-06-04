@@ -31,9 +31,9 @@ public class FeatureConnectionBasic extends FeatureConnection {
     }
 
     @Override
-    public BlockState getDefaultState(BlockState state) {
-        return super.getDefaultState(state).withProperty(N, false).withProperty(E, false)
-                .withProperty(S, false).withProperty(W, false);
+    public BlockState updateDefaultState(BlockState state) {
+        return super.updateDefaultState(state).setValue(N, false).setValue(E, false)
+                .setValue(S, false).setValue(W, false);
     }
 
     @Override
@@ -42,10 +42,10 @@ public class FeatureConnectionBasic extends FeatureConnection {
         if (!(block instanceof IConnectible))
             return state;
 
-        return state.withProperty(N, canConnectTo(world, state, pos, Direction.NORTH))
-                .withProperty(E, canConnectTo(world, state, pos, Direction.EAST))
-                .withProperty(S, canConnectTo(world, state, pos, Direction.SOUTH))
-                .withProperty(W, canConnectTo(world, state, pos, Direction.WEST));
+        return state.setValue(N, canConnectTo(world, state, pos, Direction.NORTH))
+                .setValue(E, canConnectTo(world, state, pos, Direction.EAST))
+                .setValue(S, canConnectTo(world, state, pos, Direction.SOUTH))
+                .setValue(W, canConnectTo(world, state, pos, Direction.WEST));
 
     }
 

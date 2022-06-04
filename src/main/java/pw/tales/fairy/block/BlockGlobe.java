@@ -86,7 +86,7 @@ public class BlockGlobe extends BlockFairy {
         }
 
         @Override
-        public BlockState getDefaultState(BlockState state) {
+        public BlockState updateDefaultState(BlockState state) {
             return state.withProperty(GLOBE_ROTATION, 0);
         }
     }

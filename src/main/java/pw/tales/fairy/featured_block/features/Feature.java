@@ -3,11 +3,10 @@ package pw.tales.fairy.featured_block.features;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.Property;
 import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -18,8 +17,7 @@ import java.util.List;
 
 @MethodsReturnNonnullByDefault
 public abstract class Feature {
-    public BlockState onPlacement(BlockState state, World worldIn, BlockPos pos,
-                                   Direction facing, float hitX, float hitY, float hitZ, int meta, LivingEntity placer) {
+    public BlockState onPlacement(BlockState state, BlockItemUseContext itemUseContext) {
         return state;
     }
 
@@ -30,7 +28,7 @@ public abstract class Feature {
 
     public abstract List<Property<?>> getProperties();
 
-    public BlockState getDefaultState(BlockState state) {
+    public BlockState updateDefaultState(BlockState state) {
         return state;
     }
 

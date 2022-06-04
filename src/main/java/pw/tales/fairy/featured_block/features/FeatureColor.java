@@ -2,13 +2,11 @@ package pw.tales.fairy.featured_block.features;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.DyeColor;
-import net.minecraft.state.Property;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.EnumProperty;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.state.Property;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,14 +25,20 @@ public class FeatureColor extends Feature {
     }
 
     @Override
-    public BlockState getDefaultState(BlockState state) {
-        return super.getDefaultState(state).withProperty(COLOR, DyeColor.WHITE);
+    public BlockState updateDefaultState(BlockState state) {
+        return super.updateDefaultState(state).setValue(COLOR, DyeColor.WHITE);
     }
 
     @Override
-    public BlockState onPlacement(BlockState state, World worldIn, BlockPos pos,
-                                   Direction facing, float hitX, float hitY, float hitZ, int meta, LivingEntity placer) {
-        return state.withProperty(COLOR, DyeColor.byMetadata(meta));
+    public BlockState onPlacement(BlockState state, BlockItemUseContext itemUseContext) {
+        ItemStack itemStack = itemUseContext.getItemInHand();
+
+        DyeColor color = DyeColor.getColor(itemStack);
+        if (color == null) {
+            color = DyeColor.WHITE;
+        }
+
+        return state.setValue(COLOR, color);
     }
 
     @Override

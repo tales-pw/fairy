@@ -2,12 +2,11 @@ package pw.tales.fairy.featured_block.features;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.block.FenceBlock;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.Property;
-import net.minecraft.state.PropertyDirection;
 import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,7 @@ import java.util.List;
 public class FeatureRotation extends Feature {
     public static final Feature DEFAULT = new FeatureRotation();
 
-    public static final PropertyDirection FACING = PropertyDirection.create("facing");
+    public static final DirectionProperty FACING = DirectionProperty.create("facing");
 
     private static final List<Property<?>> properties = new ArrayList<>();
 
@@ -25,18 +24,18 @@ public class FeatureRotation extends Feature {
     }
 
     @Override
-    public BlockState getDefaultState(BlockState state) {
-        return super.getDefaultState(state).withProperty(FACING, Direction.NORTH);
+    public BlockState updateDefaultState(BlockState state) {
+        return super.updateDefaultState(state).setValue(FACING, Direction.NORTH);
     }
 
     @Override
-    public BlockState onPlacement(BlockState state, World worldIn, BlockPos pos,
-                                   Direction facing, float hitX, float hitY, float hitZ, int meta, LivingEntity placer) {
-        return state.withProperty(FACING, facing);
+    public BlockState onPlacement(BlockState state, BlockItemUseContext itemUseContext) {
+        return state.setValue(FACING, itemUseContext.getHorizontalDirection());
     }
 
     @Override
     public List<Property<?>> getProperties() {
+        FenceBlock
         return properties;
     }
 

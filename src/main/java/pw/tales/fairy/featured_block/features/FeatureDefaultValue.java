@@ -21,10 +21,10 @@ public class FeatureDefaultValue extends Feature {
     }
 
     @Override
-    public BlockState getDefaultState(BlockState state) {
+    public BlockState updateDefaultState(BlockState state) {
         IDefaultValueHandler block = (IDefaultValueHandler) state.getBlock();
 
-        return state.withProperty(property, block.getDefaultValue(this.name));
+        return state.setValue(property, block.getDefaultValue(this.name));
     }
 
     @Override

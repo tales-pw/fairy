@@ -2,7 +2,6 @@ package pw.tales.fairy.featured_block.features;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.BlockStateContainer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.Property;
@@ -20,56 +19,27 @@ public class FeatureLayers extends Feature {
     public static final FeatureLayers DEFAULT = new FeatureLayers();
     public static final IntegerProperty LAYERS = IntegerProperty.create("layers", 1, 8);
 
-    public static void main(String[] args) {
-        BlockStateContainer container = new BlockStateContainer(null, LAYERS);
-        BlockState defaultState = DEFAULT.getDefaultState(container.getBaseState());
-
-        int meta_1 = DEFAULT.putToMeta(0, defaultState.withProperty(LAYERS, 1));
-        int meta_2 = DEFAULT.putToMeta(0, defaultState.withProperty(LAYERS, 2));
-        int meta_3 = DEFAULT.putToMeta(0, defaultState.withProperty(LAYERS, 3));
-        int meta_4 = DEFAULT.putToMeta(0, defaultState.withProperty(LAYERS, 4));
-        int meta_5 = DEFAULT.putToMeta(0, defaultState.withProperty(LAYERS, 5));
-        int meta_6 = DEFAULT.putToMeta(0, defaultState.withProperty(LAYERS, 6));
-        int meta_7 = DEFAULT.putToMeta(0, defaultState.withProperty(LAYERS, 7));
-        int meta_8 = DEFAULT.putToMeta(0, defaultState.withProperty(LAYERS, 8));
-
-        System.out.println("1: " + meta_1);
-        System.out.println("2: " + meta_2);
-        System.out.println("3: " + meta_3);
-        System.out.println("4: " + meta_4);
-        System.out.println("5: " + meta_5);
-        System.out.println("6: " + meta_6);
-        System.out.println("7: " + meta_7);
-        System.out.println("8: " + meta_8);
-
-        System.out
-                .println("1: " + DEFAULT.getFromMeta(meta_1, defaultState.withProperty(LAYERS, 1)));
-        System.out
-                .println("2: " + DEFAULT.getFromMeta(meta_2, defaultState.withProperty(LAYERS, 2)));
-        System.out
-                .println("3: " + DEFAULT.getFromMeta(meta_3, defaultState.withProperty(LAYERS, 3)));
-        System.out
-                .println("4: " + DEFAULT.getFromMeta(meta_4, defaultState.withProperty(LAYERS, 4)));
-        System.out
-                .println("5: " + DEFAULT.getFromMeta(meta_5, defaultState.withProperty(LAYERS, 5)));
-        System.out
-                .println("6: " + DEFAULT.getFromMeta(meta_6, defaultState.withProperty(LAYERS, 6)));
-        System.out
-                .println("7: " + DEFAULT.getFromMeta(meta_7, defaultState.withProperty(LAYERS, 7)));
-        System.out
-                .println("8: " + DEFAULT.getFromMeta(meta_8, defaultState.withProperty(LAYERS, 8)));
+    @Override
+    public BlockState updateDefaultState(BlockState state) {
+        return state.setValue(LAYERS, 1);
     }
 
     @Override
-    public BlockState getDefaultState(BlockState state) {
-        return state.withProperty(LAYERS, 1);
-    }
+    public ActionResultType onUse(
+            World worldIn,
+            BlockPos pos,
+            BlockState state,
+            PlayerEntity playerIn,
+            Hand hand,
+            BlockRayTraceResult hit
+    ) {
+        boolean result = worldIn.setBlockAndUpdate(pos, state.cycle(LAYERS));
 
-    @Override
-    public ActionResultType onUse(World worldIn, BlockPos pos, BlockState state,
-                                  PlayerEntity playerIn, Hand hand, BlockRayTraceResult hit) {
+        if (!result) {
+            return ActionResultType.FAIL;
+        }
 
-        return worldIn.setBlockState(pos, state.cycleProperty(LAYERS));
+        return ActionResultType.SUCCESS;
     }
 
     @Override

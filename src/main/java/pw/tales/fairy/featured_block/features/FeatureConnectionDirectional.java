@@ -46,9 +46,9 @@ public class FeatureConnectionDirectional extends FeatureConnection {
     }
 
     @Override
-    public BlockState getDefaultState(BlockState state) {
-        return state.withProperty(FeatureHRotation.FACING, Direction.NORTH)
-                .withProperty(LEFT, false).withProperty(RIGHT, false);
+    public BlockState updateDefaultState(BlockState state) {
+        return state.setValue(FeatureHRotation.FACING, Direction.NORTH)
+                .setValue(LEFT, false).setValue(RIGHT, false);
     }
 
     @Override
@@ -61,8 +61,8 @@ public class FeatureConnectionDirectional extends FeatureConnection {
         FeatureRotation.IRotationAccess rotatable = (FeatureRotation.IRotationAccess) block;
         Direction facing = rotatable.getFacing(state);
 
-        return state.withProperty(LEFT, this.canConnectTo(world, state, pos, facing.rotateY()))
-                .withProperty(RIGHT, this.canConnectTo(world, state, pos, facing.rotateYCCW()));
+        return state.setValue(LEFT, this.canConnectTo(world, state, pos, facing.rotateY()))
+                .setValue(RIGHT, this.canConnectTo(world, state, pos, facing.rotateYCCW()));
     }
 
     @Override

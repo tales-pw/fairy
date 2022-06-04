@@ -186,8 +186,8 @@ public class BlockLargeDoor
         }
 
         @Override
-        public BlockState getDefaultState(BlockState state) {
-            return super.getDefaultState(state).withProperty(OPEN_STATUS, OpenStatus.CLOSED);
+        public BlockState updateDefaultState(BlockState state) {
+            return super.updateDefaultState(state).withProperty(OPEN_STATUS, OpenStatus.CLOSED);
         }
     }
 }

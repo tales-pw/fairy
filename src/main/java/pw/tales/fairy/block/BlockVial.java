@@ -48,7 +48,7 @@ public class BlockVial extends BlockFairy {
 
     @Override
     public int damageDropped(BlockState state) {
-        return state.getValue(FeatureColor.COLOR).getMetadata();
+        return state.getValue(FeatureColor.COLOR).getId();
     }
 
     @Override

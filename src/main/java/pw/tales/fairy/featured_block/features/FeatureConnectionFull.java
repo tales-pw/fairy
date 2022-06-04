@@ -37,44 +37,45 @@ public class FeatureConnectionFull extends FeatureConnectionBasic {
     }
 
     @Override
-    public BlockState getDefaultState(BlockState state) {
-        return super.getDefaultState(state).withProperty(NE, false).withProperty(SE, false)
-                .withProperty(SW, false).withProperty(NW, false);
+    public BlockState updateDefaultState(BlockState state) {
+        return super.updateDefaultState(state).setValue(NE, false).setValue(SE, false)
+                .setValue(SW, false).setValue(NW, false);
     }
 
     @Override
-    public BlockState getActualState(BlockState state, Block block, IBlockAccess world,
-                                      BlockPos pos) {
+    public BlockState getActualState(
+            BlockState state,
+            Block block,
+            IBlockAccess world,
+            BlockPos pos
+    ) {
         BlockState newState = super.getActualState(state, block, world, pos);
 
         if (!(block instanceof IConnectible))
             return state;
 
-        newState = newState.withProperty(N,
-                        newState.getValue(N) || canConnectTo(world, state, pos, Direction.NORTH,
-                                Direction.UP)).withProperty(E,
-                        newState.getValue(E) || canConnectTo(world, state, pos, Direction.EAST, Direction.UP))
-                .withProperty(S,
-                        newState.getValue(S) || canConnectTo(world, state, pos, Direction.SOUTH,
-                                Direction.UP)).withProperty(W,
-                        newState.getValue(W) || canConnectTo(world, state, pos, Direction.WEST,
-                                Direction.UP));
+        newState = newState
+                .setValue(N,
+                        newState.getValue(N) || canConnectTo(world, state, pos, Direction.NORTH, Direction.UP)
+                ).setValue(E,
+                        newState.getValue(E) || canConnectTo(world, state, pos, Direction.EAST, Direction.UP)
+                ).setValue(S,
+                        newState.getValue(S) || canConnectTo(world, state, pos, Direction.SOUTH, Direction.UP)
+                ).setValue(W,
+                        newState.getValue(W) || canConnectTo(world, state, pos, Direction.WEST, Direction.UP)
+                );
 
         if (!(newState.getValue(S) || newState.getValue(E)))
-            newState = newState.withProperty(SE,
-                    canConnectTo(world, state, pos, Direction.SOUTH, Direction.EAST));
+            newState = newState.setValue(SE, canConnectTo(world, state, pos, Direction.SOUTH, Direction.EAST));
 
         if (!(newState.getValue(S) || newState.getValue(W)))
-            newState = newState.withProperty(SW,
-                    canConnectTo(world, state, pos, Direction.SOUTH, Direction.WEST));
+            newState = newState.setValue(SW, canConnectTo(world, state, pos, Direction.SOUTH, Direction.WEST));
 
         if (!(newState.getValue(N) || newState.getValue(W)))
-            newState = newState.withProperty(NW,
-                    canConnectTo(world, state, pos, Direction.NORTH, Direction.WEST));
+            newState = newState.setValue(NW, canConnectTo(world, state, pos, Direction.NORTH, Direction.WEST));
 
         if (!(newState.getValue(N) || newState.getValue(E)))
-            newState = newState.withProperty(NE,
-                    canConnectTo(world, state, pos, Direction.NORTH, Direction.EAST));
+            newState = newState.setValue(NE, canConnectTo(world, state, pos, Direction.NORTH, Direction.EAST));
 
         return newState;
     }

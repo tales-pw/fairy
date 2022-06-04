@@ -23,8 +23,8 @@ public class FeatureStoreFlag extends Feature {
     }
 
     @Override
-    public BlockState getDefaultState(BlockState state) {
-        return state.withProperty(property, false);
+    public BlockState updateDefaultState(BlockState state) {
+        return state.setValue(property, false);
     }
 
     public BooleanProperty getProperty() {

@@ -1,19 +1,16 @@
 package pw.tales.fairy.featured_block;
 
 
-import com.google.common.collect.Lists;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.state.Property<?>;
-import net.minecraft.block.BlockStateContainer;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.Property;
+import net.minecraft.state.StateContainer;
 import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -36,27 +33,17 @@ public abstract class FeaturedBlock extends Block {
 
     public FeaturedBlock(Material material) {
         this(material, material.getMaterialMapColor());
-
-        this.registerDefaultState(
-                this.stateDefinition.any()
-                        .setValue(FACING, Direction.NORTH)
-                        .setValue(OPEN, false)
-                        .setValue(HINGE, DoorHingeSide.LEFT)
-                        .setValue(POWERED, false)
-                        .setValue(HALF, DoubleBlockHalf.LOWER)
-        );
-
     }
 
     public FeaturedBlock(Material material, MapColor mapColor) {
         super(material, mapColor);
 
-        BlockState state = this.getDefaultState();
+        BlockState state = this.stateDefinition.any();
         for (Feature feature : features) {
-            state = feature.getDefaultState(state);
+            state = feature.updateDefaultState(state);
         }
 
-        this.setDefaultState(state);
+        this.registerDefaultState(state);
     }
 
     public abstract List<Feature> getFeatures();
@@ -71,16 +58,14 @@ public abstract class FeaturedBlock extends Block {
         return state;
     }
 
+    @Nullable
     @Override
     @ParametersAreNonnullByDefault
-    @SuppressWarnings("deprecation")
-    public BlockState getStateForPlacement(@Nullable World world, @Nullable BlockPos pos,
-                                            @Nullable Direction facing, float hitX, float hitY, float hitZ, int meta,
-                                            @Nullable LivingEntity placer) {
-        BlockState state = this.getDefaultState();
+    public BlockState getStateForPlacement(BlockItemUseContext itemUseContext) {
+        BlockState state = this.defaultBlockState();
 
         for (Feature feature : features) {
-            state = feature.onPlacement(state, world, pos, facing, hitX, hitY, hitZ, meta, placer);
+            state = feature.onPlacement(state, itemUseContext);
         }
 
         return state;
@@ -106,21 +91,21 @@ public abstract class FeaturedBlock extends Block {
             if (result == ActionResultType.FAIL) {
                 f = result;
             }
-
         }
 
-        return ActionResultType.PASS;
+        return f;
     }
 
     @Override
-    protected BlockStateContainer createBlockState() {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> stateContainerBuilder) {
+        super.createBlockStateDefinition(stateContainerBuilder);
+
         this.features = this.getFeatures();
 
-        ArrayList<Property<?>> properties = new ArrayList<>();
         for (Feature feature : features) {
-            properties.addAll(feature.getProperties());
+            for (Property<?> property : feature.getProperties()) {
+                stateContainerBuilder.add(property);
+            }
         }
-
-        return new BlockStateContainer(this, properties.toArray(new Property<?>[0]));
     }
 }

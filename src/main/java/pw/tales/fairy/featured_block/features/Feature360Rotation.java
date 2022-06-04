@@ -1,13 +1,10 @@
 package pw.tales.fairy.featured_block.features;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.Property;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.World;
 
 import java.util.Collections;
 import java.util.List;
@@ -19,10 +16,10 @@ public class Feature360Rotation extends Feature {
     private final static List<Property<?>> properties = Collections.singletonList(Feature360Rotation.ROTATION);
 
     @Override
-    public BlockState onPlacement(BlockState state, World worldIn, BlockPos pos,
-                                   Direction facing, float hitX, float hitY, float hitZ, int meta, LivingEntity placer) {
-        float rotation = MathHelper.floor((placer.rotationYaw * 16.0F / 360.0F) + 0.5D) & 15;
-        return state.withProperty(ROTATION, (int) rotation);
+    public BlockState onPlacement(BlockState state, BlockItemUseContext itemUseContext) {
+        float placerRotation = itemUseContext.getRotation();
+        float rotation = MathHelper.floor((placerRotation * 16.0F / 360.0F) + 0.5D) & 15;
+        return state.setValue(ROTATION, (int) rotation);
     }
 
     @Override
