@@ -10,7 +10,7 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -32,8 +32,7 @@ public abstract class Feature {
         return state;
     }
 
-    public BlockState getActualState(BlockState state, Block block, IBlockAccess world,
-                                      BlockPos pos) {
+    public BlockState updateShape(BlockState state, Block block, IWorld world, BlockPos pos) {
         return state;
     }
 }

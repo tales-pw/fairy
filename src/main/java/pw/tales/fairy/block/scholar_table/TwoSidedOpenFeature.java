@@ -11,7 +11,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
-import pw.tales.fairy.featured_block.Pair;
 import pw.tales.fairy.featured_block.features.Feature;
 import pw.tales.fairy.featured_block.features.FeatureHRotation;
 

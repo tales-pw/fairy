@@ -7,7 +7,7 @@ import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.Property;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.IWorld;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +33,7 @@ public class FeatureConnectionDirectional extends FeatureConnection {
 
         if (!(block1 instanceof FeatureRotation.IRotationAccess))
             return false;
+
         if (!(block2 instanceof FeatureRotation.IRotationAccess))
             return false;
 
@@ -52,8 +53,12 @@ public class FeatureConnectionDirectional extends FeatureConnection {
     }
 
     @Override
-    public BlockState getActualState(BlockState state, Block block, IBlockAccess world,
-                                      BlockPos pos) {
+    public BlockState updateShape(
+            BlockState state,
+            Block block,
+            IWorld world,
+            BlockPos pos
+    ) {
         if (!(block instanceof FeatureConnection.IConnectible
                 && block instanceof FeatureRotation.IRotationAccess))
             return state;
@@ -61,8 +66,9 @@ public class FeatureConnectionDirectional extends FeatureConnection {
         FeatureRotation.IRotationAccess rotatable = (FeatureRotation.IRotationAccess) block;
         Direction facing = rotatable.getFacing(state);
 
-        return state.setValue(LEFT, this.canConnectTo(world, state, pos, facing.rotateY()))
-                .setValue(RIGHT, this.canConnectTo(world, state, pos, facing.rotateYCCW()));
+        return state
+                .setValue(LEFT, this.canConnectTo(world, state, pos, facing.getClockWise()))
+                .setValue(RIGHT, this.canConnectTo(world, state, pos, facing.getCounterClockWise()));
     }
 
     @Override

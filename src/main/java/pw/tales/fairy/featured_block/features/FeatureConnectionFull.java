@@ -7,7 +7,7 @@ import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.Property;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.IWorld;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,13 +43,13 @@ public class FeatureConnectionFull extends FeatureConnectionBasic {
     }
 
     @Override
-    public BlockState getActualState(
+    public BlockState updateShape(
             BlockState state,
             Block block,
-            IBlockAccess world,
+            IWorld world,
             BlockPos pos
     ) {
-        BlockState newState = super.getActualState(state, block, world, pos);
+        BlockState newState = super.updateShape(state, block, world, pos);
 
         if (!(block instanceof IConnectible))
             return state;

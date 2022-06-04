@@ -12,8 +12,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import pw.tales.fairy.featured_block.Pair;
 import pw.tales.fairy.featured_block.features.Feature;
 import pw.tales.fairy.featured_block.features.FeatureHRotation;
 
@@ -41,7 +41,7 @@ public class BlockGlobe extends BlockFairy {
     }
 
     @Override
-    public AxisAlignedBB getBoundingBox(BlockState state, IBlockAccess source, BlockPos pos) {
+    public AxisAlignedBB getBoundingBox(BlockState state, IWorld source, BlockPos pos) {
         return DEFAULT_AABB;
     }
 
@@ -66,18 +66,20 @@ public class BlockGlobe extends BlockFairy {
 
         private final static List<Property<?>> properties = Collections.singletonList(GLOBE_ROTATION);
 
-        private int putToMeta(int oldMeta, BlockState state) {
-            return oldMeta << 2 | state.getValue(GLOBE_ROTATION);
-        }
-
-        private Pair<Integer, BlockState> getFromMeta(int oldMeta, BlockState state) {
-            return new Pair<>(oldMeta >> 2, state.withProperty(GLOBE_ROTATION, oldMeta & 3));
-        }
-
         @Override
-        public ActionResultType onUse(World worldIn, BlockPos pos, BlockState state,
-                                      PlayerEntity playerIn, Hand hand, BlockRayTraceResult hit) {
-            return worldIn.setBlockState(pos, state.cycleProperty(GLOBE_ROTATION));
+        public ActionResultType onUse(
+                World worldIn,
+                BlockPos pos,
+                BlockState state,
+                PlayerEntity playerIn,
+                Hand hand,
+                BlockRayTraceResult hit
+        ) {
+            if (worldIn.setBlockAndUpdate(pos, state.cycle(GLOBE_ROTATION))) {
+                return ActionResultType.SUCCESS;
+            }
+
+            return ActionResultType.FAIL;
         }
 
         @Override
@@ -87,7 +89,7 @@ public class BlockGlobe extends BlockFairy {
 
         @Override
         public BlockState updateDefaultState(BlockState state) {
-            return state.withProperty(GLOBE_ROTATION, 0);
+            return state.setValue(GLOBE_ROTATION, 0);
         }
     }
 }

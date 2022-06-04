@@ -2,7 +2,6 @@ package pw.tales.fairy.featured_block.features;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.FenceBlock;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.Property;
@@ -35,7 +34,6 @@ public class FeatureRotation extends Feature {
 
     @Override
     public List<Property<?>> getProperties() {
-        FenceBlock
         return properties;
     }
 

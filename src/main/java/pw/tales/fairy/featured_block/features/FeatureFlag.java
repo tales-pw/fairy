@@ -6,7 +6,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.Property;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.IWorld;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +24,14 @@ public class FeatureFlag extends Feature {
     }
 
     @Override
-    public BlockState getActualState(BlockState state, Block block, IBlockAccess world,
-                                      BlockPos pos) {
+    public BlockState updateShape(
+            BlockState state,
+            Block block,
+            IWorld world,
+            BlockPos pos
+    ) {
         IFlagHandler flagHandler = (IFlagHandler) block;
-        return super.getActualState(state, block, world, pos)
+        return super.updateShape(state, block, world, pos)
                 .setValue(property, flagHandler.handleFlag(this.name, state, block, world, pos));
     }
 
@@ -45,7 +49,6 @@ public class FeatureFlag extends Feature {
     }
 
     public interface IFlagHandler {
-        boolean handleFlag(String name, BlockState state, Block block, IBlockAccess world,
-                           BlockPos pos);
+        boolean handleFlag(String name, BlockState state, Block block, IWorld world, BlockPos pos);
     }
 }

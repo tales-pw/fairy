@@ -7,7 +7,7 @@ import net.minecraft.state.EnumProperty;
 import net.minecraft.state.Property;
 import net.minecraft.state.properties.SlabType;
 import net.minecraft.util.Direction;
-import pw.tales.fairy.featured_block.Pair;
+import net.minecraft.util.math.vector.Vector3d;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +30,10 @@ public class FeatureHalf extends Feature {
     }
 
     @Override
-    public BlockState onPlacement(
-            BlockState state, BlockItemUseContext itemUseContext) {
-        return facing != Direction.DOWN && (facing == Direction.UP || (double) hitY <= 0.5D) ?
+    public BlockState onPlacement(BlockState state, BlockItemUseContext itemUseContext) {
+        Direction direction = itemUseContext.getNearestLookingDirection();
+        Vector3d hit = itemUseContext.getClickLocation();
+        return direction != Direction.DOWN && (direction == Direction.UP || hit.y <= 0.5D) ?
                 state.setValue(HALF, SlabType.BOTTOM) :
                 state.setValue(HALF, SlabType.TOP);
     }

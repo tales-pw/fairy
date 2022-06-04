@@ -1,5 +1,6 @@
 package pw.tales.fairy.featured_block.features;
 
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.IntegerProperty;
@@ -9,6 +10,7 @@ import net.minecraft.util.math.MathHelper;
 import java.util.Collections;
 import java.util.List;
 
+@MethodsReturnNonnullByDefault
 public class Feature360Rotation extends Feature {
     public static final Feature360Rotation DEFAULT = new Feature360Rotation();
     public static final IntegerProperty ROTATION = IntegerProperty.create("rotation", 0, 15);

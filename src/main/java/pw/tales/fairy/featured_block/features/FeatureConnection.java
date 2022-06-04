@@ -4,31 +4,39 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3i;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.util.math.vector.Vector3i;
+import net.minecraft.world.IWorld;
 
 public abstract class FeatureConnection extends Feature {
-    protected Vec3i createDirVector(Direction facing1, Direction facing2) {
-        Vec3i dir1 = facing1.getDirectionVec();
-        Vec3i dir2 = facing2.getDirectionVec();
+    protected Vector3i createDirVector(Direction facing1, Direction facing2) {
+        Vector3i dir1 = facing1.getNormal();
+        Vector3i dir2 = facing2.getNormal();
 
-        return new Vec3i(dir1.getX() + dir2.getX(), dir1.getY() + dir2.getY(),
-                dir1.getZ() + dir2.getZ());
+        return new Vector3i(
+                dir1.getX() + dir2.getX(),
+                dir1.getY() + dir2.getY(),
+                dir1.getZ() + dir2.getZ()
+        );
     }
 
-    protected boolean canConnectTo(IBlockAccess worldIn, BlockState state1, BlockPos pos,
-                                   Direction facing1, Direction facing2) {
+    protected boolean canConnectTo(
+            IWorld worldIn,
+            BlockState state1,
+            BlockPos pos,
+            Direction facing1,
+            Direction facing2
+    ) {
         return this.canConnectTo(worldIn, state1, pos, this.createDirVector(facing1, facing2));
     }
 
-    protected boolean canConnectTo(IBlockAccess worldIn, BlockState state1, BlockPos pos,
+    protected boolean canConnectTo(IWorld worldIn, BlockState state1, BlockPos pos,
                                    Direction facing) {
-        return this.canConnectTo(worldIn, state1, pos, facing.getDirectionVec());
+        return this.canConnectTo(worldIn, state1, pos, facing.getNormal());
     }
 
-    protected boolean canConnectTo(IBlockAccess worldIn, BlockState state1, BlockPos pos,
-                                   Vec3i directionalVector) {
-        BlockState state2 = worldIn.getBlockState(pos.add(directionalVector));
+    protected boolean canConnectTo(IWorld worldIn, BlockState state1, BlockPos pos,
+                                   Vector3i directionalVector) {
+        BlockState state2 = worldIn.getBlockState(pos.offset(directionalVector));
         return this.canConnectTo(state1, state2);
     }
 
