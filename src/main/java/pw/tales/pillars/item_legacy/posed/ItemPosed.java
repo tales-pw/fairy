@@ -14,12 +14,11 @@ import net.minecraftforge.client.model.ModelLoader;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
-public abstract class ItemPosed<T extends IPoseEnum<T>>
-        extends Item {
+public abstract class ItemPosed<T extends IPoseEnum<T>> extends Item {
     protected IPoseManager<T> poseManager;
 
-    public ItemPosed(IPoseManager<T> poses) {
-        super();
+    public ItemPosed(Properties properties, IPoseManager<T> poses) {
+        super(properties);
         this.poseManager = poses;
     }
 
