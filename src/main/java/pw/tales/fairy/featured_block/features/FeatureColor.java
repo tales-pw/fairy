@@ -1,15 +1,14 @@
 package pw.tales.fairy.featured_block.features;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.DyeColor;
+import net.minecraft.state.Property;
+import net.minecraft.state.EnumProperty;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import pw.tales.fairy.featured_block.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,39 +17,28 @@ import java.util.List;
 public class FeatureColor extends Feature {
     public static final Feature DEFAULT = new FeatureColor();
 
-    public static final PropertyEnum<EnumDyeColor> COLOR =
-            PropertyEnum.<EnumDyeColor>create("color", EnumDyeColor.class);
+    public static final EnumProperty<DyeColor> COLOR =
+            EnumProperty.create("color", DyeColor.class);
 
-    private static final List<IProperty> properties = new ArrayList<>();
+    private static final List<Property<?>> properties = new ArrayList<>();
 
     static {
         properties.add(COLOR);
     }
 
     @Override
-    public IBlockState getDefaultState(IBlockState state) {
-        return super.getDefaultState(state).withProperty(COLOR, EnumDyeColor.WHITE);
+    public BlockState getDefaultState(BlockState state) {
+        return super.getDefaultState(state).withProperty(COLOR, DyeColor.WHITE);
     }
 
     @Override
-    public int putToMeta(int oldMeta, IBlockState state) {
-        return oldMeta << 4 | state.getValue(COLOR).getMetadata();
-    }
-
-    @Override
-    public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
-        return new Pair<>(oldMeta >> 4,
-                state.withProperty(COLOR, EnumDyeColor.byMetadata(oldMeta & 15)));
-    }
-
-    @Override
-    public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
+    public BlockState onPlacement(BlockState state, World worldIn, BlockPos pos,
                                    Direction facing, float hitX, float hitY, float hitZ, int meta, LivingEntity placer) {
-        return state.withProperty(COLOR, EnumDyeColor.byMetadata(meta));
+        return state.withProperty(COLOR, DyeColor.byMetadata(meta));
     }
 
     @Override
-    public List<IProperty> getProperties() {
+    public List<Property<?>> getProperties() {
         return properties;
     }
 }

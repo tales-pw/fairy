@@ -2,9 +2,9 @@ package pw.tales.fairy.featured_block.features;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.Property;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -16,10 +16,10 @@ import java.util.List;
 public class FeatureConnectionDirectional extends FeatureConnection {
     public static final Feature DEFAULT = new FeatureConnectionDirectional();
 
-    public static final PropertyBool LEFT = PropertyBool.create("left");
-    public static final PropertyBool RIGHT = PropertyBool.create("right");
+    public static final BooleanProperty LEFT = BooleanProperty.create("left");
+    public static final BooleanProperty RIGHT = BooleanProperty.create("right");
 
-    static final List<IProperty> properties = new ArrayList<>();
+    static final List<Property<?>> properties = new ArrayList<>();
 
     static {
         properties.add(LEFT);
@@ -27,7 +27,7 @@ public class FeatureConnectionDirectional extends FeatureConnection {
     }
 
     @Override
-    public boolean canConnectTo(IBlockState state1, IBlockState state2) {
+    public boolean canConnectTo(BlockState state1, BlockState state2) {
         Block block1 = state1.getBlock();
         Block block2 = state2.getBlock();
 
@@ -46,13 +46,13 @@ public class FeatureConnectionDirectional extends FeatureConnection {
     }
 
     @Override
-    public IBlockState getDefaultState(IBlockState state) {
+    public BlockState getDefaultState(BlockState state) {
         return state.withProperty(FeatureHRotation.FACING, Direction.NORTH)
                 .withProperty(LEFT, false).withProperty(RIGHT, false);
     }
 
     @Override
-    public IBlockState getActualState(IBlockState state, Block block, IBlockAccess world,
+    public BlockState getActualState(BlockState state, Block block, IBlockAccess world,
                                       BlockPos pos) {
         if (!(block instanceof FeatureConnection.IConnectible
                 && block instanceof FeatureRotation.IRotationAccess))
@@ -66,7 +66,7 @@ public class FeatureConnectionDirectional extends FeatureConnection {
     }
 
     @Override
-    public List<IProperty> getProperties() {
+    public List<Property<?>> getProperties() {
         return properties;
     }
 }

@@ -2,15 +2,14 @@ package pw.tales.fairy.featured_block.features;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.BlockHorizontal;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.state.BlockStateContainer;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockStateContainer;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.state.Property;
+import net.minecraft.state.PropertyDirection;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import pw.tales.fairy.featured_block.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +20,7 @@ public class FeatureHRotation extends Feature {
 
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
-    private static final List<IProperty> properties = new ArrayList<>();
+    private static final List<Property<?>> properties = new ArrayList<>();
 
     static {
         properties.add(FACING);
@@ -29,7 +28,7 @@ public class FeatureHRotation extends Feature {
 
     public static void main(String[] args) {
         BlockStateContainer container = new BlockStateContainer(null, FACING);
-        IBlockState defaultState = DEFAULT.getDefaultState(container.getBaseState());
+        BlockState defaultState = DEFAULT.getDefaultState(container.getBaseState());
 
         int south_meta = DEFAULT.putToMeta(0, defaultState.withProperty(FACING, Direction.SOUTH));
         int west_meta = DEFAULT.putToMeta(0, defaultState.withProperty(FACING, Direction.WEST));
@@ -52,29 +51,19 @@ public class FeatureHRotation extends Feature {
     }
 
     @Override
-    public IBlockState getDefaultState(IBlockState state) {
+    public BlockState getDefaultState(BlockState state) {
         return super.getDefaultState(state).withProperty(FACING, Direction.NORTH);
     }
 
     @Override
-    public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
+    public BlockState onPlacement(BlockState state, World worldIn, BlockPos pos,
                                    Direction facing, float hitX, float hitY, float hitZ, int meta, LivingEntity placer) {
         return state.withProperty(FACING, placer.getHorizontalFacing());
     }
 
     @Override
-    public int putToMeta(int oldMeta, IBlockState state) {
-        return oldMeta << 2 | state.getValue(FACING).getHorizontalIndex();
-    }
-
-    @Override
-    public List<IProperty> getProperties() {
+    public List<Property<?>> getProperties() {
         return properties;
     }
 
-    @Override
-    public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
-        return new Pair<>(oldMeta >> 2,
-                state.withProperty(FACING, Direction.byHorizontalIndex(oldMeta & 3)));
-    }
 }

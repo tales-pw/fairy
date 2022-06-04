@@ -1,6 +1,6 @@
 package pw.tales.fairy.client.renderer;
 
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.block.model.BakedQuad;
@@ -36,7 +36,7 @@ public class TileWatermillRenderer
         rotation %= 1;
     }
 
-    private List<BakedQuad> getQuads(IBlockState state, BlockPos blockPos) {
+    private List<BakedQuad> getQuads(BlockState state, BlockPos blockPos) {
         String stateString = state.toString();
         List<BakedQuad> quads = cache.getOrDefault(stateString, null);
 
@@ -59,7 +59,7 @@ public class TileWatermillRenderer
     public void render(TileWatermill tile, double x, double y, double z, float partialTicks,
                        int destroyStage, float alpha) {
         BlockPos blockPos = tile.getPos();
-        IBlockState state = getWorld().getBlockState(blockPos);
+        BlockState state = getWorld().getBlockState(blockPos);
 
         if (!state.getProperties().containsKey(FeatureHRotation.FACING))
             return;

@@ -4,7 +4,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiUtilRenderComponents;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.DyeColor;
 import net.minecraft.util.Direction;
 import net.minecraft.util.text.ITextComponent;
 import pw.tales.fairy.tile.TileRpSign;
@@ -16,7 +16,7 @@ public class TileRpSignTESR
         extends TileEntitySpecialRenderer<TileRpSign> {
 
     private void applyRotation(TileRpSign te) {
-        // bypassing get state from IBlockState for purpose of speed
+        // bypassing get state from BlockState for purpose of speed
         Direction facing = Direction.byHorizontalIndex(te.getBlockMetadata());
 
         float angle;
@@ -49,7 +49,7 @@ public class TileRpSignTESR
                     s = "> " + s + " <";
 
                 fontrenderer.drawString(s, -fontrenderer.getStringWidth(s) / 2,
-                        j * 10 - signText.length * 5, EnumDyeColor.WHITE.getColorValue());
+                        j * 10 - signText.length * 5, DyeColor.WHITE.getColorValue());
             }
         }
 

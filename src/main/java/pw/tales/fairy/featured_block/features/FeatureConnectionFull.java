@@ -2,9 +2,9 @@ package pw.tales.fairy.featured_block.features;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.Property;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -16,12 +16,12 @@ import java.util.List;
 public class FeatureConnectionFull extends FeatureConnectionBasic {
     public static final Feature DEFAULT = new FeatureConnectionFull();
 
-    public static final PropertyBool NE = PropertyBool.create("north_east");
-    public static final PropertyBool SE = PropertyBool.create("south_east");
-    public static final PropertyBool SW = PropertyBool.create("south_west");
-    public static final PropertyBool NW = PropertyBool.create("north_west");
+    public static final BooleanProperty NE = BooleanProperty.create("north_east");
+    public static final BooleanProperty SE = BooleanProperty.create("south_east");
+    public static final BooleanProperty SW = BooleanProperty.create("south_west");
+    public static final BooleanProperty NW = BooleanProperty.create("north_west");
 
-    private static final List<IProperty> properties = new ArrayList<>();
+    private static final List<Property<?>> properties = new ArrayList<>();
 
     static {
         properties.addAll(FeatureConnectionBasic.properties);
@@ -32,20 +32,20 @@ public class FeatureConnectionFull extends FeatureConnectionBasic {
     }
 
     @Override
-    public List<IProperty> getProperties() {
+    public List<Property<?>> getProperties() {
         return properties;
     }
 
     @Override
-    public IBlockState getDefaultState(IBlockState state) {
+    public BlockState getDefaultState(BlockState state) {
         return super.getDefaultState(state).withProperty(NE, false).withProperty(SE, false)
                 .withProperty(SW, false).withProperty(NW, false);
     }
 
     @Override
-    public IBlockState getActualState(IBlockState state, Block block, IBlockAccess world,
+    public BlockState getActualState(BlockState state, Block block, IBlockAccess world,
                                       BlockPos pos) {
-        IBlockState newState = super.getActualState(state, block, world, pos);
+        BlockState newState = super.getActualState(state, block, world, pos);
 
         if (!(block instanceof IConnectible))
             return state;

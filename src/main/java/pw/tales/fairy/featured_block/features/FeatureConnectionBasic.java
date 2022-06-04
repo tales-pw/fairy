@@ -2,9 +2,9 @@ package pw.tales.fairy.featured_block.features;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.Property;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -16,12 +16,12 @@ import java.util.List;
 public class FeatureConnectionBasic extends FeatureConnection {
     public static final Feature DEFAULT = new FeatureConnectionBasic();
 
-    public static final PropertyBool N = PropertyBool.create("north");
-    public static final PropertyBool E = PropertyBool.create("east");
-    public static final PropertyBool S = PropertyBool.create("south");
-    public static final PropertyBool W = PropertyBool.create("west");
+    public static final BooleanProperty N = BooleanProperty.create("north");
+    public static final BooleanProperty E = BooleanProperty.create("east");
+    public static final BooleanProperty S = BooleanProperty.create("south");
+    public static final BooleanProperty W = BooleanProperty.create("west");
 
-    static final List<IProperty> properties = new ArrayList<>();
+    static final List<Property<?>> properties = new ArrayList<>();
 
     static {
         properties.add(N);
@@ -31,13 +31,13 @@ public class FeatureConnectionBasic extends FeatureConnection {
     }
 
     @Override
-    public IBlockState getDefaultState(IBlockState state) {
+    public BlockState getDefaultState(BlockState state) {
         return super.getDefaultState(state).withProperty(N, false).withProperty(E, false)
                 .withProperty(S, false).withProperty(W, false);
     }
 
     @Override
-    public IBlockState getActualState(IBlockState state, Block block, IBlockAccess world,
+    public BlockState getActualState(BlockState state, Block block, IBlockAccess world,
                                       BlockPos pos) {
         if (!(block instanceof IConnectible))
             return state;
@@ -50,7 +50,7 @@ public class FeatureConnectionBasic extends FeatureConnection {
     }
 
     @Override
-    public List<IProperty> getProperties() {
+    public List<Property<?>> getProperties() {
         return properties;
     }
 }

@@ -1,34 +1,34 @@
 package pw.tales.fairy.featured_block.features;
 
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.Property;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("NullableProblems")
 public class FeatureDefaultValue extends Feature {
-    private final PropertyBool property;
+    private final BooleanProperty property;
     private final String name;
 
-    private final List<IProperty> properties = new ArrayList<>();
+    private final List<Property<?>> properties = new ArrayList<>();
 
     public FeatureDefaultValue(String name) {
         this.name = name;
-        this.property = PropertyBool.create(name);
+        this.property = BooleanProperty.create(name);
         this.properties.add(this.property);
     }
 
     @Override
-    public IBlockState getDefaultState(IBlockState state) {
+    public BlockState getDefaultState(BlockState state) {
         IDefaultValueHandler block = (IDefaultValueHandler) state.getBlock();
 
         return state.withProperty(property, block.getDefaultValue(this.name));
     }
 
     @Override
-    public List<IProperty> getProperties() {
+    public List<Property<?>> getProperties() {
         return properties;
     }
 

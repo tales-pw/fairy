@@ -1,16 +1,18 @@
 package pw.tales.fairy.block;
 
 import mcp.MethodsReturnNonnullByDefault;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.state.Property<?>;
+import net.minecraft.state.EnumProperty;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -38,27 +40,27 @@ public class BlockLargeDoor
     }
 
     @Override
-    public boolean isFullBlock(IBlockState state) {
+    public boolean isFullBlock(BlockState state) {
         return false;
     }
 
     @Override
-    public boolean isBlockNormalCube(IBlockState state) {
+    public boolean isBlockNormalCube(BlockState state) {
         return false;
     }
 
     @Override
-    public boolean isFullCube(IBlockState state) {
+    public boolean isFullCube(BlockState state) {
         return false;
     }
 
     @Override
-    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+    public int getLightValue(BlockState state, IBlockAccess world, BlockPos pos) {
         return 1;
     }
 
     @Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+    public AxisAlignedBB getBoundingBox(BlockState state, IBlockAccess source, BlockPos pos) {
         state = state.getActualState(source, pos);
 
         Direction facing = state.getValue(FeatureHRotation.FACING);
@@ -75,7 +77,7 @@ public class BlockLargeDoor
 
     @Nullable
     @Override
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess worldIn,
+    public AxisAlignedBB getCollisionBoundingBox(BlockState state, IBlockAccess worldIn,
                                                  BlockPos pos) {
         OpenStatus status = state.getValue(FeatureOpenStatus.OPEN_STATUS);
         if (status.getIsOpen())
@@ -84,7 +86,7 @@ public class BlockLargeDoor
     }
 
     @Override
-    public boolean isOpaqueCube(IBlockState state) {
+    public boolean isOpaqueCube(BlockState state) {
         return false;
     }
 
@@ -143,24 +145,21 @@ public class BlockLargeDoor
     @MethodsReturnNonnullByDefault
     static class FeatureOpenStatus extends Feature {
         public static final Feature DEFAULT = new FeatureOpenStatus();
-        public static final PropertyEnum<OpenStatus> OPEN_STATUS =
-                PropertyEnum.create("open", OpenStatus.class);
+        public static final EnumProperty<OpenStatus> OPEN_STATUS =
+                EnumProperty.create("open", OpenStatus.class);
 
-        @Override
-        public int putToMeta(int oldMeta, IBlockState state) {
+        private int putToMeta(int oldMeta, BlockState state) {
             return oldMeta << 2 | state.getValue(OPEN_STATUS).getIndex();
         }
 
-        @Override
-        public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
+        private Pair<Integer, BlockState> getFromMeta(int oldMeta, BlockState state) {
             return new Pair<>(oldMeta >> 2,
                     state.withProperty(OPEN_STATUS, OpenStatus.getByIndex(oldMeta & 3)));
         }
 
         @Override
-        public boolean onActivated(World worldIn, BlockPos pos, IBlockState state,
-                                   PlayerEntity playerIn, Hand hand, Direction facing, float hitX, float hitY,
-                                   float hitZ) {
+        public ActionResultType onUse(World worldIn, BlockPos pos, BlockState state,
+                                      PlayerEntity playerIn, Hand hand, BlockRayTraceResult hit) {
 
             OpenStatus status = state.getValue(OPEN_STATUS);
             if (status.getIsOpen()) {
@@ -182,12 +181,12 @@ public class BlockLargeDoor
         }
 
         @Override
-        public List<IProperty> getProperties() {
+        public List<Property<?>> getProperties() {
             return Collections.singletonList(OPEN_STATUS);
         }
 
         @Override
-        public IBlockState getDefaultState(IBlockState state) {
+        public BlockState getDefaultState(BlockState state) {
             return super.getDefaultState(state).withProperty(OPEN_STATUS, OpenStatus.CLOSED);
         }
     }

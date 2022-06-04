@@ -2,9 +2,9 @@ package pw.tales.fairy.block;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.Direction;
@@ -26,28 +26,28 @@ public class BlockVial extends BlockFairy {
     }
 
     @Override
-    public boolean isFullBlock(IBlockState state) {
+    public boolean isFullBlock(BlockState state) {
         return false;
     }
 
     @Override
-    public boolean isFullCube(IBlockState state) {
+    public boolean isFullCube(BlockState state) {
         return false;
     }
 
     @Override
-    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos,
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, BlockState state, BlockPos pos,
                                             Direction face) {
         return BlockFaceShape.UNDEFINED;
     }
 
     @Override
-    public boolean isOpaqueCube(IBlockState state) {
+    public boolean isOpaqueCube(BlockState state) {
         return false;
     }
 
     @Override
-    public int damageDropped(IBlockState state) {
+    public int damageDropped(BlockState state) {
         return state.getValue(FeatureColor.COLOR).getMetadata();
     }
 
@@ -58,8 +58,8 @@ public class BlockVial extends BlockFairy {
 
     @Override
     public void getSubBlocks(ItemGroup itemIn, NonNullList<ItemStack> items) {
-        for (EnumDyeColor enumdyecolor : EnumDyeColor.values()) {
-            ItemStack itemStack = new ItemStack(this, 1, enumdyecolor.getMetadata());
+        for (DyeColor DyeColor : DyeColor.values()) {
+            ItemStack itemStack = new ItemStack(this, 1, DyeColor.getMetadata());
             items.add(itemStack);
         }
     }

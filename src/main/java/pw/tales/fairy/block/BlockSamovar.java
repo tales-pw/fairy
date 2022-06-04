@@ -2,8 +2,8 @@ package pw.tales.fairy.block;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.block.BlockState;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -19,7 +19,7 @@ import java.util.List;
 @MethodsReturnNonnullByDefault
 public class BlockSamovar
         extends BlockFairy implements FeatureDefaultValue.IDefaultValueHandler {
-    private static final PropertyBool LIT_PROPERTY = PropertyBool.create("lit");
+    private static final BooleanProperty LIT_PROPERTY = BooleanProperty.create("lit");
     private static final FeatureSwitch SWITCH_FEATURE = new FeatureSwitch(LIT_PROPERTY);
     private static final FeatureDefaultValue BOOT_FEATURE = new FeatureDefaultValue("boot");
 
@@ -35,27 +35,27 @@ public class BlockSamovar
     }
 
     @Override
-    public boolean isFullBlock(IBlockState state) {
+    public boolean isFullBlock(BlockState state) {
         return false;
     }
 
     @Override
-    public boolean isFullCube(IBlockState state) {
+    public boolean isFullCube(BlockState state) {
         return false;
     }
 
     @Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+    public AxisAlignedBB getBoundingBox(BlockState state, IBlockAccess source, BlockPos pos) {
         return BOUNDING_BOX;
     }
 
     @Override
-    public boolean isOpaqueCube(IBlockState state) {
+    public boolean isOpaqueCube(BlockState state) {
         return false;
     }
 
     @Override
-    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+    public int getLightValue(BlockState state, IBlockAccess world, BlockPos pos) {
         if (state.getValue(LIT_PROPERTY))
             return 8;
         return super.getLightValue(state, world, pos);

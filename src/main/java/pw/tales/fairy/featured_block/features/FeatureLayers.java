@@ -1,16 +1,16 @@
 package pw.tales.fairy.featured_block.features;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.block.state.BlockStateContainer;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockStateContainer;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.Direction;
+import net.minecraft.state.IntegerProperty;
+import net.minecraft.state.Property;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
-import pw.tales.fairy.featured_block.Pair;
 
 import java.util.Collections;
 import java.util.List;
@@ -18,11 +18,11 @@ import java.util.List;
 @MethodsReturnNonnullByDefault
 public class FeatureLayers extends Feature {
     public static final FeatureLayers DEFAULT = new FeatureLayers();
-    public static final PropertyInteger LAYERS = PropertyInteger.create("layers", 1, 8);
+    public static final IntegerProperty LAYERS = IntegerProperty.create("layers", 1, 8);
 
     public static void main(String[] args) {
         BlockStateContainer container = new BlockStateContainer(null, LAYERS);
-        IBlockState defaultState = DEFAULT.getDefaultState(container.getBaseState());
+        BlockState defaultState = DEFAULT.getDefaultState(container.getBaseState());
 
         int meta_1 = DEFAULT.putToMeta(0, defaultState.withProperty(LAYERS, 1));
         int meta_2 = DEFAULT.putToMeta(0, defaultState.withProperty(LAYERS, 2));
@@ -61,30 +61,19 @@ public class FeatureLayers extends Feature {
     }
 
     @Override
-    public IBlockState getDefaultState(IBlockState state) {
+    public BlockState getDefaultState(BlockState state) {
         return state.withProperty(LAYERS, 1);
     }
 
     @Override
-    public int putToMeta(int oldMeta, IBlockState state) {
-        return oldMeta << 3 | (state.getValue(LAYERS) - 1);
-    }
-
-    @Override
-    public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
-        return new Pair<>(oldMeta >> 3, state.withProperty(LAYERS, (oldMeta & 7) + 1));
-    }
-
-    @Override
-    public boolean onActivated(World worldIn, BlockPos pos, IBlockState state,
-                               PlayerEntity playerIn, Hand hand, Direction facing, float hitX, float hitY,
-                               float hitZ) {
+    public ActionResultType onUse(World worldIn, BlockPos pos, BlockState state,
+                                  PlayerEntity playerIn, Hand hand, BlockRayTraceResult hit) {
 
         return worldIn.setBlockState(pos, state.cycleProperty(LAYERS));
     }
 
     @Override
-    public List<IProperty> getProperties() {
+    public List<Property<?>> getProperties() {
         return Collections.singletonList(LAYERS);
     }
 }

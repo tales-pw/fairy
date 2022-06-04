@@ -2,10 +2,10 @@ package pw.tales.fairy.featured_block.features;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.BlockSlab;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.state.Property;
+import net.minecraft.state.EnumProperty;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -18,34 +18,32 @@ import java.util.List;
 public class FeatureHalf extends Feature {
     public static final Feature DEFAULT = new FeatureHalf();
 
-    public static final PropertyEnum<BlockSlab.EnumBlockHalf> HALF =
-            PropertyEnum.<BlockSlab.EnumBlockHalf>create("half", BlockSlab.EnumBlockHalf.class);
+    public static final EnumProperty<BlockSlab.EnumBlockHalf> HALF =
+            EnumProperty.<BlockSlab.EnumBlockHalf>create("half", BlockSlab.EnumBlockHalf.class);
 
-    private static final List<IProperty> properties = new ArrayList<>();
+    private static final List<Property<?>> properties = new ArrayList<>();
 
     static {
         properties.add(HALF);
     }
 
     @Override
-    public IBlockState getDefaultState(IBlockState state) {
+    public BlockState getDefaultState(BlockState state) {
         return super.getDefaultState(state).withProperty(HALF, BlockSlab.EnumBlockHalf.TOP);
     }
 
-    @Override
-    public int putToMeta(int oldMeta, IBlockState state) {
+    private int putToMeta(int oldMeta, BlockState state) {
         return oldMeta << 1 | (state.getValue(HALF) == BlockSlab.EnumBlockHalf.TOP ? 0 : 1);
     }
 
-    @Override
-    public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
+    private Pair<Integer, BlockState> getFromMeta(int oldMeta, BlockState state) {
         int i = oldMeta & 1;
         return new Pair<>(oldMeta >> 1, state.withProperty(HALF,
                 i == 0 ? BlockSlab.EnumBlockHalf.TOP : BlockSlab.EnumBlockHalf.BOTTOM));
     }
 
     @Override
-    public IBlockState onPlacement(IBlockState state, World worldIn, BlockPos pos,
+    public BlockState onPlacement(BlockState state, World worldIn, BlockPos pos,
                                    Direction facing, float hitX, float hitY, float hitZ, int meta, LivingEntity placer) {
         return facing != Direction.DOWN && (facing == Direction.UP || (double) hitY <= 0.5D) ?
                 state.withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM) :
@@ -53,7 +51,7 @@ public class FeatureHalf extends Feature {
     }
 
     @Override
-    public List<IProperty> getProperties() {
+    public List<Property<?>> getProperties() {
         return properties;
     }
 }

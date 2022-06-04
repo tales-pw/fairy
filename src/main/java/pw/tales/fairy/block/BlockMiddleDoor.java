@@ -4,7 +4,7 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.Direction;
@@ -45,7 +45,7 @@ public class BlockMiddleDoor extends BlockFairyDoor {
     }
 
     @Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+    public AxisAlignedBB getBoundingBox(BlockState state, IBlockAccess source, BlockPos pos) {
         state = state.getActualState(source, pos);
 
         Direction Direction = state.getValue(FACING);
@@ -66,7 +66,7 @@ public class BlockMiddleDoor extends BlockFairyDoor {
     }
 
     @Override
-    public EnumBlockRenderType getRenderType(IBlockState state) {
+    public EnumBlockRenderType getRenderType(BlockState state) {
         if (state.getValue(BlockDoor.HALF) == EnumDoorHalf.UPPER)
             return EnumBlockRenderType.INVISIBLE;
         return super.getRenderType(state);

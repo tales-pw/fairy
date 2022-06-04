@@ -1,49 +1,38 @@
 package pw.tales.fairy.featured_block.features;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.state.IBlockState;
-import pw.tales.fairy.featured_block.Pair;
+import net.minecraft.block.BlockState;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.Property;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @MethodsReturnNonnullByDefault
 public class FeatureStoreFlag extends Feature {
-    protected final PropertyBool property;
-    protected final List<IProperty> properties = new ArrayList<>();
+    protected final BooleanProperty property;
+    protected final List<Property<?>> properties = new ArrayList<>();
 
     public FeatureStoreFlag(String name) {
-        this(PropertyBool.create(name));
+        this(BooleanProperty.create(name));
     }
 
-    public FeatureStoreFlag(PropertyBool property) {
+    public FeatureStoreFlag(BooleanProperty property) {
         this.property = property;
         this.properties.add(this.property);
     }
 
     @Override
-    public IBlockState getDefaultState(IBlockState state) {
+    public BlockState getDefaultState(BlockState state) {
         return state.withProperty(property, false);
     }
 
-    @Override
-    public int putToMeta(int oldMeta, IBlockState state) {
-        return oldMeta << 1 | (state.getValue(this.property) ? 1 : 0);
-    }
-
-    @Override
-    public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
-        return new Pair<>(oldMeta >> 1, state.withProperty(this.property, (oldMeta & 1) == 1));
-    }
-
-    public PropertyBool getProperty() {
+    public BooleanProperty getProperty() {
         return property;
     }
 
     @Override
-    public List<IProperty> getProperties() {
+    public List<Property<?>> getProperties() {
         return this.properties;
     }
 }

@@ -1,13 +1,15 @@
 package pw.tales.fairy.block.scholar_table;
 
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
+import net.minecraft.state.Property<?>;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.EnumProperty;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 import pw.tales.fairy.featured_block.Pair;
 import pw.tales.fairy.featured_block.features.Feature;
@@ -17,11 +19,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 class TwoSidedOpenFeature extends Feature {
-    public static PropertyBool OPEN_FORWARD = PropertyBool.create("open_forward");
-    public static PropertyBool OPEN_OPPOSITE = PropertyBool.create("open_opposite");
-    public static PropertyEnum<OpenStatus> OPEN_STATUS = PropertyEnum.create("open_status", OpenStatus.class);
+    public static BooleanProperty OPEN_FORWARD = BooleanProperty.create("open_forward");
+    public static BooleanProperty OPEN_OPPOSITE = BooleanProperty.create("open_opposite");
+    public static EnumProperty<OpenStatus> OPEN_STATUS = EnumProperty.create("open_status", OpenStatus.class);
 
-    private final List<IProperty> properties = new ArrayList<>();
+    private final List<Property<?>> properties = new ArrayList<>();
 
     public TwoSidedOpenFeature() {
         super();
@@ -30,7 +32,7 @@ class TwoSidedOpenFeature extends Feature {
         properties.add(OPEN_STATUS);
     }
 
-    private IBlockState updateStatus(IBlockState state) {
+    private BlockState updateStatus(BlockState state) {
         boolean forward = state.getValue(OPEN_FORWARD);
         boolean opposite = state.getValue(OPEN_OPPOSITE);
         OpenStatus openStatus = OpenStatus.find(forward, opposite);
@@ -39,7 +41,7 @@ class TwoSidedOpenFeature extends Feature {
     }
 
     @Override
-    public boolean onActivated(World worldIn, BlockPos pos, IBlockState state, PlayerEntity playerIn, Hand hand, Direction facing, float hitX, float hitY, float hitZ) {
+    public ActionResultType onUse(World worldIn, BlockPos pos, BlockState state, PlayerEntity playerIn, Hand hand, BlockRayTraceResult hit) {
         Direction blockFacing = state.getValue(FeatureHRotation.FACING);
 
         if (facing == blockFacing) {
@@ -53,16 +55,14 @@ class TwoSidedOpenFeature extends Feature {
         return worldIn.setBlockState(pos, this.updateStatus(state));
     }
 
-    @Override
-    public int putToMeta(int oldMeta, IBlockState state) {
+    private int putToMeta(int oldMeta, BlockState state) {
         oldMeta = oldMeta << 1 | (state.getValue(OPEN_FORWARD) ? 1 : 0);
         oldMeta = oldMeta << 1 | (state.getValue(OPEN_OPPOSITE) ? 1 : 0);
 
         return oldMeta;
     }
 
-    @Override
-    public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
+    private Pair<Integer, BlockState> getFromMeta(int oldMeta, BlockState state) {
         state = state.withProperty(OPEN_OPPOSITE, (oldMeta & 1) == 1);
         oldMeta = oldMeta >> 1;
         state = state.withProperty(OPEN_FORWARD, (oldMeta & 1) == 1);
@@ -72,7 +72,7 @@ class TwoSidedOpenFeature extends Feature {
     }
 
     @Override
-    public IBlockState getDefaultState(IBlockState state) {
+    public BlockState getDefaultState(BlockState state) {
         state = super.getDefaultState(state);
         state = state.withProperty(OPEN_FORWARD, false);
         state = state.withProperty(OPEN_OPPOSITE, false);
@@ -80,7 +80,7 @@ class TwoSidedOpenFeature extends Feature {
     }
 
     @Override
-    public List<IProperty> getProperties() {
+    public List<Property<?>> getProperties() {
         return properties;
     }
 }

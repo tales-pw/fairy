@@ -3,7 +3,7 @@ package pw.tales.fairy.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import pw.tales.fairy.featured_block.features.Feature;
@@ -22,17 +22,17 @@ public class BlockCannonBarrel extends BlockFairy
     }
 
     @Override
-    public boolean isFullBlock(IBlockState state) {
+    public boolean isFullBlock(BlockState state) {
         return false;
     }
 
     @Override
-    public boolean isFullCube(IBlockState state) {
+    public boolean isFullCube(BlockState state) {
         return false;
     }
 
     @Override
-    public boolean isOpaqueCube(IBlockState state) {
+    public boolean isOpaqueCube(BlockState state) {
         return false;
     }
 
@@ -46,12 +46,12 @@ public class BlockCannonBarrel extends BlockFairy
     }
 
     @Override
-    public boolean handleFlag(String name, IBlockState state, Block block, IBlockAccess world,
+    public boolean handleFlag(String name, BlockState state, Block block, IBlockAccess world,
                               BlockPos pos) {
         return this.checkIsHanging(state, world, pos);
     }
 
-    private boolean checkIsHanging(IBlockState state, IBlockAccess world, BlockPos pos) {
+    private boolean checkIsHanging(BlockState state, IBlockAccess world, BlockPos pos) {
         if (state.getValue(FeatureHalf.HALF) == BlockSlab.EnumBlockHalf.BOTTOM)
             return false;
         return world.getBlockState(pos.up()).getMaterial().isSolid();

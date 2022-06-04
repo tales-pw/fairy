@@ -1,7 +1,7 @@
 package pw.tales.fairy.featured_block.features;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
@@ -16,23 +16,23 @@ public abstract class FeatureConnection extends Feature {
                 dir1.getZ() + dir2.getZ());
     }
 
-    protected boolean canConnectTo(IBlockAccess worldIn, IBlockState state1, BlockPos pos,
+    protected boolean canConnectTo(IBlockAccess worldIn, BlockState state1, BlockPos pos,
                                    Direction facing1, Direction facing2) {
         return this.canConnectTo(worldIn, state1, pos, this.createDirVector(facing1, facing2));
     }
 
-    protected boolean canConnectTo(IBlockAccess worldIn, IBlockState state1, BlockPos pos,
+    protected boolean canConnectTo(IBlockAccess worldIn, BlockState state1, BlockPos pos,
                                    Direction facing) {
         return this.canConnectTo(worldIn, state1, pos, facing.getDirectionVec());
     }
 
-    protected boolean canConnectTo(IBlockAccess worldIn, IBlockState state1, BlockPos pos,
+    protected boolean canConnectTo(IBlockAccess worldIn, BlockState state1, BlockPos pos,
                                    Vec3i directionalVector) {
-        IBlockState state2 = worldIn.getBlockState(pos.add(directionalVector));
+        BlockState state2 = worldIn.getBlockState(pos.add(directionalVector));
         return this.canConnectTo(state1, state2);
     }
 
-    public boolean canConnectTo(IBlockState state1, IBlockState state2) {
+    public boolean canConnectTo(BlockState state1, BlockState state2) {
         IConnectible connectible1 = (IConnectible) state1.getBlock();
         return this.canConnectTo(connectible1, state2.getBlock());
     }

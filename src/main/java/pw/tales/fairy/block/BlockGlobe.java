@@ -1,15 +1,16 @@
 package pw.tales.fairy.block;
 
 import mcp.MethodsReturnNonnullByDefault;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.state.Property<?>;
+import net.minecraft.state.IntegerProperty;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.Direction;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import pw.tales.fairy.featured_block.Pair;
@@ -30,22 +31,22 @@ public class BlockGlobe extends BlockFairy {
     }
 
     @Override
-    public boolean isFullBlock(IBlockState state) {
+    public boolean isFullBlock(BlockState state) {
         return false;
     }
 
     @Override
-    public boolean isFullCube(IBlockState state) {
+    public boolean isFullCube(BlockState state) {
         return false;
     }
 
     @Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+    public AxisAlignedBB getBoundingBox(BlockState state, IBlockAccess source, BlockPos pos) {
         return DEFAULT_AABB;
     }
 
     @Override
-    public boolean isOpaqueCube(IBlockState state) {
+    public boolean isOpaqueCube(BlockState state) {
         return false;
     }
 
@@ -60,35 +61,32 @@ public class BlockGlobe extends BlockFairy {
     @MethodsReturnNonnullByDefault
     static class GlobeRotation extends Feature {
         private final static GlobeRotation INSTANCE = new GlobeRotation();
-        private final static PropertyInteger GLOBE_ROTATION =
-                PropertyInteger.create("globe_rotation", 0, 3);
+        private final static IntegerProperty GLOBE_ROTATION =
+                IntegerProperty.create("globe_rotation", 0, 3);
 
-        private final static List<IProperty> properties = Collections.singletonList(GLOBE_ROTATION);
+        private final static List<Property<?>> properties = Collections.singletonList(GLOBE_ROTATION);
 
-        @Override
-        public int putToMeta(int oldMeta, IBlockState state) {
+        private int putToMeta(int oldMeta, BlockState state) {
             return oldMeta << 2 | state.getValue(GLOBE_ROTATION);
         }
 
-        @Override
-        public Pair<Integer, IBlockState> getFromMeta(int oldMeta, IBlockState state) {
+        private Pair<Integer, BlockState> getFromMeta(int oldMeta, BlockState state) {
             return new Pair<>(oldMeta >> 2, state.withProperty(GLOBE_ROTATION, oldMeta & 3));
         }
 
         @Override
-        public boolean onActivated(World worldIn, BlockPos pos, IBlockState state,
-                                   PlayerEntity playerIn, Hand hand, Direction facing, float hitX, float hitY,
-                                   float hitZ) {
+        public ActionResultType onUse(World worldIn, BlockPos pos, BlockState state,
+                                      PlayerEntity playerIn, Hand hand, BlockRayTraceResult hit) {
             return worldIn.setBlockState(pos, state.cycleProperty(GLOBE_ROTATION));
         }
 
         @Override
-        public List<IProperty> getProperties() {
+        public List<Property<?>> getProperties() {
             return properties;
         }
 
         @Override
-        public IBlockState getDefaultState(IBlockState state) {
+        public BlockState getDefaultState(BlockState state) {
             return state.withProperty(GLOBE_ROTATION, 0);
         }
     }

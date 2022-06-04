@@ -2,7 +2,7 @@ package pw.tales.fairy.block;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.BlockBarrier;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -30,18 +30,18 @@ public class BlockRiverHolder extends BlockBarrier
         return this;
     }
 
-    public boolean isOpaqueCube(IBlockState state) {
+    public boolean isOpaqueCube(BlockState state) {
         return false;
     }
 
     @SuppressWarnings("deprecation")
     @Override
-    public boolean causesSuffocation(IBlockState state) {
+    public boolean causesSuffocation(BlockState state) {
         return false;
     }
 
     @SuppressWarnings("deprecation")
-    public boolean isFullCube(IBlockState state) {
+    public boolean isFullCube(BlockState state) {
         return false;
     }
 
@@ -54,7 +54,7 @@ public class BlockRiverHolder extends BlockBarrier
     @Nullable
     @Override
     @ParametersAreNonnullByDefault
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn,
+    public AxisAlignedBB getCollisionBoundingBox(BlockState blockState, IBlockAccess worldIn,
                                                  BlockPos pos) {
         return NULL_AABB;
     }
@@ -62,7 +62,7 @@ public class BlockRiverHolder extends BlockBarrier
     @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
-    public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World worldIn, BlockPos pos) {
+    public AxisAlignedBB getSelectedBoundingBox(BlockState state, World worldIn, BlockPos pos) {
         AxisAlignedBB selectedBoundingBox = super.getSelectedBoundingBox(state, worldIn, pos);
 
         if (!worldIn.isRemote)

@@ -1,7 +1,7 @@
 package pw.tales.fairy.block;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import pw.tales.fairy.featured_block.features.Feature;
 import pw.tales.fairy.featured_block.features.FeatureHRotation;
 
@@ -15,17 +15,17 @@ public class BlockSimple extends BlockFairy {
     }
 
     @Override
-    public boolean isFullBlock(IBlockState state) {
+    public boolean isFullBlock(BlockState state) {
         return false;
     }
 
     @Override
-    public boolean isFullCube(IBlockState state) {
+    public boolean isFullCube(BlockState state) {
         return false;
     }
 
     @Override
-    public boolean isOpaqueCube(IBlockState state) {
+    public boolean isOpaqueCube(BlockState state) {
         return false;
     }
 

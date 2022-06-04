@@ -2,7 +2,7 @@ package pw.tales.fairy.item;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
@@ -24,8 +24,8 @@ public class ItemRPSign extends ItemFBlock {
     }
 
     private BlockPos determinePosition(World worldIn, BlockPos pos, Direction facing) {
-        IBlockState iblockstate = worldIn.getBlockState(pos);
-        Block block = iblockstate.getBlock();
+        BlockState BlockState = worldIn.getBlockState(pos);
+        Block block = BlockState.getBlock();
 
         if (!block.isReplaceable(worldIn, pos)) {
             pos = pos.offset(facing);

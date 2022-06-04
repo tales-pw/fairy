@@ -1,6 +1,6 @@
 package pw.tales.fairy.client.renderer;
 
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.block.model.BakedQuad;
@@ -64,7 +64,7 @@ public abstract class TileBlockModelRenderer<T extends TileEntity>
         if (quads == null) {
             final BlockRendererDispatcher blockRenderer =
                     Minecraft.getMinecraft().getBlockRendererDispatcher();
-            IBlockState state = tile.getBlockType().getDefaultState();
+            BlockState state = tile.getBlockType().getDefaultState();
             quads = blockRenderer.getModelForState(state).getQuads(state, null, 0);
         }
 

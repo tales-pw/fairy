@@ -4,16 +4,19 @@ package pw.tales.fairy.featured_block;
 import com.google.common.collect.Lists;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.state.BlockStateContainer;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.state.Property<?>;
+import net.minecraft.block.BlockStateContainer;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import pw.tales.fairy.featured_block.features.Feature;
@@ -33,12 +36,22 @@ public abstract class FeaturedBlock extends Block {
 
     public FeaturedBlock(Material material) {
         this(material, material.getMaterialMapColor());
+
+        this.registerDefaultState(
+                this.stateDefinition.any()
+                        .setValue(FACING, Direction.NORTH)
+                        .setValue(OPEN, false)
+                        .setValue(HINGE, DoorHingeSide.LEFT)
+                        .setValue(POWERED, false)
+                        .setValue(HALF, DoubleBlockHalf.LOWER)
+        );
+
     }
 
     public FeaturedBlock(Material material, MapColor mapColor) {
         super(material, mapColor);
 
-        IBlockState state = this.getDefaultState();
+        BlockState state = this.getDefaultState();
         for (Feature feature : features) {
             state = feature.getDefaultState(state);
         }
@@ -51,7 +64,7 @@ public abstract class FeaturedBlock extends Block {
     @Override
     @ParametersAreNonnullByDefault
     @SuppressWarnings("deprecation")
-    public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+    public BlockState getActualState(BlockState state, IBlockAccess worldIn, BlockPos pos) {
         for (Feature feature : features) {
             state = feature.getActualState(state, this, worldIn, pos);
         }
@@ -61,10 +74,10 @@ public abstract class FeaturedBlock extends Block {
     @Override
     @ParametersAreNonnullByDefault
     @SuppressWarnings("deprecation")
-    public IBlockState getStateForPlacement(@Nullable World world, @Nullable BlockPos pos,
+    public BlockState getStateForPlacement(@Nullable World world, @Nullable BlockPos pos,
                                             @Nullable Direction facing, float hitX, float hitY, float hitZ, int meta,
                                             @Nullable LivingEntity placer) {
-        IBlockState state = this.getDefaultState();
+        BlockState state = this.getDefaultState();
 
         for (Feature feature : features) {
             state = feature.onPlacement(state, world, pos, facing, hitX, hitY, hitZ, meta, placer);
@@ -74,52 +87,40 @@ public abstract class FeaturedBlock extends Block {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
-    public IBlockState getStateFromMeta(int meta) {
-        IBlockState state = this.getDefaultState();
-        for (Feature feature : Lists.reverse(features)) {
-            Pair<Integer, IBlockState> pair = feature.getFromMeta(meta, state);
-            meta = pair.first;
-            state = pair.second;
-        }
-        return state;
-    }
+    @ParametersAreNonnullByDefault
+    public ActionResultType use(
+            BlockState state,
+            World worldIn,
+            BlockPos pos,
+            PlayerEntity player,
+            Hand handIn,
+            BlockRayTraceResult hit
+    ) {
+        ActionResultType f = super.use(state, worldIn, pos, player, handIn, hit);
 
-    @Override
-    public int getMetaFromState(IBlockState state) {
-        int meta = 0;
-        for (Feature feature : features) {
-            meta = feature.putToMeta(meta, state);
-        }
-        return meta;
-    }
-
-
-    @Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state,
-                                    PlayerEntity playerIn, Hand hand, Direction facing, float hitX, float hitY,
-                                    float hitZ) {
-        if (worldIn.isRemote) return true;
-
-        boolean f =
-                super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
+        if (worldIn.isClientSide()) return ActionResultType.PASS;
 
         for (Feature feature : features) {
-            f |= feature.onActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
+            ActionResultType result = feature.onUse(worldIn, pos, state, player, handIn, hit);
+
+            if (result == ActionResultType.FAIL) {
+                f = result;
+            }
+
         }
 
-        return f;
+        return ActionResultType.PASS;
     }
 
     @Override
     protected BlockStateContainer createBlockState() {
         this.features = this.getFeatures();
 
-        ArrayList<IProperty> properties = new ArrayList<>();
+        ArrayList<Property<?>> properties = new ArrayList<>();
         for (Feature feature : features) {
             properties.addAll(feature.getProperties());
         }
 
-        return new BlockStateContainer(this, properties.toArray(new IProperty[0]));
+        return new BlockStateContainer(this, properties.toArray(new Property<?>[0]));
     }
 }

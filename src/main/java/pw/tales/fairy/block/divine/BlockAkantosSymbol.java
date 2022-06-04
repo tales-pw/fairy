@@ -1,8 +1,8 @@
 package pw.tales.fairy.block.divine;
 
 import mcp.MethodsReturnNonnullByDefault;
-import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.block.BlockState;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -20,16 +20,16 @@ public class BlockAkantosSymbol
     protected static final AxisAlignedBB DEFAULT_AABB =
             new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.8D, 0.75D);
 
-    private static final PropertyBool LIT_PROPERTY = PropertyBool.create("lit");
+    private static final BooleanProperty LIT_PROPERTY = BooleanProperty.create("lit");
     private static final FeatureSwitch SWITCH_FEATURE = new FeatureSwitch(LIT_PROPERTY);
 
     @Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+    public AxisAlignedBB getBoundingBox(BlockState state, IBlockAccess source, BlockPos pos) {
         return DEFAULT_AABB;
     }
 
     @Override
-    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+    public int getLightValue(BlockState state, IBlockAccess world, BlockPos pos) {
         if (state.getValue(LIT_PROPERTY))
             return 10;
         return super.getLightValue(state, world, pos);
