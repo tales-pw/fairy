@@ -81,11 +81,4 @@ public class ItemsRegistry {
         itemColors.registerItemColorHandler(new MaskItemColors(), ItemsRegistry.Items.mask);
         itemColors.registerItemColorHandler(new MaskItemColors(), ItemsRegistry.Items.cloth_mask);
     }
-
-    @GameRegistry.ObjectHolder(Fairy.MOD_ID)
-    public static class Items {
-        public static final ItemSimple cards = null;
-        public static final ItemMask mask = null;
-        public static final ItemMask cloth_mask = null;
-    }
 }

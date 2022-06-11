@@ -1,7 +1,7 @@
 package pw.tales.fairy.block.scholar_table;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.state.Property<?>;
+import net.minecraft.state.Property;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.entity.player.PlayerEntity;

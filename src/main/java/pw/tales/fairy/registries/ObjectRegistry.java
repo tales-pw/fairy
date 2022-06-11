@@ -116,19 +116,4 @@ public class ObjectRegistry {
 
         blockColors.registerBlockColorHandler(WaterColorHandler.INSTANCE, ObjectRegistry.Blocks.flipped_water);
     }
-
-    @GameRegistry.ObjectHolder(Fairy.MOD_ID)
-    public static class Blocks {
-        public static final BlockVial vial = null;
-        public static final BlockVial vial_small = null;
-        public static final BlockFlippedWater flipped_water = null;
-    }
-
-
-    @GameRegistry.ObjectHolder(Fairy.MOD_ID)
-    public static class Items {
-        public static final BlockItem vial = null;
-        public static final BlockItem vial_small = null;
-        public static final BlockItem aktanos_symbol_large = null;
-    }
 }

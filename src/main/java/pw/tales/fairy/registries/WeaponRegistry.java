@@ -142,9 +142,4 @@ public class WeaponRegistry {
     public static void addItems(FairyRegisterEvent event) {
         event.registerItems(weapons);
     }
-
-    @GameRegistry.ObjectHolder(Fairy.MOD_ID)
-    public static class Items {
-        public static final ItemWeapon crossbow = null;
-    }
 }
