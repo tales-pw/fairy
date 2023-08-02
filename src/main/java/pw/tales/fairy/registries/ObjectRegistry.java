@@ -74,6 +74,7 @@ public class ObjectRegistry {
 
             // Statue
             (new BlockStatue().setIdentifier("angel")),
+            (new BlockStatue().setIdentifier("cannon_mine")),
             (new BlockStatue().setIdentifier("ship_statue")),
             (new BlockSimpleDouble(Material.ROCK).setIdentifier("obelisk_1")),
             (new BlockSimpleDouble(Material.ROCK).setIdentifier("obelisk_2")),
